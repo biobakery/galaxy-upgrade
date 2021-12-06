@@ -1,0 +1,38 @@
+!# /bin/bash
+
+# metaphlan install
+sudo apt-get update
+conda deactivate
+. /galaxy_venv/bin/activate
+sudo apt install build-essential
+sudo apt-get install bowtie2
+pip install metaphlan
+pip install humann 
+pip uninstall numpy
+pip install numpy
+metaphlan --install
+
+
+#maaslin2 install
+sudo apt install apt-transport-https software-properties-common
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
+sudo apt-get update
+sudo apt install r-base
+
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install(version = "3.10")
+sudo apt install vim
+git clone Maaslin2 into /tools/maaslin/Maaslin2
+
+#R packages
+optparse
+logging
+data.table
+dplyr
+hash
+lme4
+pbapply
+lmerTest
+pheatmap
