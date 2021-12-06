@@ -1,0 +1,81 @@
+<tool id="maaslin" name="Microbiome Multivariable Association with Linear Models" version="1.8.0" python_template_version="3.5">
+    <requirements>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        bash '$__tool_directory__/maaslin_wrapper.sh' '$taxonomy' '$metadata' '$output1' '$output2'
+            ]]></command>
+    <inputs>
+        <param type="data" name="taxonomy"  label="Input Taxonomy" format="tsv"  />
+        <param type="data" name="metadata"  label="Input Metadata" format="tsv"  />
+    </inputs>
+    <outputs>
+        <data name="output1"  format="pdf" label="MaAsLin Output pdf" />
+        <data name="output2"  format="zip" label="MaAsLin Output zip results - please download" />
+    </outputs>
+    <help><![CDATA[
+
+..  _Maaslin2:  https://github.com/biobakery/Maaslin2/
+..  _Maaslin_Article:  https://doi.org/10.1101/2021.01.20.427420
+
+MaAsLin2 provides a comprehensive multi-model system for performing multivariable association testing in microbiome profiles,
+taxonomic, functional, or metabolomic - with analysis modules for preprocessing, normalization, transformation,
+and data-driven statistical modeling to tackle the challenges of microbial multi-omics (compositionality, overdispersion,
+zero-inflation, variable library size and high-dimensionality.
+
+
+**Inputs**
+==========
+
+
+The MaAsLin 2 implementation requires two inputs: 
+
+* Microbial feature abundances (e.g. taxa, genes, transcripts, or metabolites) across samples, in either counts or relative counts 
+* Environmental, clinical, or epidemiological phenotypes or covariates of interest (together “metadata”).
+
+.. _Sample_Metadata:  https://github.com/biobakery/Maaslin2/blob/master/inst/extdata/HMP2_metadata.tsv
+
+.. _Sample_Taxonomy:  https://github.com/biobakery/Maaslin2/blob/master/inst/extdata/HMP2_taxonomy.tsv
+
+**Sample Data**
+===============
+
+You can download sample data to your computer from the following locations and then upload it to Galaxy using the Get-Data / Upload file from your computer. 
+
+**Make sure to select Type tsv**
+
+* Sample_Metadata_
+
+* Sample_Taxonomy_
+
+
+
+
+..  _Maaslin_Tutorial:  https://github.com/biobakery/biobakery/wiki/maaslin2
+..  _Maaslin_User_Manual: https://github.com/biobakery/Maaslin2 
+..   _Maaslin_User_Forum: https://forum.biobakery.org/c/Downstream-analysis-and-statistics/MaAsLin/10
+
+
+.. image:: https://www.biorxiv.org/content/biorxiv/early/2021/01/20/2021.01.20.427420/F1.medium.gif
+    :height: 500        
+    :width: 600 
+
+**Tutorial, User Manual and Forum**
+===================================
+
+You can find the following resources:
+
+- Maaslin_Tutorial_
+- Maaslin_User_Manual_
+- Maaslin_User_Forum_
+
+
+If you use the  MaAsLin2_  software, please cite our manuscript:
+
+Mallick H, Rahnavard A, McIver LJ, Ma S, Zhang Y, Nguyen LH, Tickle TL, Weingart G, Ren B, Schwager EH, 
+Chatterjee S, Thompson KN, Wilkinson JE, Subramanian A, Lu Y, Waldron L, Paulson JN, Franzosa EA, 
+Bravo HC, Huttenhower C (2021). Multivariable Association Discovery in Population-scale Meta-omics Studies. bioRxiv, in the following Maaslin_Article_ 
+
+
+Check out the MaAsLin 2 tutorial for an overview of analysis options.
+    ]]></help>
+</tool>

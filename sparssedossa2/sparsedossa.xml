@@ -1,0 +1,98 @@
+<tool id="sparsedossa" name="Simulating realistic microbial observations" version="0.1.0" python_template_version="3.5">
+    <requirements>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        bash '$__tool_directory__/sparsedossa_wrapper.sh' '$template' '$samples' '$features' '$output1' '$output2' '$output3'
+            ]]></command>
+    <inputs>
+                <param name="template" type="select" format="text" >
+                        <label>Template name</label>
+                                <option value="Stool">Stool</option>
+                                <option value="Vaginal">Vaginal</option>
+                </param>
+        <param name="samples" type="integer" size="4"   value="100" label="Number of required samples  "/>
+        <param name="features" type="integer" size="4"   value="100" label="Number of required features  "/>
+    </inputs>
+    <outputs>
+        <data name="output1"  format="csv" label="Simulated Data" />
+        <data name="output2"  format="csv" label="Simulated Matrices" />
+        <data name="output3"  format="rdata" label="Simulated RData" />
+    </outputs>
+    <help><![CDATA[
+
+ 
+
+SparseDOSSA2 an R package for fitting to and the simulation of realistic microbial abundance observations.
+It provides functionlaities for: 
+
+* Generation of realistic synthetic microbial observations 
+* Spiking-in of associations with metadata variables for e.g. benchmarking or power analysis purposes  
+* Fitting the SparseDOSSA 2 model to real-world microbial abundance observations that can be used for generation of realistic synthetic microbial observations  
+
+
+**Inputs**
+==========
+
+
+The SparseDOSSA2 implementation requires three inputs: 
+
+* Template: "Stool" or "Vaginal"
+* Number of samples required  (Default: 100)
+* Number of features required (Default: 100)
+
+
+**Outputs**
+===========
+
+We provide **three** outputs,  two **csv** files and an "RData" file 
+
+* simulated_data.csv
+* simulated_matrices.csv
+* Simulation.RData    Should be downloaded and openned with R as follows:
+
+R
+load(&your_download_directory/Simulation.RData)
+
+
+
+It contains the following objects:
+
+* simulated_data
+
+* simulated_matrices
+
+* params
+
+* template
+
+* spike_metadata"
+
+
+
+
+..  _SparseDOSSA2_General_Info:  https://huttenhower.sph.harvard.edu/sparsedossa2/
+..  _SparseDOSSA2_User_Manual:   https://github.com/biobakery/sparseDOSSA2
+..  _SparseDOSSA2_Tutorial:      https://github.com/biobakery/biobakery/wiki/SparseDOSSA2
+..  _SparseDOSSA2_User_Forum:     https://forum.biobakery.org/c/downstream-analysis-and-statistics/sparsedossa/15
+
+
+.. image:: https://huttenhower.sph.harvard.edu/wp-content/uploads/2020/08/overview-768x644.png
+    :height: 500        
+    :width: 600 
+
+**Tutorial, User Manual and Forum**
+===================================
+
+You can find the following resources:
+
+- SparseDOSSA2_General_Info_
+- SparseDOSSA2_User_Manual_
+- SparseDOSSA2_Tutorial_
+- SparseDOSSA2_User_Forum_
+
+
+If you use the  SparseDOSSA2  software, please cite our manuscript:
+
+ 
+    ]]></help>
+</tool>
