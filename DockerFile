@@ -19,20 +19,19 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD
 sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
 sudo apt-get update
 sudo apt install r-base
+sudo apt install libssl-dev
+sudo apt install libgit2-dev
+sudo apt-get install libgmp3-dev
+sudo apt-get install libmpfr-dev
 
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 BiocManager::install(version = "3.10")
 sudo apt install vim
-git clone Maaslin2 into /tools/maaslin/Maaslin2
+mkdir /galaxy-central/tools/maaslin
+mkdir /galaxy-central/tools/maaslin/Maaslin2
 
-#R packages
-optparse
-logging
-data.table
-dplyr
-hash
-lme4
-pbapply
-lmerTest
-pheatmap
+git clone https://github.com/biobakery/Maaslin2.git  /galaxy-central/tools/maaslin/Maaslin2
+R -q -e "install.packages(c('lmerTest','pbapply','car','dplyr','vegan','chemometrics','ggplot2','pheatmap','hash','logging','data.table','MuMIn','glmmTMB','MASS','cplm','pscl'), repos='http://cran.r-project.org')"
+R -q -e "install.packages(c('optparse','logging','data.table', 'dplyr', 'hash', 'lme4', 'pbapply', 'lmerTest', 'pheatmap','devtools'), repos='http://cran.r-project.org')"
+R -q -e "devtools::install_github('biobakery/SparseDOSSA2')"
