@@ -6,9 +6,9 @@
     <inputs>
         <param type="data" name="Input_File"  label="Input" format="fastq"  />
         <param name="pangenome" type="select" format="text">
-					<label>Input type</label>
-						<option value="Eubacterium_rectale">Eubacterium_rectale</option>					
-		</param>
+                                        <label>Input type</label>
+                                                <option value="Eubacterium_rectale">Eubacterium_rectale</option>                              
+                </param>
     </inputs>
     <outputs>
         <data name="output1"  format="csv" label="Map Results" />
