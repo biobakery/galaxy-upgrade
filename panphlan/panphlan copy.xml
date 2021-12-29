@@ -1,0 +1,69 @@
+<tool id="panphlan" name="PanPhLan" version="0.1.0" python_template_version="3.5">
+    <description>Strain level metagenomic profiling tool</description>
+    <command detect_errors="exit_code"><![CDATA[
+        bash '$__tool_directory__/panphlan_wrapper.sh' '$Input_File' '$pangenome' '$output1'  
+            ]]></command>
+    <inputs>
+        <param type="data" name="Input_File"  label="Input" format="fastq"  />
+        <param name="pangenome" type="select" format="text">
+                                        <label>Input type</label>
+                                                <option value="Eubacterium_rectale">Eubacterium_rectale</option>                              
+                </param>
+    </inputs>
+    <outputs>
+        <data name="output1"  format="csv" label="Map Results" />
+    </outputs>
+    <help><![CDATA[
+
+ 
+
+PanPhlAn is a strain-level metagenomic profiling tool for identifying the gene composition of individual strains in metagenomic samples. 
+PanPhlAn’s ability for strain-tracking and functional analysis of unknown pathogens makes it an efficient tool for culture-free microbial population studies.
+
+
+**Inputs**
+==========
+
+
+===============
+
+You can download sample data to your computer from the following locations and then upload it to Galaxy using the Get-Data / Upload file from your computer. 
+
+**Make sure to select Type csv**
+
+* Sample_Metadata_
+
+* Sample_Taxonomy_
+
+
+
+
+..  _Maaslin_Tutorial:  https://github.com/biobakery/biobakery/wiki/maaslin2
+..  _Maaslin_User_Manual: https://github.com/biobakery/Maaslin2 
+..   _Maaslin_User_Forum: https://forum.biobakery.org/c/Downstream-analysis-and-statistics/MaAsLin/10
+
+
+.. image:: https://www.biorxiv.org/content/biorxiv/early/2021/01/20/2021.01.20.427420/F1.medium.gif
+    :height: 500        
+    :width: 600 
+
+**Tutorial, User Manual and Forum**
+===================================
+
+You can find the following resources:
+
+- Maaslin_Tutorial_
+- Maaslin_User_Manual_
+- Maaslin_User_Forum_
+
+
+If you use the  MaAsLin2_  software, please cite our manuscript:
+
+Mallick H, Rahnavard A, McIver LJ, Ma S, Zhang Y, Nguyen LH, Tickle TL, Weingart G, Ren B, Schwager EH, 
+Chatterjee S, Thompson KN, Wilkinson JE, Subramanian A, Lu Y, Waldron L, Paulson JN, Franzosa EA, 
+Bravo HC, Huttenhower C (2021). Multivariable Association Discovery in Population-scale Meta-omics Studies. bioRxiv, in the following Maaslin_Article_ 
+
+
+Check out the MaAsLin 2 tutorial for an overview of analysis options.
+    ]]></help>
+</tool>

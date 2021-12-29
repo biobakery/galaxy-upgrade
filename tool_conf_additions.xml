@@ -1,0 +1,15 @@
+  <section id="humann" name="humann">
+     <tool file="humann/humann.xml" />
+  </section>
+  <section id="MetaPhLan" name="MetaPhLan">
+        <tool file="metaphlan/metaphlan.xml" />
+  </section>
+  <section id="MaAsLin" name="MaAsLin">
+        <tool file="maaslin/maaslin.xml" />
+  </section>
+  <section id="PanPhLan" name="PanPhLan">
+        <tool file="panphlan/panphlan.xml" />
+  </section>
+  <section id="SparseDOSSA" name="SparseDOSSA">
+        <tool file="sparsedossa/sparsedossa.xml" />
+  </section>

@@ -13,6 +13,9 @@ pip install numpy
 metaphlan --install
 
 
+
+
+
 #maaslin2 install
 sudo apt install apt-transport-https software-properties-common
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
@@ -41,3 +44,20 @@ mkdir /galaxy-central/tools/panphlan
 mkdir /galaxy-central/tools/panphlan/panphlan
 git clone https://github.com/SegataLab/panphlan.git /galaxy-central/tools/panphlan/panphlan
 sudo apt-get install -y samtools
+
+##########################################################################
+# Please add the statements in tool_conf_additions.xml to                #
+# /galaxy-central/config/tool_conf.xml                                   #
+##########################################################################
+
+chown -R galaxy /galaxy-central/tools/panphlan
+chgrp -R galaxy /galaxy-central/tools/panphlan
+
+chown -R galaxy /galaxy-central/tools/metaphlan
+chgrp -R galaxy /galaxy-central/tools/metaphlan
+
+chown -R galaxy /galaxy-central/tools/sparsedossa
+chgrp -R galaxy /galaxy-central/tools/sparsedossa
+
+chown -R galaxy /galaxy-central/tools/maaslin
+chgrp -R galaxy /galaxy-central/tools/maaslin
