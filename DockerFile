@@ -15,10 +15,12 @@ pip install numpy
 metaphlan --install
 
 
+##########################################################################
+#    maaslin2 install                                                    #
+##########################################################################
 
 
 
-#maaslin2 install
 sudo apt install apt-transport-https software-properties-common
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
@@ -75,3 +77,10 @@ conda install -c bioconda cogent
 ##########################################################################
 pip install 2to3
 pip install --upgrade autopep8
+
+
+##########################################################################
+#  GraphLan                                                              #
+##########################################################################
+git clone https://github.com/biobakery/graphlan.git
+conda install -c bioconda graphlan

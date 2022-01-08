@@ -1,7 +1,7 @@
 <tool id="panphlan" name="PanPhLan" version="0.1.0" python_template_version="3.5">
     <description>Strain level metagenomic profiling tool - PanPhLan Mapping</description>
     <command detect_errors="exit_code"><![CDATA[
-        bash '$__tool_directory__/panphlan_wrapper.sh' '$Input_File' '$pangenome' '$output1'  
+        bash '$__tool_directory__/panphlan_wrapper.sh' '$Input_File' '$pangenome' '$output1' '$output2'  
             ]]></command>
     <inputs>
         <param type="data" name="Input_File"  label="Input" format="fastq"  />
@@ -11,7 +11,8 @@
         </param>
     </inputs>
     <outputs>
-        <data name="output1"  format="csv" label="Map Results" />
+        <data name="output1"  format="tsv" label="Map Results" />
+        <data name="output2"  format="tsv" label="Output Matrix" />
     </outputs>
     <help><![CDATA[
 
