@@ -83,4 +83,8 @@ pip install --upgrade autopep8
 #  GraphLan                                                              #
 ##########################################################################
 git clone https://github.com/biobakery/graphlan.git
-conda install -c bioconda graphlan
+cd graphlan
+pip install .
+#pyphlan needed for helper scripts to modify input files 
+cp /build/lib/src/pyphlan.py /galaxy_venv/bin/
+chmod +x /galaxy_venv/bin/pyphlan.py
