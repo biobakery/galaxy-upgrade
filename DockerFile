@@ -88,4 +88,6 @@ pip install .
 #pyphlan needed for helper scripts to modify input files 
 cp /build/lib/src/pyphlan.py /galaxy_venv/bin/
 chmod +x /galaxy_venv/bin/pyphlan.py
+chown galaxy: /home/galaxy/.cache/matplotlib
+chown galaxy: /home/galaxy/.config/matplotlib
 graphlan.py 
