@@ -66,11 +66,7 @@ chgrp -R galaxy /galaxy-central/tools/sparsedossa
 chown -R galaxy /galaxy-central/tools/maaslin
 chgrp -R galaxy /galaxy-central/tools/maaslin
 
-##########################################################################
-#  micropita                                                             #
-##########################################################################
 pip install blist
-conda install -c bioconda cogent
 
 ##########################################################################
 #  Tools to upgrade python2 to python3                                   #
@@ -82,7 +78,7 @@ pip install --upgrade autopep8
 ##########################################################################
 #  GraphLan                                                              #
 ##########################################################################
-git clone https://github.com/biobakery/graphlan.git
+git clone https://github.com/SegataLab/graphlan.git
 cd graphlan
 pip install .
 #pyphlan needed for helper scripts to modify input files 
@@ -91,3 +87,25 @@ chmod +x /galaxy_venv/bin/pyphlan.py
 chown galaxy: /home/galaxy/.cache/matplotlib
 chown galaxy: /home/galaxy/.config/matplotlib
 graphlan.py 
+
+
+###################################################################
+#   Modify ownership of tools directories
+###################################################################
+chown -R galaxy /galaxy-central/tools/panphlan
+chgrp -R galaxy /galaxy-central/tools/panphlan
+
+chown -R galaxy /galaxy-central/tools/metaphlan
+chgrp -R galaxy /galaxy-central/tools/metaphlan
+
+chown -R galaxy /galaxy-central/tools/sparsedossa
+chgrp -R galaxy /galaxy-central/tools/sparsedossa
+
+chown -R galaxy /galaxy-central/tools/maaslin
+chgrp -R galaxy /galaxy-central/tools/maaslin
+
+chown -R galaxy /galaxy-central/tools/galaxy_graphlan
+chgrp -R galaxy /galaxy-central/tools/galaxy_graphlan
+
+chown -R galaxy /galaxy-central/tools/graphlan
+chgrp -R galaxy /galaxy-central/tools/graphlan
