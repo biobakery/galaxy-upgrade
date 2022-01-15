@@ -1,0 +1,58 @@
+<tool id="graphlan" name="Plot tree">
+<description></description>
+<command interpreter="python">/galaxy-central/tools/graphlan/graphlan.py $input1 $output1 --format $out_format --dpi $dpi --size $figure_size  --warnings 0</command>
+ <outputhandlers>
+     <outputhandler stream="stderr">
+        <ignore/>
+     </outputhandler>
+ </outputhandlers>
+ <inputs>
+  <param format="circl" name="input1" type="data" label="Source"></param>
+  <param name="out_format" type="select" label="Output data type">
+        <option value="png">png</option>
+        <option value="pdf">pdf</option>
+        <option value="svg">svg</option>
+        <option value="ps">ps</option>
+        <option value="eps">eps</option>
+  </param>
+  <param name="dpi" type="select" label="Set the dpi resolution of the output">
+        	<option value="72">72</option>
+                <option value="150" selected="True">150</option>
+                <option value="300">300</option>
+                <option value="600">600</option>
+                <option value="1200">1200</option>
+  </param>
+  <param name="figure_size" type="float" size="4" value="7.0" label ="Plot Size (Inches)" />
+
+ </inputs> 
+ <outputs>
+  <data format="png" name="output1"> 
+    <change_format> 
+      <when input="out_format" value="pdf" format="pdf" />
+      <when input="out_format" value="svg" format="svg" />
+      <when input="out_format" value="ps" format="ps" />
+      <when input="out_format" value="eps" format="eps" />
+    </change_format>
+   </data>
+ </outputs> 
+<requirements>
+		<requirement type="package" version="1.63">biopython</requirement>
+</requirements> 
+ 
+<help>
+**What it does**
+
+This module convert into images any tree loaded and/or annotated with the other GraPhlAn modules.
+
+Below are four examples of quite large phylogenetic trees visualized with GraPhlAn. You can also open the four corresponding high-resolution images for the `PhyloPhlAn tree of life`_, the `HMP+MetaHit gut microbiome`_, the `7-bodysites HMP tree`_, and the `Archaeal tree`_.  
+
+.. image:: https://bitbucket.org/nsegata/graphlan/wiki/four_exes.png 
+
+.. _PhyloPhlAn tree of life:  https://bitbucket.org/nsegata/graphlan/wiki/ppa_tol.png
+.. _HMP+MetaHit gut microbiome:  https://bitbucket.org/nsegata/graphlan/wiki/gut_microbiome.png
+.. _7-bodysites HMP tree:  https://bitbucket.org/nsegata/graphlan/wiki/hmptree.png
+.. _Archaeal tree:  https://bitbucket.org/nsegata/graphlan/wiki/archaea.png
+
+ 
+ </help>
+</tool>
