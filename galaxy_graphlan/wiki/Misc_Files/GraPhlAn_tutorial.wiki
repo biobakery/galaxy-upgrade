@@ -1,0 +1,98 @@
+**GraPhlAn** is a software tool for producing high-quality circular
+representations of taxonomic and phylogenetic trees. It focuses on
+concise, integrative, informative, and publication-ready representations of
+phylogenetically- and taxonomically-driven investigation.
+
+----
+
+**Step 1: Introduction and some informations about GraPhlAn**
+
+We assumes you have a basic knowledge of shotgun metagenomics and of Unix-based operating systems.
+After you have downloaded and installed GraPhlAn you can follow this tutorial if you aren't used to it.
+This guide is based on an example that you can find in the folder //internal_labels//. You can either open the relative folder or, in a Unix environment, enter from the command line in the //internal_labels// folder:
+{{{
+$ graphlan/examples/internal_labels
+}}}
+
+Here you can find different subfolderfiles that should be opened in this way:
+
+* [[https://bitbucket.org/nsegata/graphlan/src/bf08189afcb2435a4a0ed48426a4c82f4b913f2c/examples/internal_labels/archaea.txt?at=default|archaea.txt]]
+* [[https://bitbucket.org/nsegata/graphlan/src/89c7360eceb9931ea55743d56e81fb92e2a1734d/examples/internal_labels/step0.sh?at=default|step0.sh]]
+* [[https://bitbucket.org/nsegata/graphlan/src/bf08189afcb2435a4a0ed48426a4c82f4b913f2c/examples/internal_labels/annot_1.txt?at=default|annot_0.txt]]
+* [[https://bitbucket.org/nsegata/graphlan/src/bf08189afcb2435a4a0ed48426a4c82f4b913f2c/examples/internal_labels/step1.sh?at=default|step1.sh]]
+* [[https://bitbucket.org/nsegata/graphlan/src/bf08189afcb2435a4a0ed48426a4c82f4b913f2c/examples/internal_labels/annot_1.txt?at=default|annot_1.txt]]
+* [[https://bitbucket.org/nsegata/graphlan/src/bf08189afcb2435a4a0ed48426a4c82f4b913f2c/examples/internal_labels/step2.sh?at=default|step2.sh]]
+* [[https://bitbucket.org/nsegata/graphlan/src/bf08189afcb2435a4a0ed48426a4c82f4b913f2c/examples/internal_labels/annot_2.txt?at=default|annot_2.txt]]
+* [[https://bitbucket.org/nsegata/graphlan/src/bf08189afcb2435a4a0ed48426a4c82f4b913f2c/examples/internal_labels/step3.sh?at=default|step3.sh]]
+* [[https://bitbucket.org/nsegata/graphlan/src/bf08189afcb2435a4a0ed48426a4c82f4b913f2c/examples/internal_labels/annot_3.txt?at=default|annot_3.txt]]
+* [[https://bitbucket.org/nsegata/graphlan/src/bf08189afcb2435a4a0ed48426a4c82f4b913f2c/examples/internal_labels/step4.sh?at=default|step4.sh]]
+
+If you need more hepl, open each file //.txt// or //.sh//. We decided to include a comment (#comment) for each step line that specifies what you are going to do with the custom written below.
+
+
+**Step 1.1: Scripts**
+
+GraPhlAn has two main scripts which are contained in //step#.sh//:
+ * **graphlan_annotate.py**
+ * **graphlan.py**
+ 
+The first one is used to tie the annotation file to the input tree.
+{{{
+graphlan_annotate.py --annot annot_#.txt input_file.txt new_input_file_name.xml
+}}}
+The second one is used to generate the output images in two different formats (png/svg). You can also set their size(--size) and the resolution(--dpi).
+{{{
+graphlan.py new_input_file_name.xml image_name.png --dpi # --size #
+graphlan.py new_input_file_name.xml image_name.svg --dpi # --size #
+}}}
+
+----
+** Step 2: The Plot** 
+
+First of all let's start form the plot of the tree. It is set in the //.txt// file //archaea.txt//.
+There are different levels which shows phylum, order, class and the family of the microorganism.
+
+i.e:
+{{{
+ p__Euryarchaeota.c__Methanomicrobia.o__Methanocellales.f__Methanocellaceae
+}}}
+To pass from a level to another just write "//p__//" where "//p//" means //phylum//. Digit a dot in order to close the level.
+When you have finished planning you taxonomic tree, save the //.txt// file and run //step0.sh// to see the plot from the command line:
+{{{
+~/graphlan/examples/internal_labels$ sh step0.sh
+}}}
+
+----
+
+**Step3: Annotation files**
+
+In this step we will try to create an annotation file. These are text files in which are contained all the customs you want to apply to. Is important to remember when an option can be generic or specific: the firt one means that the option is global and applied to all the tree, instead with a specific one you have to specify the clade whom is referred to.
+
+In this tutorial there are only the most important ones but you can find all of them in the //readme.txt// file in the GraPhLan folder or on our website (https://bitbucket.org/nsegata/graphlan/wiki/Home).
+Now let's focus on our first annotation file (annot_0.txt). Here we can see the main characteristics of our tree.
+There are only generic annotation in //annot_0.txt// as //branch_thickness, clade_marker_size//. As discussed above, each customs have a short comment above that tells what you are going to do.
+When you have finished to write the annotation file, save it and run //step1.sh//
+{{{
+~/graphlan/examples/internal_labels$ sh step1.sh
+}}}
+
+It will appear the new output image with all the options you have applied to it.
+
+{{step1.png}}
+
+
+**Step3.1: Other annotations**
+
+It will appear an //.xml// file after you have run //step1.sh//. The //.xml// files contain all of the settings linked to the tree. For example //guide_1.xml// contains //annot_0.txt// tied to the plot, //guide_2.xml// will contain //guide_1.xml// tied to //annot_1.txt// and so on.
+
+Anyway, let's have a look to the options contained in //annot_1.txt//. Here there is an option that is called //clade_marker_laber//. It is used to give to a clade its own number. (These are specific options because are referred to the plot of the tree).
+You can also set the size and the color of the clade you like most. You can access the file to have a look at different annotation and color options for the clades.
+
+In the following annotation file there are more setting about the design of background of the tree, its colour and labels that you can put in.
+One of the most important is the ring option that you can find in //annot_3.txt//. These rings let you include externally to the tree any metadata or value of interest. For examples are using these rings to report the number of 16S rRNa genes, tRNAs, and CDS and the CG content of each archeal family (averaged over the multiple strains in the same family. Specifically, we are using //ring_aphla// to set the intensity of the color that is related to the metadata of interest.
+In the end the resulting taxonomic tree is shown here:
+{{step4.png}}
+----
+**Additional information and support**
+
+User group: https://groups.google.com/forum/#!forum/graphlan-users
