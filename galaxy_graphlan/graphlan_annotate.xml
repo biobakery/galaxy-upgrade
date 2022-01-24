@@ -1,5 +1,5 @@
 <tool id="graphlan_annotate" name="Annotate tree">
- <code file="graphlan_format_input_selector.py"/> 
+ <code file="graphlan_format_input_selector.py"/> 	
  <description></description>
  <command interpreter="python">graphlan_prepare_annotations.py
  	 --input  $inp_data 
@@ -183,9 +183,10 @@ The process consists of four steps (Galaxy modules):
 
 Below are four examples of quite large phylogenetic trees visualized with GraPhlAn. You can also open the four corresponding high-resolution images for the `PhyloPhlAn tree of life`_, the `HMP+MetaHit gut microbiome`_, the `7-bodysites HMP tree`_, and the `Archaeal tree`_.  
 
-.. image:: https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_graphlan/wiki/Misc_Files/four_exes.png 
 
+ 
 
+      
 **Graphlan Annotation**  (Step 2) 
 
 This module graphycally annotates trees. Please refer to the "Load input tree" Galaxy module above for an introduction to GraPhlAn, and to the extensive textual manual available `here2`_
@@ -193,11 +194,11 @@ This module graphycally annotates trees. Please refer to the "Load input tree" G
 
 This annotation step can be **recursively applied.** This means that multiple annotations can be sequentially added to the same tree simply re-running this galaxy module on the output of the previous application.
 
-.. image:: https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_graphlan/wiki/Misc_Files/four_exes.png
+.. image:: https://raw.githubusercontent.com/biobakery/galaxy-upgrade/main/galaxy_graphlan/wiki/Misc_Files/four_exes.png
 
 The scheme below summarizes the different types of graphical options that you can apply to the input tree with the "Annotate tree" and "Add rings to the tree" modules.
 
-.. image:: https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_graphlan/wiki/Misc_Files/GraPhlAn_Fig1_small.png
+.. image:: https://raw.githubusercontent.com/biobakery/galaxy-upgrade/main/galaxy_graphlan/wiki/Misc_Files//GraPhlAn_Fig1_small.png
 
 .. _guide.txt:  https://bitbucket.org/nsegata/graphlan/wiki/guide.txt
 .. _phylo_small.xml:  https://bitbucket.org/nsegata/graphlan/wiki/phylo_small.xml
