@@ -66,6 +66,7 @@ chgrp -R galaxy /galaxy-central/tools/sparsedossa
 chown -R galaxy /galaxy-central/tools/maaslin
 chgrp -R galaxy /galaxy-central/tools/maaslin
 
+
 pip install blist
 
 ##########################################################################
@@ -87,6 +88,13 @@ chmod +x /galaxy_venv/bin/pyphlan.py
 chown galaxy: /home/galaxy/.cache/matplotlib
 chown galaxy: /home/galaxy/.config/matplotlib
 graphlan.py 
+
+cp -r /galaxy-central/tools/galaxy_graphlan/pyphlan  /export/galaxy-central/lib
+cp -r /galaxy-central/tools/galaxy_graphlan/pyphlan  /export/galaxy-central/lib/galaxy
+chown -R galaxy /export/galaxy-central/lib/pyphlan
+chgrp -R galaxy /export/galaxy-central/lib/pyphlan
+chown -R galaxy /export/galaxy-central/lib/galaxy/pyphlan
+chgrp -R galaxy /export/galaxy-central/lib/galaxy/pyphlan
 
 
 ###################################################################
