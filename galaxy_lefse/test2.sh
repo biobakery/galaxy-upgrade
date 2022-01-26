@@ -1,0 +1,1 @@
+python /export/galaxy-central/tools/galaxy_lefse/format_input.py /export/galaxy-central/database/files/001/dataset_1066.dat /export/galaxy-central/database/files/001/dataset_1126.dat -f r -c 1 -s -1 -u -1 -o 1000000.0
