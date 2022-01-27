@@ -5,7 +5,10 @@ import os
 import argparse
 import pickle
 import re
+from xml.dom import NotFoundErr
 import numpy
+import pdb
+import functools 
 
 
 # ***************************************************************************************************************
@@ -113,7 +116,7 @@ def remove_missing(data, roc):
 def sort_by_cl(data, n, c, s, u):
     def sort_lines1(a, b):
         return int(a[c] > b[c]) * 2 - 1
-
+   
     def sort_lines2u(a, b):
         if a[c] != b[c]:
             return int(a[c] > b[c]) * 2 - 1
@@ -130,15 +133,22 @@ def sort_by_cl(data, n, c, s, u):
         if a[s] != b[s]:
             return int(a[s] > b[s]) * 2 - 1
         return int(a[u] > b[u]) * 2 - 1
+
+    cmp_sort_lines1 = functools.cmp_to_key(sort_lines1)
+    cmp_sort_lines2u = functools.cmp_to_key(sort_lines2u)
+    cmp_sort_lines2s = functools.cmp_to_key(sort_lines2s)
+    cmp_sort_lines3 = functools.cmp_to_key(sort_lines3)
+    
     if n == 3:
-        data.sort(sort_lines3)
+        data.sort(key=cmp_sort_lines3)
     if n == 2:
         if s is None:
-            data.sort(sort_lines2u)
+            data.sort(key=cmp_sort_lines2u)
         else:
-            data.sort(sort_lines2s)
+            data.sort(key=cmp_sort_lines2s)
     if n == 1:
-        data.sort(sort_lines1)
+        data.sort(key=cmp_sort_lines1)
+         
     return data
 
 
@@ -310,6 +320,15 @@ def rename_same_subcl(cl, subcl):
             new_subcl.append(sc)
     return new_subcl
 
+# *************************************************************************************
+# * Modification by George Weingart  2022/01/26                                       *
+#  cmp is not available on python3 so we define ours                                  *
+# *************************************************************************************
+def cmp_new(a, b):
+        return int((a[1] > b[1]) - (a[1] < b[1]))
+# *************************************************************************************
+# * End Modification by George Weingart  2022/01/26                                       *
+# *************************************************************************************
 
 # *************************************************************************************
 # *  Modifications by George Weingart,  Jan 15, 2014                                  *
@@ -450,16 +469,35 @@ if __name__ == '__main__':
     cls = {}
 
     cls_i = [('class', params['class'] - 1)]
-    if params['subclass'] > 0:
+    ######################################################################
+    # Modification by George Weingart 2022/01/26                         #
+    # Modified params['subclass'] > 0 to                                 #
+    #          not params['subclass'] is None                            #
+    # and the same for subject                                           #
+    ######################################################################
+    #if params['subclass'] > 0:
+    if not params['subclass']is None:
         cls_i.append(('subclass', params['subclass'] - 1))
-    if params['subject'] > 0:
+    #if params['subject'] > 0:
+    if not params['subject']is None:
         cls_i.append(('subject', params['subject'] - 1))
-    cls_i.sort(lambda x, y: -cmp(x[1], y[1]))
+
+
+    #######cls_i.sort(key=lambda x, y: -cmp(x[1], y[1]))
+    cmp_new = functools.cmp_to_key(cmp_new)
+    cls_i.sort(key=cmp_new)
+    
+
     for v in cls_i:
         cls[v[0]] = data.pop(v[1])[1:]
-    if not params['subclass'] > 0:
+    #if not params['subclass'] > 0:
+    if  params['subclass'] is None:
         cls['subclass'] = [str(cl) + "_subcl" for cl in cls['class']]
 
+
+    ######################################################################
+    # End Modification by George Weingart 2022/01/26                     #
+    ######################################################################
     cls['subclass'] = rename_same_subcl(cls['class'], cls['subclass'])
 #	if 'subclass' in cls.keys(): cls = group_small_subclasses(cls,params['subcl_min_card'])
     class_sl, subclass_sl, class_hierarchy = get_class_slices(list(zip(*list(cls.values()))))
