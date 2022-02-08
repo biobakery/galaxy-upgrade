@@ -117,3 +117,9 @@ chgrp -R galaxy /galaxy-central/tools/galaxy_graphlan
 
 chown -R galaxy /galaxy-central/tools/graphlan
 chgrp -R galaxy /galaxy-central/tools/graphlan
+########################################################################
+# Installation of Lefse       
+########################################################################
+git clone https://github.com/SegataLab/lefse.git
+cd lefse
+python3 setup.py install

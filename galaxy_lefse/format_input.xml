@@ -1,8 +1,9 @@
 <tool id="LEfSe_for" name="A) Format Data for LEfSe" version="1.0">
   <code file="format_input_selector.py"/> 
 	<description></description>
-<!-- <command interpreter="python">./format_input.py $inp_data $formatted_input -f $feat_dir -c $cls_n -s $subcls_n -u $subj_n -o 1000000.0 </command>   -->
-<command interpreter="python">format_input.py $inp_data $formatted_input -f $cond.feat_dir -c $cond.cls_n -s $cond.subcls_n -u $cond.subj_n -o $norm </command> 
+    <command detect_errors="exit_code"><![CDATA[
+      lefse_format_input.py $inp_data $formatted_input -f $cond.feat_dir -c $cond.cls_n -s $cond.subcls_n -u $cond.subj_n -o $norm
+            ]]></command>
   <inputs>
     <page>
 	<param format="tabular" name="inp_data" type="data" label="Upload a tabular file of relative abundances and class labels (possibly also subclass and subjects labels) for LEfSe - See samples below - Please use Galaxy Get-Data/Upload-File. Use File-Type = tabular" help=""/>
