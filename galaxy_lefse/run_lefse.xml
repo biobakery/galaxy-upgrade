@@ -1,7 +1,7 @@
 <tool id="LEfSe_run" name="B) LDA Effect Size (LEfSe)" version="1.0">
   <description></description>
 <command detect_errors="exit_code"><![CDATA[
-          lefse_run_lefse.py $inp_data $output -l $lda_th -a $kw_alpha -w $w_alpha -e $w_pol -y $multiclass -f 0.9
+          lefse_run.py $inp_data $output -l $lda_th -a $kw_alpha -w $w_alpha -e $w_pol -y $multiclass -f 0.9
             ]]></command>
   <inputs>
     <page>
