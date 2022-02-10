@@ -42,6 +42,10 @@ git clone https://github.com/biobakery/Maaslin2.git  /galaxy-central/tools/maasl
 R -q -e "install.packages(c('lmerTest','pbapply','car','dplyr','vegan','chemometrics','ggplot2','pheatmap','hash','logging','data.table','MuMIn','glmmTMB','MASS','cplm','pscl'), repos='http://cran.r-project.org')"
 R -q -e "install.packages(c('optparse','logging','data.table', 'dplyr', 'hash', 'lme4', 'pbapply', 'lmerTest', 'pheatmap','devtools'), repos='http://cran.r-project.org')"
 R -q -e "devtools::install_github('biobakery/SparseDOSSA2')"
+##########################################################################
+# For lefse
+# ########################################################################
+R -q -e "install.packages(c('modeltools','coin'), repos='http://cran.r-project.org')"
 
 #panphlan install
 mkdir /galaxy-central/tools/panphlan
