@@ -92,6 +92,7 @@ The next steps are:
 + **E) Plot One Feature**: plots the row values of a feature (biomarker or not) as an abundance histogram with classes and subclasses structure (only one feature at the time)
 + **F) Plot Differential Features**: plots the row values of all features (biomarkers or not) as abundance histograms with classes and subclasses structure and provides a zip archive of the figures
 
+.. image::  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_lefse/lefse_ove.png?raw=true
 
 
 ------
@@ -115,6 +116,8 @@ Although both column and row feature organization is accepted, given the high-di
 
 In this case one may want to use bodysite as class, subsite as subclass and id as subject. Notice that the features have a hierarchical structure specified using the character \|.
 
+
+.. image:: https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_lefse/lefse_met.png?raw=true
 
 **Input file sample**
 
