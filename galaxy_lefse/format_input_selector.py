@@ -34,8 +34,18 @@ def red(st, l):
     #############################################################
     return st[:l1] + ".." + st[len(st) - l2:]
 
-
-
+def get_row_names(data,t):
+    if data == "":
+         return []
+    max_len =38                 
+    fname = data.dataset.file_name
+    opt = []
+    rc = ''
+    if t == 'b':
+         lines = [(red(v.split()[0],max_len),'%d' % (i+1),False) for i,v in enumerate(open(fname)) if len(v.split()) > 3 ] 
+    else:
+        lines = [(red(v.split()[0],max_len),'%d' % (i+1),False) for i,v in enumerate(open(fname))]
+    return sorted(opt+lines)
 
 def get_cols(data, t, c):
     if data == "":
@@ -52,5 +62,3 @@ def get_cols(data, t, c):
         rc = ''
         lines = [(red((rc + "#" + str(i + 1) + ":" + v.split()[0]), max_len), '%d' % (i + 1), False) for i, v in enumerate(open(fname))]
     return opt + lines
-
-
