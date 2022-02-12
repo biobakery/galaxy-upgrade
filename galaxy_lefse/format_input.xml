@@ -186,7 +186,7 @@ In this case one may want to use bodysite as class, subsite as subclass and id a
 You can try the LEfSe modules using the dataset available here_. This is a 16S dataset from `(Garrett et. al 2010)`_ and `(Veiga et. al 2010)`_ for studying the characteristics of the fecal microbiota in a mouse model of spontaneous colitis. The dataset contains 30 abundance profiles (obtained processing the 16S reads with RDP) belonging to 10 rag2 (control) and 20 truc (case) mice. The metadata consists of class information only, as we don't have subject or subclass information. The dataset contains the features organized in rows; you need to select the first row as class, whereas you have to select "no subclass" and "no subject" options.
         
     
-.. _here: http://www.huttenhower.org/webfm_send/73
+.. _here: https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_lefse/hmp_aerobiosis_small.txt
 .. _(Segata et. al 2011): http://www.ncbi.nlm.nih.gov/pubmed/21702898
 .. _(Garrett et. al 2010): http://www.ncbi.nlm.nih.gov/pubmed/20833380
 .. _(Veiga et. al 2010): http://www.ncbi.nlm.nih.gov/pubmed/20921388
