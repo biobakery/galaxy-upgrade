@@ -127,3 +127,10 @@ chgrp -R galaxy /galaxy-central/tools/graphlan
 git clone https://github.com/SegataLab/lefse.git
 cd lefse
 python3 setup.py install
+
+
+########################################################################
+#   MMUPHin
+#######################################################################
+BiocManager::install("MMUPHin")
+BiocManager::install("curatedMetagenomicData")
