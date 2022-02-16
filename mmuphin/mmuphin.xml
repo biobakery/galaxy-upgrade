@@ -1,0 +1,101 @@
+<tool id="mmuphin" name="Meta-analysis Methods with Uniform Pipeline for Heterogeneity in Microbiome Studies" version="0.1.0" python_template_version="3.5">
+    <requirements>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        bash '$__tool_directory__/mmuphin_wrapper.sh' '$feature_abd' '$batch' '$covariates' '$data' '$output1' 
+            ]]></command>
+    <inputs>
+                <param type="data" name="feature_abd"  label="Feature-by-sample matrix of abundances (proportions or counts)" format="rdata"  />
+                <param type="data" name="data"  label="Data frame of metadata" format="rdata"  />
+
+
+                <param name="batch" type="select" format="text" >
+                        <label>name of the batch variable</label>
+                                <option value="studyID">studyID</option>
+                </param>
+                <param name="covariates" type="select" format="text" >
+                        <label>name(s) of covariates to adjust for in the batch correction model</label>
+                                <option value="study_condition">study_condition</option>
+                </param>
+    </inputs>
+    <outputs>
+        <data name="output1"  format="rdata" label="Adjusted abundance table" />
+    </outputs>
+    <help><![CDATA[
+
+ 
+
+MMUPHin.
+It provides functionlaities for: 
+
+* Generation of realistic synthetic microbial observations 
+* Spiking-in of associations with metadata variables for e.g. benchmarking or power analysis purposes  
+* Fitting the SparseDOSSA 2 model to real-world microbial abundance observations that can be used for generation of realistic synthetic microbial observations  
+
+
+**Inputs**
+==========
+
+
+The SparseDOSSA2 implementation requires three inputs: 
+
+* Template: "Stool" or "Vaginal"
+* Number of samples required  (Default: 100)
+* Number of features required (Default: 100)
+
+
+**Outputs**
+===========
+
+We provide **three** outputs,  two **csv** files and an "RData" file 
+
+* simulated_data.csv
+* simulated_matrices.csv
+* Simulation.RData    Should be downloaded and openned with R as follows:
+
+R
+load(&your_download_directory/Simulation.RData)
+
+
+
+It contains the following objects:
+
+* simulated_data
+
+* simulated_matrices
+
+* params
+
+* template
+
+* spike_metadata"
+
+
+
+
+..  _SparseDOSSA2_General_Info:  https://huttenhower.sph.harvard.edu/sparsedossa2/
+..  _SparseDOSSA2_User_Manual:   https://github.com/biobakery/sparseDOSSA2
+..  _SparseDOSSA2_Tutorial:      https://github.com/biobakery/biobakery/wiki/SparseDOSSA2
+..  _SparseDOSSA2_User_Forum:     https://forum.biobakery.org/c/downstream-analysis-and-statistics/sparsedossa/15
+
+
+.. image:: https://huttenhower.sph.harvard.edu/wp-content/uploads/2020/08/overview-768x644.png
+    :height: 500        
+    :width: 600 
+
+**Tutorial, User Manual and Forum**
+===================================
+
+You can find the following resources:
+
+- SparseDOSSA2_General_Info_
+- SparseDOSSA2_User_Manual_
+- SparseDOSSA2_Tutorial_
+- SparseDOSSA2_User_Forum_
+
+
+If you use the  SparseDOSSA2  software, please cite our manuscript:
+
+ 
+    ]]></help>
+</tool>
