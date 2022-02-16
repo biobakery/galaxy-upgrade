@@ -7,6 +7,7 @@ covariates=$3
 data=$4
 output1=$5
 
+echo "****In this program"
 Rscript ${PGD}/mmuphin_wrapper.R \
     -f $feature_abd \
     -b $batch \
@@ -14,4 +15,4 @@ Rscript ${PGD}/mmuphin_wrapper.R \
     -d $data \
     -o $output1  
     
-
+cp "CRC_abd_adj.Rda"  $output1
