@@ -1,4 +1,4 @@
-   <section id="humann" name="humann">
+  <section id="humann" name="humann">
      <tool file="humann/humann.xml" />
   </section>
   <section id="MetaPhLan" name="MetaPhLan">
@@ -13,16 +13,19 @@
   <section id="SparseDOSSA" name="SparseDOSSA">
         <tool file="sparsedossa/sparsedossa.xml" />
   </section>
- <section name="GraPhlAn" id="graphlan">
+  <section name="GraPhlAn" id="graphlan">
     <tool file="galaxy_graphlan/graphlan_annotate.xml" />
     <tool file="galaxy_graphlan/graphlan_ring_annotate.xml" />
     <tool file="galaxy_graphlan/graphlan.xml" />
-</section>
-<section name="LEfSe" id="lefse">
+  </section>
+  <section name="LEfSe" id="lefse">
    <tool file="galaxy_lefse/format_input.xml" />
    <tool file="galaxy_lefse/run_lefse.xml" />
    <tool file="galaxy_lefse/plot_res.xml" />
    <tool file="galaxy_lefse/plot_cladogram.xml" />
    <tool file="galaxy_lefse/plot_single_feature.xml" />
    <tool file="galaxy_lefse/plot_features.xml" />
+  </section>
+  <section id="MMUPHin" name="MMUPHin">
+        <tool file="mmuphin/mmuphin.xml" />
   </section>
