@@ -18,28 +18,16 @@ option_list = list(
     )
 
 opt = parse_args(OptionParser(option_list=option_list))
-print(opt$feature_abd)
 load(opt$feature_abd)
 load(opt$data)
 
-print("Before the function")
-ls()
-print("Invoking the function")
 fit_adjust_batch <- adjust_batch(feature_abd = CRC_abd,
                                  batch = opt$batch,
                                  covariates = opt$covariates,
                                  data = CRC_meta,
                                  control = list(verbose = FALSE))
 
-print("After the function")
-ls()
-print(opt$output)
-print("Here...")
 
 CRC_abd_adj <- fit_adjust_batch$feature_abd_adj
-print("after the copy")
-ls()
 
 save(CRC_abd_adj,file="CRC_abd_adj.Rda")
-print("After the program")
-print("******* after****")
