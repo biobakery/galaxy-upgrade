@@ -8,15 +8,10 @@
                 <param type="data" name="feature_abd"  label="Feature-by-sample matrix of abundances (proportions or counts)" format="rdata"  />
                 <param type="data" name="data"  label="Data frame of metadata" format="rdata"  />
 
+                <param name="batch" type="text" format="text" value="studyID" label="Name of the batch variable"/>
+                <param name="covariates" type="text" format="text" value="study_condition" label="Name(s) of covariates to adjust for in the batch correction model"/>
 
-                <param name="batch" type="select" format="text" >
-                        <label>name of the batch variable</label>
-                                <option value="studyID">studyID</option>
-                </param>
-                <param name="covariates" type="select" format="text" >
-                        <label>name(s) of covariates to adjust for in the batch correction model</label>
-                                <option value="study_condition">study_condition</option>
-                </param>
+
     </inputs>
     <outputs>
         <data name="output1"  format="rdata" label="Adjusted abundance table" />
@@ -34,9 +29,7 @@ MMUPHin is an R package implementing meta-analysis methods for microbial communi
 
 Overall, MMUPHin enables the normalization and combination of multiple microbial community studies. It can then help in identifying microbes, genes, or pathways that are differential with respect to combined phenotypes. Finally, it can find clusters or gradients of sample types that reproduce consistently among studies.
 
-.. image::  https://github.com/biobakery/galaxy-upgrade/blob/main/mmuphin/adjust_batch.png?raw=true
-    :height: 500        
-    :width: 600 
+
 
 
 **Inputs**
@@ -48,7 +41,18 @@ Importantly, MMUPHin asks that feature abundances be provided as a feature-by-sa
 
 To minimize users’ efforts in loading data to run the examples, we have properly formatted the five studies for easy access. The feature abundances and metadata can be loaded with the following code chunk. For the interested user, the commented out scripts were used for accessing data directly from curatedMetagenomicData and formatting. It might be worthwhile to read through these as they perform many of the common tasks for preprocessing microbial feature abundance data in R, including sample/feature subsetting, normalization, filtering, etc.
 
-As an example we privide two sample files taken from colorectal cancer (CRC) stool metagenomic studies:
+adjust_batch aims to correct for technical study/batch effects in microbial feature abundances. It takes as input the feature-by-sample abundance matrix, and performs batch effect adjustment given provided batch and optional covariate variables. It returns the batch-adjusted abundance matrix. Check help(adjust_batch) for additional details and options. This figure from the paper (figure 2b) shows the desired effect of the batch adjustment: batch effects are removed, making the effect of the biological variable of interest easier to detect.
+
+.. image::  https://github.com/biobakery/galaxy-upgrade/blob/main/mmuphin/adjust_batch.png?raw=true
+    :height: 800        
+    :width: 600 
+
+
+As an example we privide two sample files taken from colorectal cancer (CRC) stool metagenomic studies (See links below)
+
+Please download these files to your computer and use the Galaxy Get-Data / Upload file from your computer to upload these two files.
+
+Make sure you modify the default file type from "Auto detect" to  the "rdata"  
 
 
 ..  _CRC_Feature_Abundances:  https://github.com/biobakery/galaxy-upgrade/blob/main/mmuphin/CRC_abd.Rda
@@ -84,8 +88,21 @@ load(&your_download_directory/Adjusted_abundance_table].rdata)
 *  MMUPHin_User_Forum_
 
 
+
+**Citation:**
+=============
+
+
+A manuscript describing MMUPHin, with its application in a collection of inflammatory bowel disease studies is currently in preparation:
+
+Siyuan Ma, Dmitry Shungin, Himel Mallick, Melanie Schirmer, Long Nguyen, Raivo Kolde, Eric Franzosa, Hera Vlamakis, Ramnik Xavier, Curtis Huttenhower Population Structure Discovery in Meta-Analyzed Microbial Communities and Inflammatory Bowel Disease.
+
+In the meantime, if you use MMUPHin in your work, please cite the package itself (from within R, enter citation("MMUPHin")):
+
+Ma S (2019). MMUPHin: Meta-analysis Methods with Uniform Pipeline for Heterogeneity in Microbiome Studies. R package version 0.99.3.
  
 
  
     ]]></help>
 </tool>
+
