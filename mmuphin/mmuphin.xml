@@ -26,7 +26,10 @@
 
  
 
-MMUPHin.
+**MMUPHin**
+===========
+
+
 MMUPHin is an R package implementing meta-analysis methods for microbial community profiles. It has interfaces for: a) covariate-controlled batch and study effect adjustment, b) meta-analytic differential abundance testing, and meta-analytic discovery of c) discrete (cluster-based) or d) continuous unsupervised population structure.
 
 Overall, MMUPHin enables the normalization and combination of multiple microbial community studies. It can then help in identifying microbes, genes, or pathways that are differential with respect to combined phenotypes. Finally, it can find clusters or gradients of sample types that reproduce consistently among studies.
@@ -41,6 +44,15 @@ Importantly, MMUPHin asks that feature abundances be provided as a feature-by-sa
 
 To minimize users’ efforts in loading data to run the examples, we have properly formatted the five studies for easy access. The feature abundances and metadata can be loaded with the following code chunk. For the interested user, the commented out scripts were used for accessing data directly from curatedMetagenomicData and formatting. It might be worthwhile to read through these as they perform many of the common tasks for preprocessing microbial feature abundance data in R, including sample/feature subsetting, normalization, filtering, etc.
 
+As an example we privide two sample files taken from colorectal cancer (CRC) stool metagenomic studies:
+
+
+..  _CRC_Feature_Abundances:  https://github.com/biobakery/galaxy-upgrade/blob/main/mmuphin/CRC_abd.Rda
+..  _CRC_Metadata: https://github.com/biobakery/galaxy-upgrade/blob/main/mmuphin/CRC_meta.Rda
+
+
+* CRC_Feature_Abundances_ 
+* CRC_Metadata_
 
 **Outputs**
 ===========
@@ -54,10 +66,18 @@ R
 load(&your_download_directory/Adjusted_abundance_table].rdata)
 
 
- 
+**Documentation**
+=================
 
+.. _MMUPHin_General_Documentation:  https://huttenhower.sph.harvard.edu/mmuphin/
+.. _MMUPHin_User_Manual:   https://bioconductor.org/packages/release/bioc/vignettes/MMUPHin/inst/doc/MMUPHin.html
+.. _MMUPHin_Tutorial:  https://bioconductor.org/packages/release/bioc/vignettes/MMUPHin/inst/doc/MMUPHin.html
+.. _MMUPHin_User_Forum:  https://forum.biobakery.org/
 
- 
+*  MMUPHin_General_Documentation_
+*  MMUPHin_User_Manual_
+*  MMUPHin_Tutorial_
+*  MMUPHin_User_Forum_
 
  
     ]]></help>
