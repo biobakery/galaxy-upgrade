@@ -35,7 +35,8 @@ MMUPHin is an R package implementing meta-analysis methods for microbial communi
 Overall, MMUPHin enables the normalization and combination of multiple microbial community studies. It can then help in identifying microbes, genes, or pathways that are differential with respect to combined phenotypes. Finally, it can find clusters or gradients of sample types that reproduce consistently among studies.
 
 .. image::  https://github.com/biobakery/galaxy-upgrade/blob/main/mmuphin/adjust_batch.png?raw=true
- 
+    :height: 500        
+    :width: 600 
 
 
 **Inputs**
