@@ -11,7 +11,7 @@ option_list = list(
               help="Batch"),
     make_option(c("-c", "--covariates"), action="store", default="study_condition", type='character',
               help="covariates"),
-    make_option(c("-d", "--data"), action="store", default="CRC_abd.Rda", type='character',
+    make_option(c("-d", "--data"), action="store", default="CRC_meta.Rda", type='character',
               help="Batch"),
     make_option(c("-o", "--output"), action="store", default="output1", type='character',
               help="output file")
