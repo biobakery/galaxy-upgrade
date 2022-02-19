@@ -1,4 +1,4 @@
-<tool id="mmuphin" name="Adjust batch" version="0.1.0" python_template_version="3.5">
+<tool id="mmuphin_adj_batch" name="Adjust batch" version="0.1.0" python_template_version="3.5">
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
