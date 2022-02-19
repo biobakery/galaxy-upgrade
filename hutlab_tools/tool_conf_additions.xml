@@ -27,5 +27,5 @@
    <tool file="galaxy_lefse/plot_features.xml" />
   </section>
   <section id="MMUPHin" name="MMUPHin">
-        <tool file="mmuphin/mmuphin.xml" />
+        <tool file="mmuphin/adjust_batch.xml" />
   </section>
