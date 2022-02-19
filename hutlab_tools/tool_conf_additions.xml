@@ -28,4 +28,5 @@
   </section>
   <section id="MMUPHin" name="MMUPHin">
         <tool file="mmuphin/adjust_batch.xml" />
+        <tool file="mmuphin/lm_meta.xml" />
   </section>
