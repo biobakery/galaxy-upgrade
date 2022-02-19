@@ -1,4 +1,4 @@
-<tool id="mmuphin" name="Meta-analysis Methods with Uniform Pipeline for Heterogeneity in Microbiome Studies" version="0.1.0" python_template_version="3.5">
+<tool id="mmuphin" name="Adjust batch" version="0.1.0" python_template_version="3.5">
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
