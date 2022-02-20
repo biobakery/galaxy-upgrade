@@ -15,3 +15,4 @@ Rscript ${PGD}/mmuphin_wrapper.R \
     -o $output1  
     
 cp "CRC_abd_adj.Rda"  $output1
+cp "adjust_batch_diagnostic.pdf" $output2
