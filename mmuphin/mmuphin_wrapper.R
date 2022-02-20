@@ -3,7 +3,6 @@ library(magrittr)
 library(dplyr)
 library(ggplot2)
 library("optparse")
-print("In this library")
 option_list = list(
     make_option(c("-f", "--feature_abd"), action="store", default="CRC_abd.Rda", type='character',
               help="feature_abd"),
