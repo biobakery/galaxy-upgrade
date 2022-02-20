@@ -15,5 +15,3 @@ Rscript ${PGD}/lm_meta_wrapper.R \
     -d $data \
     -e $exposure 
     
-#cp "CRC_abd_adj.Rda"  $output1
-#cp "adjust_batch_diagnostic.pdf" $output2

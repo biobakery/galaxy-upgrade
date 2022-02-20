@@ -8,7 +8,7 @@ option_list = list(
               help="feature_abd"),
     make_option(c("-b", "--batch"), action="store", default="studyID", type='character',
               help="Batch"),
-    make_option(c("-c", "--covariates"), action="store", default="gender,age,BMI", type='character',
+    make_option(c("-c", "--covariates"), action="store", default="gender, age, BMI", type='character',
               help="covariates"),
     make_option(c("-d", "--data"), action="store", default="CRC_meta.Rda", type='character',
               help="Batch"),
@@ -17,10 +17,8 @@ option_list = list(
     )
 
 opt = parse_args(OptionParser(option_list=option_list))
-
 load(opt$feature_abd)
 load(opt$data)
-
 cov0 <- gsub(' ','',opt$covariates)
 cov1 <- strsplit(cov0, split = ",") 
 cov2 <- as.vector(cov1)
