@@ -6,8 +6,8 @@ batch=$2
 covariates=$3
 data=$4
 output1=$5
+output2=$6
 
-echo "****In this program"
 Rscript ${PGD}/mmuphin_wrapper.R \
     -f $feature_abd \
     -b $batch \
@@ -16,3 +16,4 @@ Rscript ${PGD}/mmuphin_wrapper.R \
     -o $output1  
     
 cp "CRC_abd_adj.Rda"  $output1
+cp "adjust_batch_diagnostic.pdf" $output2
