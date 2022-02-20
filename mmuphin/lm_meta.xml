@@ -2,11 +2,8 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-<<<<<<< HEAD
-        bash '$__tool_directory__/lm_metam_wrapper.sh' '$feature_abd' '$batch' '$covariates' '$data' '$exposure' '$output1'
-=======
-        bash '$__tool_directory__/mmuphin_wrapper.sh' '$feature_abd' '$batch' '$covariates' '$data' '$output1' 
->>>>>>> 787b77409972363db4e6640c217fdb6f1a9887ae
+        bash '$__tool_directory__/lm_meta_wrapper.sh' '$feature_abd' '$batch' '$covariates' '$data' '$output1' 
+
             ]]></command>
     <inputs>
                 <param type="data" name="feature_abd"  label="Feature-by-sample matrix of abundances (proportions or counts)" format="rdata"  />
