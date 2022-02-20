@@ -13,7 +13,7 @@ option_list = list(
     make_option(c("-d", "--data"), action="store", default="CRC_meta.Rda", type='character',
               help="Batch"),
     make_option(c("-e", "--exposure"), action="store", default="study_condition", type='character',
-              help="output file")
+              help="exposure")
     )
 
 opt = parse_args(OptionParser(option_list=option_list))

@@ -15,3 +15,4 @@ Rscript ${PGD}/lm_meta_wrapper.R \
     -d $data \
     -e $exposure 
     
+cp "meta_fits.csv" $output1

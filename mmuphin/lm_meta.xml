@@ -1,8 +1,8 @@
-<tool id="mmuphin" name="Meta-analytical differential abundance testing" version="0.1.0" python_template_version="3.5">
+<tool id="mmuphin_lm_meta" name="Meta-analytical differential abundance testing" version="0.1.0" python_template_version="3.5">
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        bash '$__tool_directory__/mmuphin_wrapper.sh' '$feature_abd' '$batch' '$covariates' '$data' '$output1' '$output2'
+        bash '$__tool_directory__/lm_metam_wrapper.sh' '$feature_abd' '$batch' '$covariates' '$data' '$exposure' '$output1'
             ]]></command>
     <inputs>
                 <param type="data" name="feature_abd"  label="Feature-by-sample matrix of abundances (proportions or counts)" format="rdata"  />
