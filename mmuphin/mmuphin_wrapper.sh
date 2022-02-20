@@ -6,6 +6,7 @@ batch=$2
 covariates=$3
 data=$4
 output1=$5
+output2=$6
 
 Rscript ${PGD}/mmuphin_wrapper.R \
     -f $feature_abd \
