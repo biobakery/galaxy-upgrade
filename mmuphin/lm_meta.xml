@@ -2,8 +2,7 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        bash '$__tool_directory__/lm_meta_wrapper.sh' '$feature_abd' '$batch' '$covariates' '$data' '$exposure' '$output1' 
-
+        bash '$__tool_directory__/lm_meta_wrapper.sh' '$feature_abd' '$data' '$batch' '$exposure'  '$covariates' '$output1' 
             ]]></command>
     <inputs>
                 <param type="data" name="feature_abd"  label="Feature-by-sample matrix of abundances (proportions or counts)" format="rdata"  />
@@ -11,9 +10,7 @@
 
                 <param name="batch" type="text" format="text" value="studyID" label="Name of the batch variable"/>
                 <param name="exposure" type="text" format="text" value="study_condition" label="Name of the exposure variable for differential abundance testing"/>
-                <param name="covariates" type="text" format="text" value='c("gender", "age", "BMI")' label="Names of covariates to adjust for in Maaslin2 differential abundance testing models"/>
-
-
+                <param name="covariates" type="text" format="text" value="gender,age,BMI" label="Names of covariates to adjusts - Please use format as in example: gender,age,BMI"/>
     </inputs>
     <outputs>
         <data name="output1"  format="csv" label="Significant Species" />

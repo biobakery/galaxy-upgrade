@@ -6,17 +6,19 @@ library("optparse")
 option_list = list(
     make_option(c("-f", "--feature_abd"), action="store", default="CRC_abd.Rda", type='character',
               help="feature_abd"),
+    make_option(c("-d", "--data"), action="store", default="CRC_meta.Rda", type='character',
+              help="metadata"),	   
     make_option(c("-b", "--batch"), action="store", default="studyID", type='character',
               help="Batch"),
-    make_option(c("-c", "--covariates"), action="store", default="gender,age,BMI", type='character',
-              help="covariates"),
-    make_option(c("-d", "--data"), action="store", default="CRC_meta.Rda", type='character',
-              help="Batch"),
     make_option(c("-e", "--exposure"), action="store", default="study_condition", type='character',
-              help="exposure")
+              help="exposure"),	   
+   make_option(c("-c", "--covariates"), action="store", default="gender,age,BMI", type='character',
+              help="covariates")
     )
 
 opt = parse_args(OptionParser(option_list=option_list))
+print("In the R interface*")
+print(opt)
 
 load(opt$feature_abd)
 load(opt$data)
