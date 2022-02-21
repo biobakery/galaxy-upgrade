@@ -29,4 +29,4 @@ fit_adjust_batch <- adjust_batch(feature_abd = CRC_abd,
 
 CRC_abd_adj <- fit_adjust_batch$feature_abd_adj
 
-save(CRC_abd_adj,file="CRC_abd_adj.Rda")
+write.csv(CRC_abd_adj, "CRC_abd_adj.csv", row.names=FALSE)

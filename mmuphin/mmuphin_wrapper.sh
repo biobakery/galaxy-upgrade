@@ -15,5 +15,5 @@ Rscript ${PGD}/mmuphin_wrapper.R \
     -d $data \
     -o $output1  
     
-cp "CRC_abd_adj.Rda"  $output1
+cp "CRC_abd_adj.csv"  $output1
 cp "adjust_batch_diagnostic.pdf" $output2
