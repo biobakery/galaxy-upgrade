@@ -2,7 +2,7 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        bash '$__tool_directory__/lm_meta_wrapper.sh' '$feature_abd' '$batch' '$covariates' '$data' '$output1' 
+        bash '$__tool_directory__/lm_meta_wrapper.sh' '$feature_abd' '$batch' '$covariates' '$data' '$exposure' '$output1' 
 
             ]]></command>
     <inputs>
