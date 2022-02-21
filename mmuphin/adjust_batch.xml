@@ -6,7 +6,7 @@
             ]]></command>
     <inputs>
                 <param type="data" name="feature_abd"  label="Feature-by-sample matrix of abundances (proportions or counts) in csv format - See format in samples below" format="csv"  />
-                <param type="data" name="data"  label="Metadata - in csv format (see format in samples below)" format="rdata"  />
+                <param type="data" name="data"  label="Metadata - in csv format (see format in samples below)" format="csv"  />
 
                 <param name="batch" type="text" format="text" value="studyID" label="Name of the batch variable"/>
                 <param name="covariates" type="text" format="text" value="study_condition" label="Name(s) of covariates to adjust for in the batch correction model"/>
