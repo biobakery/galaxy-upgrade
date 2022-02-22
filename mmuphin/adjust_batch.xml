@@ -65,13 +65,10 @@ Make sure you modify the default file type from "Auto detect" to  the "cvs"
 **Outputs**
 ===========
 
-In the Galaxy interface we  provide **two** outputs,  a pdf  and an "RData" file 
+In the Galaxy interface we  provide **two** outputs,  a pdf  and a csv 
 
 * Adjust batch diagnostic pdf
-* Adjusted abundance table:     Should be downloaded and openned with R as follows:
-
-R
-load(&your_download_directory/Adjusted_abundance_table].rdata)
+* Adjusted abundance table csv
 
 
 **Documentation**
