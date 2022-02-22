@@ -15,16 +15,32 @@ option_list = list(
     make_option(c("-o", "--output"), action="store", default="output1", type='character',
               help="output file")
     )
-
 opt = parse_args(OptionParser(option_list=option_list))
 
 CRC_abd  <- read.csv(file = opt$feature_abd)
 CRC_meta <- read.csv(file = opt$data)
 
-fit_adjust_batch <- adjust_batch(feature_abd = CRC_abd,
+
+abd1 <- read.csv(file = opt$feature_abd , header = TRUE , check.names = FALSE )
+colnames(abd1)[1] <- "X"
+rownames(abd1) <- abd1$X
+abd2 <- select(abd1, -X)
+
+meta1 <- read.csv(file = opt$data, header = TRUE, check.names = FALSE)
+colnames(meta1)[1] <- "Y"
+rownames(meta1) <- meta1$Y
+meta2 <- select(meta1, -Y)
+
+
+
+
+
+
+
+fit_adjust_batch <- adjust_batch(feature_abd = abd2,
                                  batch = opt$batch,
                                  covariates = opt$covariates,
-                                 data = CRC_meta,
+                                 data = meta2,
                                  control = list(verbose = FALSE))
 
 
