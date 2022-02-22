@@ -17,22 +17,30 @@ option_list = list(
     )
 
 opt = parse_args(OptionParser(option_list=option_list))
-print("In the R interface*")
-print(opt)
 
-load(opt$feature_abd)
-load(opt$data)
 
 cov0 <- gsub(' ','',opt$covariates)
 cov1 <- strsplit(cov0, split = ",") 
 cov2 <- as.vector(cov1)
 cov3 <- cov2[[1]]
 
-fit_lm_meta <- lm_meta(feature_abd = CRC_abd,
+abd1 <- read.csv(file = opt$feature_abd , header = TRUE , check.names = FALSE )
+colnames(abd1)[1] <- "X"
+rownames(abd1) <- abd1$X
+abd2 <- select(abd1, -X)
+
+meta1 <- read.csv(file = opt$data, header = TRUE, check.names = FALSE)
+colnames(meta1)[1] <- "Y"
+rownames(meta1) <- meta1$Y
+meta2 <- select(meta1, -Y)
+
+
+
+fit_lm_meta <- lm_meta(feature_abd = abd2,
                        batch = opt$batch,
                        exposure = opt$exposure,
                        covariates = cov3,
-                       data = CRC_meta,
+                       data = meta2,
                        control = list(verbose = FALSE))
 
 meta_fits <- fit_lm_meta$meta_fits
