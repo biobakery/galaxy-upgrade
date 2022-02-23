@@ -5,7 +5,7 @@
         bash '$__tool_directory__/lm_meta_wrapper.sh' '$feature_abd' '$data' '$batch' '$exposure'  '$covariates' '$output1' 
             ]]></command>
     <inputs>
-                <param type="data" name="feature_abd"  label="Feature-by-sample matrix of abundances (proportions or counts)" format="csv"  />
+                <param type="data" name="feature_abd"  label="Feature-by-sample matrix of abundances (proportions or counts) - Please make sure file is formatted as in the example provided below" format="csv"  />
                 <param type="data" name="data"  label="Metadata" format="csv"  />
 
                 <param name="batch" type="text" format="text" value="studyID" label="Name of the batch variable"/>
@@ -22,16 +22,22 @@
 **MMUPHin lm_meta (Meta-analytical differential abundance testing)**
 ====================================================================
 
+One of the most common meta-analysis goals is to combine association effects across batches/studies to identify consistent overall effects. 
 
-MMUPHin is an R package implementing meta-analysis methods for microbial community profiles. It has interfaces for: a) covariate-controlled batch and study effect adjustment, b) meta-analytic differential abundance testing, and meta-analytic discovery of c) discrete (cluster-based) or d) continuous unsupervised population structure.
+lm_meta provides a straightforward interface to this task, by first performing regression analysis in individual batches/studies using the well-validated Maaslin2 package, and then aggregating results with established fixed/mixed effect models, realized via the vegan package. 
 
-Overall, MMUPHin enables the normalization and combination of multiple microbial community studies. It can then help in identifying microbes, genes, or pathways that are differential with respect to combined phenotypes. Finally, it can find clusters or gradients of sample types that reproduce consistently among studies.
+In the example provided here, we use lm_meta to test for consistently differential abundant species between CRC and control samples across the five studies, while controlling for demographic covariates (gender, age, BMI). Again, lm_meta returns a list of more than one components. meta_fits provides the final meta-analytical testing results. 
+
+See help(lm_meta) for the meaning of other components.
+
 
 
 
 
 **Inputs**
 ==========
+
+The imput files for this step are the same ones as in the first step - Adjust Batch
 
 As input, MMUPHin requires a properly formatted collection of microbial community studies, with both feature abundances and accompanying metadata. Here we use the five published colorectal cancer (CRC) stool metagenomic studies, incorporated in Thomas et al. (2019). Data for the studies are already conveniently packaged and accessible through the Biocondcutor package curatedMetagenomicData, though additional wranglings are needed to format input for MMUPHin.
 
