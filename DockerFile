@@ -8,6 +8,8 @@ conda deactivate
 . /galaxy_venv/bin/activate
 sudo apt install build-essential
 sudo apt-get install bowtie2
+apt-get install less
+apt-get install bsdmainutils
 pip install metaphlan
 pip install humann 
 pip uninstall numpy

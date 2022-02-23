@@ -1,0 +1,40 @@
+HAllA version:	0.8.20
+
+--Configuration parameters--
+  preprocess:
+    max freq thresh               : 1
+    transform funcs               : None
+    discretize bypass if possible : True
+    discretize func               : None
+    discretize num bins           : None
+  association:
+    pdist metric                  : spearman
+  hierarchy:
+    sim2dist set abs              : True
+    sim2dist func                 : None
+    linkage method                : average
+  permute:
+    iters                         : 1000
+    func                          : gpd
+    speedup                       : True
+  stats:
+    fdr alpha                     : 0.05
+    fdr method                    : fdr_bh
+    fnr thresh                    : 0.2
+    rank cluster                  : best
+  output:
+    dir                           : pouchitis_output
+    verbose                       : True
+
+--Results--
+X shape (# features, # size)                                : (229, 255)
+Y shape (# features, # size)                                : (200, 255)
+Number of significant associations                          : 268
+Number of significant clusters                              : 192
+
+--Durations--
+Loading and preprocessing data                              : 0:00:00.287519
+Computing pairwise similarities, p-values, q-values         : 0:01:18.903404
+Performing hierarchical clustering                          : 0:00:39.071089
+Finding densely associated blocks                           : 0:00:04.867011
+Total execution time                                        : 0:02:03.129024
