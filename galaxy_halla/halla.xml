@@ -1,0 +1,66 @@
+<tool id="halla" name="Halla" version="1.0.0" python_template_version="3.5">
+	<description>Hierarchical All-against-All association</description>
+    <requirements>
+    </requirements>
+
+	<command detect_errors="exit_code"><![CDATA[
+        bash '$__tool_directory__/halla_wrapper.sh' '$X' '$Y'  '$m' '$output1' '$output2'  
+            ]]></command>
+
+    <inputs>
+        <param type="data" name="X"  label="X dataset: A tab-delimited input file, one row per feature, one column per measurement" format="txt"  />
+		<param type="data" name="Y"  label="Y dataset: A tab-delimited input file, one row per feature, one column per measurement" format="txt"  />
+
+		<param name="m" type="select" format="text">
+					<label>Distance/similarity metric: spearman, pearson, dcor,mi, nmi or xicor</label>
+						<option value="spearman">spearman</option>
+						<option value="pearson">pearson</option>
+						<option value="dcor">dcor</option>	
+						<option value="mi">mi</option>	
+						<option value="nmi">nmi</option>	
+						<option value="xicor">xicor</option>						
+		</param>
+	
+    </inputs>
+    
+	<outputs>
+        	<data name="output1" format="pdf"  />
+		 	<data name="output2"  format="zip" label="Halla Output zip results - please download" />
+    </outputs>
+   <help><![CDATA[
+  
+  
+HAllA (Hierarchical All-against-All association) is a method for finding blocks of associated features in high-dimensional datasets measured from a common set of samples. 
+HAllA operates by
+
+* Optionally discretizing mixed continuous and categorical features to a uniform representation
+
+* Hierarchically clustering each dataset separately to generate a pair of data hierarchies
+
+* Performing all-against-all association testing between features across two datasets using robust measures of correlation
+
+* Determining the statistical significance of individual associations by permutation testing
+
+* Iteratively subdividing the space of significant all-against-all correlations into blocks of densely associated occurring as clusters in the original datasets.
+
+
+
+ 
+**Inputs**
+==========
+
+HAllA requires as input two tab-delimited text files representing two paired datasets (sets of features) describing the same set of samples
+
+
+**Outputs**
+===========
+ 
+
+**If you use this software, please cite:**
+==========================================
+
+Gholamali Rahnavard, Kathleen Sucipto, Lauren J. McIver, Emma Schwager,Jason Lloyd-Price, George Weingart, Yo Sup Moon, Xochitl C. Morgan, Levi Waldron, Eric A. Franzosa, Curtis Huttenhower. High-sensitivity pattern discovery in large multi'omic datasets. (huttenhower.sph.harvard.edu/halla)
+
+    ]]>
+</help>
+</tool>
