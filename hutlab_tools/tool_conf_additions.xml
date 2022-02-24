@@ -31,5 +31,5 @@
         <tool file="mmuphin/lm_meta.xml" />
   </section>
   <section id="HAllA" name="HAllA">
-	  <tool file="halla/halla.xml" />
+	  <tool file="galaxy_halla/halla.xml" />
   </section>
