@@ -6,12 +6,8 @@ output1=$4
 output2=$5
 
 Outlocation=$(mktemp -d)
-Outlocation2=$(mktemp -d)
+halla -x $X -y $Y -m $m -o halla_output
+cp halla_output/hallagram.pdf $output1
 
-halla -x $X -y $Y -m $m -o $Outlocation
-cp ${Outlocation}/hallagram.pdf $output1
-
-zip -r  $Outlocation2/Halla_Results.zip  $Outlocation
-cp  $Outlocation2/Halla_Results.zip  $output2
-
-###rm -r $Outlocation
+zip -r  $Outlocation/Halla_Results.zip halla_output
+cp  $Outlocation/halla_output/Halla_Results.zip  $output2
