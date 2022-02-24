@@ -25,7 +25,7 @@
     
 	<outputs>
         	<data name="output1" format="pdf"  />
-		 	<data name="output2"  format="zip" label="Halla Output zip results - please download" />
+	 	<data name="output2"  format="zip" label="Halla Output zip results - please download" />
     </outputs>
    <help><![CDATA[
   
@@ -44,6 +44,8 @@ HAllA operates by
 * Iteratively subdividing the space of significant all-against-all correlations into blocks of densely associated occurring as clusters in the original datasets.
 
 .. image:: https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_halla/fig1.png?raw=true 
+    :height: 600        
+    :width: 800 
 
 
  
@@ -59,6 +61,12 @@ HAllA requires as input two tab-delimited text files representing two paired dat
 .. image:: https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_halla/halla_image1.png?raw=true
     :height: 600        
     :width: 600 
+
+We provide two outputs:
+ 
+* A pdf - the "halagram.pdf"
+* A zip file containing all the files in the generated output directory
+
 
 
 **If you use this software, please cite:**
