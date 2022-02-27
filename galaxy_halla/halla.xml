@@ -4,7 +4,24 @@
     </requirements>
 
 	<command detect_errors="exit_code"><![CDATA[
-        bash '$__tool_directory__/halla_wrapper.sh' '$X' '$Y'  '$m' '$output1' '$output2'  
+        bash '$__tool_directory__/halla_wrapper.sh' 
+		'$X'
+		'$Y'
+		'$m'
+		'$output1'
+		'$output2' 
+
+
+
+        #if $str($gchoice_advanced_options.global_choice_advanced_options)  == "1":
+			$gchoice_advanced_options.fnr_thresh
+			$gchoice_advanced_options.fdr_alpha
+		#end if
+
+
+
+
+
             ]]></command>
 
     <inputs>
@@ -20,11 +37,30 @@
 						<option value="nmi">nmi</option>	
 						<option value="xicor">xicor</option>						
 		</param>
-	
+
+
+
+
+		<conditional name="gchoice_advanced_options">
+        	<param name="global_choice_advanced_options" type="select" label="Display Halla Advanced Parameters"  multiple="False" help="Select Halla advanced choices ">
+        		<option value="0" selected='True'>No</option>
+				<option value="1">Yes</option>
+        	</param>
+           	<when value="0">
+			</when>
+				<param name="fnr_thresh" type="hidden"  value=""  />
+				<param name="fnr_aplha" type="hidden"  value=""  />
+        	<when value="1">
+				<param name="fnr_thresh" type="float"     value="0.5"  min="0" max="1.0" label="FNR Threshold "/>
+				<param name="fdr_alpha"  type="float"     value="0.5"  min="0" max="1.0" label="FDR Aplha "/>
+			</when>
+    	</conditional>
+
+
     </inputs>
     
 	<outputs>
-        	<data name="output1" format="pdf"  />
+        <data name="output1" format="pdf"  />
 	 	<data name="output2"  format="zip" label="Halla Output zip results - please download" />
     </outputs>
    <help><![CDATA[
@@ -44,15 +80,26 @@ HAllA operates by
 * Iteratively subdividing the space of significant all-against-all correlations into blocks of densely associated occurring as clusters in the original datasets.
 
 .. image:: https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_halla/fig1.png?raw=true 
-    :height: 700        
-    :width: 800 
+    :height: 600        
+    :width: 700 
 
+.. _Sample_X:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_halla/X_16_100.txt
+.. _Sample_Y:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_halla/Y_16_100.txt
 
  
 **Inputs**
 ==========
 
-HAllA requires as input two tab-delimited text files representing two paired datasets (sets of features) describing the same set of samples
+HAllA requires as input two tab-delimited text files representing two paired datasets (sets of features) describing the same set of samples.
+
+Sample data is avalable using the following links:
+
+* Sample_X_
+
+* Sample_Y_
+
+Please download the files to your PC and upload them to Galaxy using the "Get Data / Upload file" in Galaxy
+
 
 
 **Outputs**
@@ -67,6 +114,9 @@ We provide two outputs:
 * A pdf - the "halagram.pdf"
 * A zip file containing all the files in the generated output directory
 
+..  _Halla_Tutorial:  https://github.com/biobakery/biobakery/wiki/halla
+..  _Halla_User_Manual: https://github.com/biobakery/halla
+..   _Halla_User_Forum: https://forum.biobakery.org/c/Downstream-analysis-and-statistics/HAllA/
 
 
 **If you use this software, please cite:**
