@@ -60,18 +60,6 @@ sudo apt-get install -y samtools
 # /galaxy-central/config/tool_conf.xml                                   #
 ##########################################################################
 
-chown -R galaxy /galaxy-central/tools/panphlan
-chgrp -R galaxy /galaxy-central/tools/panphlan
-
-chown -R galaxy /galaxy-central/tools/metaphlan
-chgrp -R galaxy /galaxy-central/tools/metaphlan
-
-chown -R galaxy /galaxy-central/tools/sparsedossa
-chgrp -R galaxy /galaxy-central/tools/sparsedossa
-
-chown -R galaxy /galaxy-central/tools/maaslin
-chgrp -R galaxy /galaxy-central/tools/maaslin
-
 
 pip install blist
 
@@ -123,6 +111,9 @@ chgrp -R galaxy /galaxy-central/tools/galaxy_graphlan
 
 chown -R galaxy /galaxy-central/tools/graphlan
 chgrp -R galaxy /galaxy-central/tools/graphlan
+  
+chgrp -R galaxy /galaxy-central/tools/waafle
+chown -R galaxy /galaxy-central/tools/waafle
 ########################################################################
 # Installation of Lefse       
 ########################################################################
@@ -136,3 +127,41 @@ python3 setup.py install
 #######################################################################
 BiocManager::install("MMUPHin")
 BiocManager::install("curatedMetagenomicData")
+#######################################################################
+#   Waafle
+#######################################################################
+pip install waafle
+mkdir /galaxy-central/tools/waafle
+wget http://huttenhower.sph.harvard.edu/waafle_data/waafledb.tar.gz -O /galaxy-central/tools/waafle/waafledb.tar.gz
+wget https://github.com/biobakery/waafle/blob/master/demo/input/demo_contigs.fna -O /galaxy-central/tools/waafle/demo_contigs.fna
+wget https://github.com/biobakery/waafle/blob/master/demo/output/demo_contigs.gff -O /galaxy-central/tools/waafle/demo_contigs.gff
+wget https://github.com/biobakery/waafle/blob/master/demo/output_prodigal/demo_contigs.prodigal.gff -O /galaxy-central/tools/waafle/demo_contigs.prodigal.gff
+###################################################################
+#   Modify ownership of tools directories
+###################################################################
+chown -R galaxy /galaxy-central/tools/panphlan
+chgrp -R galaxy /galaxy-central/tools/panphlan
+
+chown -R galaxy /galaxy-central/tools/metaphlan
+chgrp -R galaxy /galaxy-central/tools/metaphlan
+  
+chown -R galaxy /galaxy-central/tools/sparsedossa
+chgrp -R galaxy /galaxy-central/tools/sparsedossa
+
+chown -R galaxy /galaxy-central/tools/maaslin
+chgrp -R galaxy /galaxy-central/tools/maaslin
+
+chown -R galaxy /galaxy-central/tools/galaxy_graphlan
+chgrp -R galaxy /galaxy-central/tools/galaxy_graphlan
+
+chown -R galaxy /galaxy-central/tools/graphlan
+chgrp -R galaxy /galaxy-central/tools/graphlan
+
+chgrp -R galaxy /galaxy-central/tools/waafle
+chown -R galaxy /galaxy-central/tools/waafle
+
+chgrp -R galaxy /galaxy-central/tools/galaxy_halla
+chown -R galaxy /galaxy-central/tools/galaxy_halla
+
+chgrp -R galaxy /galaxy-central/tools/mmuphin
+chown -R galaxy /galaxy-central/tools/mmuphin
