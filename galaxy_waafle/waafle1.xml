@@ -6,12 +6,13 @@
 	<command detect_errors="exit_code"><![CDATA[
          waafle_search '$Input_Contigs'  
 		 '$__tool_directory__/waafledb/waafledb'
+		 --o  '$output1'
             ]]>
 	</command>
 
     <inputs>
         <param type="data" name="Input_Contigs"  label="Input Contigs (.fna file)" format="fasta"  />
-
+    </inputs>	
 	<outputs>
         <data name="output1" format="txt"  />
     </outputs>
