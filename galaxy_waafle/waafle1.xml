@@ -1,0 +1,67 @@
+<tool id="waafle" name="WAAFLE" version="1.0.0" python_template_version="3.5">
+	<description>Workflow to Annotate Assemblies and Find LGT Events</description>
+    <requirements>
+    </requirements>
+
+	<command detect_errors="exit_code"><![CDATA[
+         waafle_search '$Input_Contigs'  
+		 '$__tool_directory__/waafledb/waafledb'
+            ]]>
+	</command>
+
+    <inputs>
+        <param type="data" name="Input_Contigs"  label="Input Contigs (.fna file)" format="fasta"  />
+
+	<outputs>
+        <data name="output1" format="txt"  />
+    </outputs>
+   <help><![CDATA[
+  
+  
+WAAFLE (a Workflow to Annotate Assemblies and Find LGT Events) is a method for finding novel LGT (Lateral Gene Transfer) events in assembled metagenomes, including those from human microbiomes
+
+ 
+
+
+.. _Demo_Contigs:  https://github.com/biobakery/waafle/blob/master/demo/input/demo_contigs.fna
+
+ 
+**Inputs**
+==========
+
+Contigs should be provided as nucleotide sequences in FASTA format. Contigs are expected to have unique, BLAST-compatible headers. 
+
+WAAFLE is optimized for working with fragmentary contigs from partially assembled metagenomes (spanning 2-20 genes, or roughly 1-20 kb). WAAFLE is not optimized to work with extremely long contigs (100s of kbs), scaffolds, or closed genomes. 
+
+The WAAFLE developers recommend MEGAHIT as a general-purpose metagenomic assembler.
+
+Sample data is avalable using the following links:
+
+* Demo_Contigs_
+
+
+Please download the sample input file to your PC and upload them to Galaxy using the "Get Data / Upload file" in Galaxy
+
+Make sure you select datatype of "fasta"
+
+
+
+**Output**
+===========
+ 
+The output consists of a contigs blast outfile
+ 
+ 
+
+..  _Tutorial:  https://github.com/biobakery/biobakery/wiki/WAAFLE/
+..  _User_Manual: https://github.com/biobakery/waafle/
+..   _User_Forum: https://forum.biobakery.org/c/microbial-community-profiling/waafle/ 
+
+
+**If you use this software, please cite:**
+==========================================
+
+Tiffany Y. Hsu, Eric A. Franzosa, Dennis Wong, Chengwei Luo, Robert G. Beiko, Morgan Langille, Curtis Huttenhower. The landscape of novel lateral gene transfer events in the human microbiome. (In prep.)
+    ]]>
+</help>
+</tool>

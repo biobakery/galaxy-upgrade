@@ -33,3 +33,6 @@
   <section id="HAllA" name="HAllA">
 	  <tool file="galaxy_halla/halla.xml" />
   </section>
+ <section id="WAAFLE" name="WAAFLE">
+          <tool file="galaxy_waafle/waafle1.xml" />
+  </section>
