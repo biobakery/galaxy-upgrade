@@ -2,12 +2,13 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        bash '$__tool_directory__/mmuphin_wrapper.sh' '$feature_abd' '$batch' '$covariates' '$meta_data' '$output1' '$output2'
+        bash '$__tool_directory__/mmuphin_wrapper.sh' '$feature_abd' '$batch' '$covariates' '$meta_data' '$output1' '$output2' '$transposed_metadata'
             ]]>
     </command>
     <inputs>
                 <param type="data" name="feature_abd"  label="Feature-by-sample matrix of abundances (proportions or counts) in csv format - See format in samples below" format="csv"  />
                 <param type="data" name="meta_data"  label="Metadata - in csv format (see format in samples below)" format="csv"  />
+		<param type="data" name="transposed_metadata"  label="Transposed metadata - from Step 1" format="csv"  />
 
 		<param name="batch" type="text" format="text" value="studyID" label="Batch"/>
                 <param name="covariates" type="text" format="text" value="study_condition" label="Name(s) of covariates to adjust for in the batch correction model"/>
