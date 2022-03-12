@@ -1,10 +1,9 @@
 import sys
 import string
 import csv
-import pdb
     #############################################################
     #   Progran to read the first row of the metadata
-    #   and populate the fields in the panel 
+    #   and generate a text file from them
     #   Written by George Weingart  2022/03/10
     #############################################################
 
@@ -27,9 +26,12 @@ def get_cols(data):
     return lMetadata_Colnames
 
 
-pdb.set_trace()
-print("Program started")
 IFile = sys.argv[1]
-OFile = sys.argv[2]
+OFileName = sys.argv[2]
 lMetadata_Column_Names =  get_cols(IFile)
+OFile = open(OFileName, "w")
+for element in lMetadata_Column_Names:
+    sOutRec = element + "\n"
+    OFile.write(sOutRec)
+OFile.close()
 sys.exit(0)
