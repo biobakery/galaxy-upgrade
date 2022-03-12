@@ -1,16 +1,15 @@
 <tool id="mmuphin_adj_batch" name="Adjust batch" version="0.1.0" python_template_version="3.5">
-    <code file="mmuphin_input_selector.py"/> 
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        bash '$__tool_directory__/mmuphin_wrapper.sh' '$feature_abd' '$batch' '$covariates' '$data' '$output1' '$output2'
+        bash '$__tool_directory__/mmuphin_wrapper.sh' '$feature_abd' '$batch' '$covariates' '$meta_data' '$output1' '$output2'
             ]]>
     </command>
     <inputs>
                 <param type="data" name="feature_abd"  label="Feature-by-sample matrix of abundances (proportions or counts) in csv format - See format in samples below" format="csv"  />
-                <param type="data" name="data"  label="Metadata - in csv format (see format in samples below)" format="csv"  />
+                <param type="data" name="meta_data"  label="Metadata - in csv format (see format in samples below)" format="csv"  />
 
-		<param name="batch" label="Select the batch variable" data_ref="data" type='select' force_select="false" dynamic_options="get_row_names(data,'b')" value="1" optional="true" accept_default="false" />
+		<param name="batch" type="text" format="text" value="studyID" label="Batch"/>
                 <param name="covariates" type="text" format="text" value="study_condition" label="Name(s) of covariates to adjust for in the batch correction model"/>
 
 
