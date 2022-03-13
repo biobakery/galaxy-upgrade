@@ -9,11 +9,16 @@
                 <param type="data" name="feature_abd"  label="Feature-by-sample matrix of abundances (proportions or counts) in csv format - See format in samples below" format="csv"  />
                 <param type="data" name="meta_data"  label="Metadata - in csv format (see format in samples below)" format="csv"  />
 
-		<param name="batch" type="text" format="text" value="studyID" label="Batch"/>
+		<param name="metadata_headers" type="data"  label="Covariates"  format="tabular" help="Name(s) of covariates to adjust for in the batch correction model"/>
 
+ 		<param name="batch" type="select" optional="true" multiple="true" label="Batch - Please select from the drop down menu">
+                         <options from_dataset="metadata_headers">
+                                 <column name="name" index="0"/>
+                                <column name="value" index="0"/>
+                        </options>
+                </param>
 
-		<param name="metadata_headers" type="data"  label="Transposed metadata"  format="tabular" help="Name(s) of covariates to adjust for in the batch correction model"/>
-		<param name="covariates" type="select" optional="true" multiple="true" label="Transposed metadata options">
+		<param name="covariates" type="select" optional="true" multiple="true" label="Covariates - Please select from the drop down menu">
  		         <options from_dataset="metadata_headers">
        				 <column name="name" index="0"/>
         			<column name="value" index="0"/>
@@ -34,7 +39,6 @@
 **MMUPHin**
 ===========
 
-23:24
 
 MMUPHin is an R package implementing meta-analysis methods for microbial community profiles. It has interfaces for: a) covariate-controlled batch and study effect adjustment, b) meta-analytic differential abundance testing, and meta-analytic discovery of c) discrete (cluster-based) or d) continuous unsupervised population structure.
 
