@@ -1,24 +1,20 @@
-from galaxy import datatypes, model
 import sys
 import string
 import csv
     #############################################################
     #   Progran to read the first row of the metadata
-    #   and populate the fields in the panel 
+    #   and generate a text file from them
     #   Written by George Weingart  2022/03/10
     #############################################################
 
 
-
-
  
 
-def mmuphin_get_cols(data):
+def get_cols(data):
     if data == "":
          return []
-    fname = data.dataset.file_name
     lMetadata_Colnames = list() 
-    f = open(fname)
+    f = open(data)
     csv_reader = csv.reader(f)
     line_cntr = -1
     for line in csv_reader:
@@ -30,4 +26,12 @@ def mmuphin_get_cols(data):
     return lMetadata_Colnames
 
 
-
+IFile = sys.argv[1]
+OFileName = sys.argv[2]
+lMetadata_Column_Names =  get_cols(IFile)
+OFile = open(OFileName, "w")
+for element in lMetadata_Column_Names:
+    sOutRec = element + "\n"
+    OFile.write(sOutRec)
+OFile.close()
+sys.exit(0)
