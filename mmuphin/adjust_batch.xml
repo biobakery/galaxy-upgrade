@@ -9,7 +9,7 @@
                 <param type="data" name="feature_abd"  label="Feature-by-sample matrix of abundances (proportions or counts) in csv format - See format in samples below" format="csv"  />
                 <param type="data" name="meta_data"  label="Metadata - in csv format (see format in samples below)" format="csv"  />
 
-		<param name="metadata_headers" type="data"  label="Covariates"  format="tabular" help="Name(s) of covariates to adjust for in the batch correction model"/>
+		<param name="metadata_headers" type="data"  label="Covariates"  format="mmuphin_metadata_headers" help="Name(s) of covariates to adjust for in the batch correction model"/>
 
  		<param name="batch" type="select" optional="true" multiple="true" label="Batch - Please select from the drop down menu">
                          <options from_dataset="metadata_headers">
