@@ -9,14 +9,13 @@
 
     </inputs>
     <outputs>
-        <data name="output1"  format="tabular" label="Preprocessed metadata (Headers)" />
+        <data name="output1"  format="mmuphin_metadata_headers" label="Preprocessed metadata (Headers)" />
     </outputs>
     <help><![CDATA[
 
 
 **MMUPHin**
 ===========
-09:26
 
 MMUPHin is an R package implementing meta-analysis methods for microbial community profiles. It has interfaces for: a) covariate-controlled batch and study effect adjustment, b) meta-analytic differential abundance testing, and meta-analytic discovery of c) discrete (cluster-based) or d) continuous unsupervised population structure.
 
