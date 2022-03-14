@@ -8,10 +8,35 @@
                 <param type="data" name="feature_abd"  label="Feature-by-sample matrix of abundances (proportions or counts) - Please make sure file is formatted as in the example provided below" format="csv"  />
                 <param type="data" name="data"  label="Metadata" format="csv"  />
 
-                <param name="batch" type="text" format="text" value="studyID" label="Name of the batch variable"/>
-                <param name="exposure" type="text" format="text" value="study_condition" label="Name of the exposure variable for differential abundance testing"/>
-                <param name="covariates" type="text" format="text" value="gender,age,BMI" label="Names of covariates to adjusts - Please use format as in example: gender,age,BMI"/>
+	        <param name="metadata_headers" type="data"  label="Covariates"  format="mmuphin_metadata_headers" help="Name(s) of covariates to adjust for in the batch correction model"/>
+
+                <param name="batch" type="select" optional="false" multiple="false" label="Batch - For a sample run select StudyID">
+                         <options from_dataset="metadata_headers">
+                                 <column name="name" index="0"/>
+                                <column name="value" index="0"/>
+                        </options>
+                </param>
+		
+		<param name="exposure" type="select" optional="false" multiple="false" label="Name of the exposure variable for differential abundance testing - for sample select study_condition">
+                         <options from_dataset="metadata_headers">
+                                 <column name="name" index="0"/>
+                                <column name="value" index="0"/>
+                        </options>
+                </param>
+
+                <param name="covariates" type="select" optional="false" multiple="true" label="Names of covariates to adjust - For sample select gender,age, BMI">
+                         <options from_dataset="metadata_headers">
+                                 <column name="name" index="0"/>
+                                <column name="value" index="0"/>
+                        </options>
+                </param> 
+
+
+
+
+
     </inputs>
+
     <outputs>
         <data name="output1"  format="csv" label="Significant Species" />
     </outputs>
