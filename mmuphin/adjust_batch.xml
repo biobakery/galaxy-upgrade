@@ -11,14 +11,14 @@
 
 		<param name="metadata_headers" type="data"  label="Covariates"  format="mmuphin_metadata_headers" help="Name(s) of covariates to adjust for in the batch correction model"/>
 
- 		<param name="batch" type="select" optional="true" multiple="true" label="Batch - Please select from the drop down menu">
+ 		<param name="batch" type="select" optional="false" multiple="false" label="Batch - For a sample run select StudyID">
                          <options from_dataset="metadata_headers">
                                  <column name="name" index="0"/>
                                 <column name="value" index="0"/>
                         </options>
                 </param>
 
-		<param name="covariates" type="select" optional="true" multiple="true" label="Covariates - Please select from the drop down menu">
+		<param name="covariates" type="select" optional="false" multiple="fasle" label="Covariates - For a sample run select study_condition">
  		         <options from_dataset="metadata_headers">
        				 <column name="name" index="0"/>
         			<column name="value" index="0"/>

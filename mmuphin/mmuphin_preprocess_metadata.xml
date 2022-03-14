@@ -26,7 +26,7 @@ Overall, MMUPHin enables the normalization and combination of multiple microbial
 **Inputs**
 ==========
 
-** This step preprocesses the metadata file creating a header file to be used in the Adjust-Batch and in the Meta-Analytical differential abundance testing steps **
+**This step preprocesses the metadata file creating a header file to be used in the Adjust-Batch and in the Meta-Analytical differential abundance testing steps**
 
 As input, MMUPHin requires a properly formatted collection of microbial community studies, with both feature abundances and accompanying metadata. Here we use the five published colorectal cancer (CRC) stool metagenomic studies, incorporated in Thomas et al. (2019). Data for the studies are already conveniently packaged and accessible through the Biocondcutor package curatedMetagenomicData, though additional wranglings are needed to format input for MMUPHin.
 
