@@ -5,10 +5,10 @@
         bash '$__tool_directory__/lm_meta_wrapper.sh' '$feature_abd' '$data' '$batch' '$exposure'  '$covariates' '$output1' 
             ]]></command>
     <inputs>
-                <param type="data" name="feature_abd"  label="Feature-by-sample matrix of abundances (proportions or counts) - Please make sure file is formatted as in the example provided below" format="csv"  />
-                <param type="data" name="data"  label="Metadata" format="csv"  />
+                <param type="data" name="feature_abd"  label="Abundance Matrix - See format in samples below" format="csv"  />
+                <param type="data" name="data"  label="Metadata - See format in samples below" format="csv"  />
 
-	        <param name="metadata_headers" type="data"  label="Covariates"  format="mmuphin_metadata_headers" help="Name(s) of covariates to adjust for in the batch correction model"/>
+	        <param name="metadata_headers" type="data"  label="Metadata headers"  format="mmuphin_metadata_headers" help="Metadata Headers (Output of the first step: Preprocess_Metadata)"/>
 
                 <param name="batch" type="select" optional="false" multiple="false" label="Batch - For a sample run select StudyID">
                          <options from_dataset="metadata_headers">
@@ -47,6 +47,8 @@
 **MMUPHin lm_meta (Meta-analytical differential abundance testing)**
 ====================================================================
 
+
+
 One of the most common meta-analysis goals is to combine association effects across batches/studies to identify consistent overall effects. 
 
 lm_meta provides a straightforward interface to this task, by first performing regression analysis in individual batches/studies using the well-validated Maaslin2 package, and then aggregating results with established fixed/mixed effect models, realized via the vegan package. 
@@ -61,6 +63,9 @@ See help(lm_meta) for the meaning of other components.
 
 **Inputs**
 ==========
+
+
+**Please run the first step: Preprocess_Metadata, using as input the metadata file and use its output in the metadata_headers field**
 
 The imput files for this step are the same ones as in the first step - Adjust Batch
 
