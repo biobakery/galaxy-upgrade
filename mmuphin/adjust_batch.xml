@@ -6,10 +6,10 @@
             ]]>
     </command>
     <inputs>
-                <param type="data" name="feature_abd"  label="Feature-by-sample matrix of abundances (proportions or counts) in csv format - See format in samples below" format="csv"  />
-                <param type="data" name="meta_data"  label="Metadata - in csv format (see format in samples below)" format="csv"  />
+                <param type="data" name="feature_abd"  label="Abundance Table - See format in samples below" format="csv"  />
+                <param type="data" name="meta_data"  label="Metadata - See format in samples below" format="csv"  />
 
-		<param name="metadata_headers" type="data"  label="Covariates"  format="mmuphin_metadata_headers" help="Name(s) of covariates to adjust for in the batch correction model"/>
+		<param name="metadata_headers" type="data"  label="Metadata Headers"  format="mmuphin_metadata_headers" help="Metadata Headers (Output of the first step: Preprocess_Metadata)"/>
 
  		<param name="batch" type="select" optional="false" multiple="false" label="Batch - For a sample run select StudyID">
                          <options from_dataset="metadata_headers">
@@ -49,6 +49,8 @@ Overall, MMUPHin enables the normalization and combination of multiple microbial
 
 **Inputs**
 ==========
+
+**Please run the first step: Preprocess_Metadata, using as input the metadata file and use its output in the metadata_headers field**
 
 As input, MMUPHin requires a properly formatted collection of microbial community studies, with both feature abundances and accompanying metadata. Here we use the five published colorectal cancer (CRC) stool metagenomic studies, incorporated in Thomas et al. (2019). Data for the studies are already conveniently packaged and accessible through the Biocondcutor package curatedMetagenomicData, though additional wranglings are needed to format input for MMUPHin.
 
