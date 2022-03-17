@@ -37,8 +37,8 @@ To minimize users’ efforts in loading data to run the examples, we have proper
 adjust_batch aims to correct for technical study/batch effects in microbial feature abundances. It takes as input the feature-by-sample abundance matrix, and performs batch effect adjustment given provided batch and optional covariate variables. It returns the batch-adjusted abundance matrix. Check help(adjust_batch) for additional details and options. This figure from the paper (figure 2b) shows the desired effect of the batch adjustment: batch effects are removed, making the effect of the biological variable of interest easier to detect.
 
 
-** This step uses only the metadata **
-======================================
+**This step uses only the metadata**
+====================================
 
 .. image::  https://github.com/biobakery/galaxy-upgrade/blob/main/mmuphin/adjust_batch.png?raw=true
     :height: 800        
