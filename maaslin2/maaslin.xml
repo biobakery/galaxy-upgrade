@@ -5,8 +5,8 @@
         bash '$__tool_directory__/maaslin_wrapper.sh' '$taxonomy' '$metadata' '$output1' '$output2'
             ]]></command>
     <inputs>
-        <param type="data" name="taxonomy"  label="Input Taxonomy" format="tsv"  />
-        <param type="data" name="metadata"  label="Input Metadata" format="tsv"  />
+        <param type="data" name="taxonomy"  label="Input Taxonomy" format="maaslin2_input"  />
+        <param type="data" name="metadata"  label="Input Metadata" format="maaslin2_input"  />
     </inputs>
     <outputs>
         <data name="output1"  format="pdf" label="MaAsLin Output pdf" />
