@@ -4,4 +4,5 @@
     <datatype extension="lefse_internal_for" type="galaxy.datatypes.data:Text"  subclass="true" display_in_upload="true"/>
     <datatype extension="mmuphin_metadata_headers" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true"/>
     <datatype extension="mmuphin_input" type="galaxy.datatypes.data:mmuphin_input"  display_in_upload="true"/>
+    <datatype extension="maaslin2_input" type="galaxy.datatypes.data:Text" subclass="true"  display_in_upload="true"/>
 

@@ -41,7 +41,9 @@ The MaAsLin 2 implementation requires two inputs:
 
 You can download sample data to your computer from the following locations and then upload it to Galaxy using the Get-Data / Upload file from your computer. 
 
-**Make sure to select Type tsv**
+**Make sure to select Type maaslin2_input**
+===========================================
+
 
 * Sample_Metadata_
 
