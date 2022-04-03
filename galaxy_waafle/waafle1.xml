@@ -1,5 +1,5 @@
-<tool id="waafle" name="WAAFLE" version="1.0.0" python_template_version="3.5">
-	<description>Workflow to Annotate Assemblies and Find LGT Events</description>
+<tool id="waafle_search" name="WAAFLE Search" version="1.0.0" python_template_version="3.5">
+	<description>Light wrapper around blastn to help guide the nucleotide-level search of metagenomic contigs against a WAAFLE-formatted database</description>
     <requirements>
     </requirements>
 
