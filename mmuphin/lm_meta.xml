@@ -86,7 +86,10 @@ As an example we privide two sample files taken from colorectal cancer (CRC) sto
 
 Please download these files to your computer and use the Galaxy Get-Data / Upload file from your computer to upload these two files.
 
-Make sure you modify the default file type from "Auto detect" to  csv  
+**Make sure you modify the default file type from "Auto detect" to  mmuphin_input**
+===================================================================================
+
+
 
 ..  _CRC_Feature_Abundances:  https://github.com/biobakery/galaxy-upgrade/blob/main/mmuphin/CRC_abd.csv
 ..  _CRC_Metadata:  https://github.com/biobakery/galaxy-upgrade/blob/main/mmuphin/CRC_meta.csv

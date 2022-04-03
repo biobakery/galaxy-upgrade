@@ -5,4 +5,5 @@
     <datatype extension="mmuphin_metadata_headers" type="galaxy.datatypes.tabular:Tabular" subclass="true" />
     <datatype extension="mmuphin_input" type="galaxy.datatypes.data:Text" subclass="true"  display_in_upload="true"/>
     <datatype extension="waafle_output1" type="galaxy.datatypes.data:Text" subclass="true" />
-
+    <datatype extension="maaslin2_input" type="galaxy.datatypes.data:Text" subclass="true"  display_in_upload="true"/>
+    <datatype extension="halla_input" type="galaxy.datatypes.data:Text" subclass="true"  display_in_upload="true"/>

@@ -25,8 +25,8 @@
             ]]></command>
 
     <inputs>
-        <param type="data" name="X"  label="X dataset: A tab-delimited input file, one row per feature, one column per measurement" format="txt"  />
-		<param type="data" name="Y"  label="Y dataset: A tab-delimited input file, one row per feature, one column per measurement" format="txt"  />
+        <param type="data" name="X"  label="X dataset: A tab-delimited input file, one row per feature, one column per measurement" format="halla_input"  />
+		<param type="data" name="Y"  label="Y dataset: A tab-delimited input file, one row per feature, one column per measurement" format="halla_input"  />
 
 		<param name="m" type="select" format="text">
 					<label>Distance/similarity metric: spearman, pearson, dcor,mi, nmi or xicor</label>
@@ -100,6 +100,8 @@ Sample data is avalable using the following links:
 
 Please download the files to your PC and upload them to Galaxy using the "Get Data / Upload file" in Galaxy
 
+**When uploading the file, please make sure you modified the type from Auto-Detect to halla_input**
+===================================================================================================
 
 
 **Outputs**
