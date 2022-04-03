@@ -1,7 +1,8 @@
    <datatype extension="circl" type="galaxy.datatypes.data:Text" subclass="true" display_in_upload="true"/>
     <datatype extension="lefse" type="galaxy.datatypes.data:Text"  subclass="true" display_in_upload="true"/>
-    <datatype extension="lefse_internal_res" type="galaxy.datatypes.data:Text" subclass="true" display_in_upload="true"/>
-    <datatype extension="lefse_internal_for" type="galaxy.datatypes.data:Text"  subclass="true" display_in_upload="true"/>
-    <datatype extension="mmuphin_metadata_headers" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true"/>
-    <datatype extension="mmuphin_input" type="galaxy.datatypes.data:mmuphin_input"  display_in_upload="true"/>
+    <datatype extension="lefse_internal_res" type="galaxy.datatypes.data:Text" subclass="true" />
+    <datatype extension="lefse_internal_for" type="galaxy.datatypes.data:Text"  subclass="true"/>
+    <datatype extension="mmuphin_metadata_headers" type="galaxy.datatypes.tabular:Tabular" subclass="true" />
+    <datatype extension="mmuphin_input" type="galaxy.datatypes.data:Text" subclass="true"  display_in_upload="true"/>
+    <datatype extension="waafle_output1" type="galaxy.datatypes.data:Text" subclass="true" />
 
