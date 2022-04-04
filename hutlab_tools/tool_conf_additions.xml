@@ -37,4 +37,5 @@
  <section id="WAAFLE" name="WAAFLE">
           <tool file="galaxy_waafle/waafle1.xml" />
 	  <tool file="galaxy_waafle/waafle2.xml" />
+          <tool file="galaxy_waafle/waafle3.xml" />
   </section>
