@@ -5,9 +5,9 @@
 
 	<command detect_errors="exit_code"><![CDATA[
         waafle_orgscorer '$Input_Contigs'  '$Contigs_Blastout' '$Contigs_gff' '$__tool_directory__/waafledb_taxonomy.tsv' &&
-	cp contigs.lgt.tsv '$contigs_lgt' &&
-	cp contigs.no_lgt.tsv '$contigs_no_lgt' &&
-	cp contigs.unclassified.tsv '$contigs_unclassified' &&
+	cp *.lgt.tsv '$contigs_lgt' &&
+	cp *.no_lgt.tsv '$contigs_no_lgt' &&
+	cp *.unclassified.tsv '$contigs_unclassified' &&
 	rm *.tsv
             ]]>
 	</command>
