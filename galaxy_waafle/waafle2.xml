@@ -5,7 +5,8 @@
 
 	<command detect_errors="exit_code"><![CDATA[
         waafle_genecaller '$Contigs_Blastout' &&
-        cp contigs.gff '$output2'
+	cp *.gff '$output2' &&
+	rm *.gff
             ]]>
 	</command>
 
