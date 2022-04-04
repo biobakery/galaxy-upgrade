@@ -133,6 +133,8 @@ BiocManager::install("curatedMetagenomicData")
 pip install waafle
 mkdir /galaxy-central/tools/waafle
 wget http://huttenhower.sph.harvard.edu/waafle_data/waafledb.tar.gz -O /galaxy-central/tools/waafle/waafledb.tar.gz
+wget http://huttenhower.sph.harvard.edu/waafle_data/waafledb_taxonomy.tsv -O /galaxy-central/tools/galaxy_waafle/waafledb_taxonomy.tsv 
+
 git clone https://github.com/biobakery/waafle.git /galaxy-central/tools/  
 ###################################################################
 #   Modify ownership of tools directories
