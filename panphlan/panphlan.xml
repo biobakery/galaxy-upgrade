@@ -3,6 +3,12 @@
     <command detect_errors="exit_code"><![CDATA[
         bash '$__tool_directory__/panphlan_wrapper.sh' '$Input_File' '$pangenome' '$output1'   
             ]]></command>
+	<stdio>
+    		<exit_code range="7" level="fatal" description="Input dataset size is too large" />
+	</stdio>
+
+
+
     <inputs>
         <param type="data" name="Input_File"  label="Input" format="fastq"  />
         <param name="pangenome" type="select" format="text">
@@ -10,6 +16,8 @@
                     <option value="Eubacterium_rectale">Eubacterium_rectale</option>                              
         </param>
     </inputs>
+
+
     <outputs>
         <data name="output1"  format="tsv" label="Map Results" />
     </outputs>

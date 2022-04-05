@@ -13,3 +13,4 @@ python ${TD}/panphlan_map.py -i ${Infile} \
 cp ${Outlocation}/map_results/Results.tsv $output1
  
 rm -r $Outlocation
+exit 77
