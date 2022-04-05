@@ -7,10 +7,9 @@ Outlocation=$(mktemp -d)
 mkdir $Outlocation/map_results
 TD="/galaxy-central/tools/panphlan/panphlan"
 myFileSizeCheck=$(stat -c %s $Infile)
-Thresh=10
-#Thresh=4194304
+Thresh=4194304
 if (( $myFileSizeCheck > $Thresh )); then
-    exit 7
+    exit 9
 fi
 
 
