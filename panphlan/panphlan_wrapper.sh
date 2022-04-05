@@ -6,6 +6,8 @@ output2=$4
 Outlocation=$(mktemp -d)
 mkdir $Outlocation/map_results
 TD="/galaxy-central/tools/panphlan/panphlan"
+myFileSizeCheck=$(stat -c %s $Infile)
+echo $myFileSizeCheck
 python ${TD}/panphlan_map.py -i ${Infile} \
                          --indexes ${TD}/${Pangenome}/${Pangenome} \
                          -p ${TD}/${Pangenome}/${Pangenome}_pangenome.tsv \
