@@ -1,8 +1,7 @@
 #!/bin/bash
 Infile=$1
-Pangenome=$2
-output1=$3
-output2=$4
+output1=$2
+output2=$3
 Outlocation=$(mktemp -d)
 mkdir $Outlocation/map_results
 TD="/galaxy-central/tools/panphlan/panphlan"
@@ -11,7 +10,7 @@ Thresh=4194304
 if (( $myFileSizeCheck > $Thresh )); then
     exit 9
 fi
-
+Pangenome="Eubacterium_rectale"
 
 
 python ${TD}/panphlan_map.py -i ${Infile} \
