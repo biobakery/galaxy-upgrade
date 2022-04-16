@@ -7,7 +7,7 @@
   <section id="MaAsLin" name="MaAsLin">
         <tool file="maaslin/maaslin.xml" />
   </section>
-  <section id="PanPhlA" name="PanPhlAn">
+  <section id="PanPhlAn" name="PanPhlAn">
         <tool file="panphlan/panphlan.xml" />
   </section>
   <section id="SparseDOSSA" name="SparseDOSSA">
