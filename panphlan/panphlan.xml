@@ -1,5 +1,5 @@
 <tool id="panphlan" name="PanPhlAn" version="0.1.0" python_template_version="3.5">
-    <description>Strain level metagenomic profiling tool - PanPhlAn Mapping</description>
+    <description>PanPhlAn Mapping</description>
     <command detect_errors="exit_code"><![CDATA[
         bash '$__tool_directory__/panphlan_wrapper.sh' '$Input_File'  '$output1'   
             ]]></command>
