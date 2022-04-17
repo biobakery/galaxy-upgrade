@@ -1,0 +1,41 @@
+<tool id="humann" name="humann" version="0.1.5" python_template_version="3.5">
+    <requirements>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        humann -i $input -o . 
+    ]]></command>
+    <inputs>
+        <param type="data" name="input" />
+        <param name="PresetsForHumann" type="select" format="text">
+		<label>There are multiple bypass options that will allow you to adjust the standard workflow.</label>
+				<option value="--bypass-translated-search">--bypass-translated-search</option>
+				<option value="--bypass-nucleotide-search">--bypass-nucleotide-search</option>
+				<option value="--bypass-prescreen">--bypass-prescreen</option>
+				<option value="--taxonomic-profile bugs_list.tsv">--taxonomic-profile bugs_list.tsv</option>
+				 <option value="--bypass-nucleotide-index">--bypass-nucleotide-index</option>
+		</param>		
+    </inputs>
+    <outputs>
+        <data name="output" format="tabular" />
+    </outputs>
+    <help><![CDATA[
+        HUMAnN is a pipeline for efficiently and accurately profiling the presence/absence and abundance of microbial pathways in a community from metagenomic or metatranscriptomic sequencing data (typically millions of short DNA/RNA reads). This process, referred to as functional profiling, aims to describe the metabolic potential of a microbial community and its members. More generally, functional profiling answers the question "What are the microbes in my community-of-interest doing (or capable of doing)?"
+
+#### Features
+1. Community functional profiles stratified by known and unclassified organisms
+- MetaPhlAn and ChocoPhlAn pangenome database are used to facilitate fast, accurate, and organism-specific functional profiling
+- Organisms included are Archaea, Bacteria, Eukaryotes, and Viruses
+
+2. Considerably expanded databases of genomes, genes, and pathways
+- UniRef database provides gene family definitions
+MetaCyc provides pathway definitions by gene family
+MinPath is run to identify the set of minimum pathways
+
+3. A simple user interface (single command driven flow)
+- The user only needs to provide a quality-controlled metagenome or metatranscriptome
+
+4. Accelerated mapping of reads to reference databases (including run-time generated databases tailored to the input)
+- Bowtie2 is run for accelerated nucleotide-level searches
+- Diamond is run for accelerated translated searches
+    ]]></help>
+</tool>
