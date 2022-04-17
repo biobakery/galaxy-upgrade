@@ -1,4 +1,4 @@
-<tool id="mmuphin_lm_meta" name="Meta-analytical differential abundance testing" version="0.1.0" python_template_version="3.5">
+<tool id="mmuphin_lm_meta" name="c.)Differential abundance testing" version="0.1.0" python_template_version="3.5">
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[

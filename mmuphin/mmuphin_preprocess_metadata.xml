@@ -1,4 +1,4 @@
-<tool id="mmuphin_preprocess_metadata" name="Preprocess_Metadata" version="0.1.0" python_template_version="3.5">
+<tool id="mmuphin_preprocess_metadata" name="a.) Preprocess_Metadata" version="0.1.0" python_template_version="3.5">
     <requirements>
     </requirements>
 
@@ -26,7 +26,7 @@ Overall, MMUPHin enables the normalization and combination of multiple microbial
 **Inputs**
 ==========
 
-**This step preprocesses the metadata file creating a header file to be used in the Adjust-Batch and in the Meta-Analytical differential abundance testing steps**
+**The objective of this step is to  preprocesses the metadata file creating a header file to be used in the Adjust-Batch and in the Meta-Analytical differential abundance testing steps**
 
 **Please upload the metadata and select type=mmuphin_input**
 ============================================================
