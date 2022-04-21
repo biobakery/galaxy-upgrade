@@ -1,4 +1,4 @@
-<tool id="humann" name="humann" version="0.1.5" python_template_version="3.5">
+<tool id="HUMAnN" name="HUMAnN" version="0.1.5" python_template_version="3.5">
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
@@ -47,6 +47,44 @@ MinPath is run to identify the set of minimum pathways
 - Bowtie2 is run for accelerated nucleotide-level searches
 - Diamond is run for accelerated translated searches
 
+
+**Workflow by input file type:**
+================================
+There are four different types of files that can be provided as input to HUMAnN 3.0 . 
+
+By default HUMAnN 3.0 will determine the type of the file. As shown in the figure below, the type of input file will determine where HUMAnN 3.0 will start the workflow. Files of type 2, 3, and 4 will begin the workflow after the alignment steps.
+
+
+
+**File Types:**
+===============
+
+
+* File Type 1 (a quality-controlled metagenome or metatranscriptome)
+    1. fastq (fastq.gz)
+    2. fasta (fasta.gz)
+
+
+* File Type 2 (alignment results type 1)
+    1. sam
+    2. bam
+
+
+* File Type 3 (alignment results type 2)
+    1. blast-like tsv
+
+
+* File Type 4 (gene table)
+    1. tsv
+
+
+
+**Citation**
+============
+
+If you use HUMAnN 3.0 in your work, please cite the HUMAnN 3.0 paper:
+
+Francesco Beghini, Lauren J McIver, Aitor Blanco-Mìguez, Leonard Dubois, Francesco Asnicar, Sagun Maharjan, Ana Mailyan, Andrew Maltez Thomas, Paolo Manghi, Mireia Valles-Colomer, George Weingart, Yancong Zhang, Moreno Zolfo, Curtis Huttenhower, Eric A Franzosa, Nicola Segata 
 
     ]]></help>
 </tool>

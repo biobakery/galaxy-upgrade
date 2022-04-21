@@ -1,4 +1,4 @@
-  <section id="humann" name="humann">
+  <section id="HUMAnN" name="HUMAnN">
      <tool file="humann/humann.xml" />
   </section>
   <section id="MetaPhLan" name="MetaPhLan">
