@@ -21,7 +21,16 @@
     <help><![CDATA[
         HUMAnN is a pipeline for efficiently and accurately profiling the presence/absence and abundance of microbial pathways in a community from metagenomic or metatranscriptomic sequencing data (typically millions of short DNA/RNA reads). This process, referred to as functional profiling, aims to describe the metabolic potential of a microbial community and its members. More generally, functional profiling answers the question "What are the microbes in my community-of-interest doing (or capable of doing)?"
 
-#### Features
+
+.. image:: https://raw.githubusercontent.com/biobakery/biobakery/master/images/humann3demo-plot2-2021.png
+    :height: 500        
+    :width: 600 	
+
+**Features**
+============
+
+
+
 1. Community functional profiles stratified by known and unclassified organisms
 - MetaPhlAn and ChocoPhlAn pangenome database are used to facilitate fast, accurate, and organism-specific functional profiling
 - Organisms included are Archaea, Bacteria, Eukaryotes, and Viruses
@@ -37,5 +46,7 @@ MinPath is run to identify the set of minimum pathways
 4. Accelerated mapping of reads to reference databases (including run-time generated databases tailored to the input)
 - Bowtie2 is run for accelerated nucleotide-level searches
 - Diamond is run for accelerated translated searches
+
+
     ]]></help>
 </tool>
