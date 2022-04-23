@@ -2,11 +2,25 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        bash '$__tool_directory__/maaslin_wrapper.sh' '$taxonomy' '$metadata' '$output1' '$output2'
+        outlocation=$(mktemp -d) &&
+        outlocation2=$(mktemp -d) &&      
+        Rscript /galaxy-central/tools/maaslin/Maaslin2/R/Maaslin2.R $taxonomy $metadata $outlocation 
+        --transform=AST 
+        --fixed_effects="diagnosis,dysbiosisnonIBD;dysbiosisUC,dysbiosisCD;antibiotics,age" 
+        --random_effects="site,subject" 
+        --normalization=NONE  
+        --standardize=FALSE 
+        --reference="diagnosis,nonIBD" &&
+        cp Rplots.pdf $output1 &&
+        zip -r  $outlocation2/Maaslin2_Results.zip  $outlocation &&
+        cp  $outlocation2/Maaslin2_Results.zip  $output2 &&
+        rm -r $outlocation &&
+        rm -r $outlocation2
             ]]></command>
     <inputs>
         <param type="data" name="taxonomy"  label="Input Taxonomy" format="maaslin2_input"  />
         <param type="data" name="metadata"  label="Input Metadata" format="maaslin2_input"  />
+        <param name="MIN_ABUNDANCE" type="integer" size="4" value="0" min="0" label ="Minimum abundance for each feature "/>
     </inputs>
     <outputs>
         <data name="output1"  format="pdf" label="MaAsLin Output pdf" />
