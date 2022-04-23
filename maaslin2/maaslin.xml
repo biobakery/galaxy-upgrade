@@ -2,8 +2,8 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        bash outlocation=$(mktemp -d) &&
-        outlocation2=$(mktemp -d) &&      
+        bash mkdir o1 &&
+        mkdir o2 &&      
         Rscript /galaxy-central/tools/maaslin/Maaslin2/R/Maaslin2.R $taxonomy $metadata $outlocation 
         --transform=AST 
         --fixed_effects="diagnosis,dysbiosisnonIBD;dysbiosisUC,dysbiosisCD;antibiotics,age" 
@@ -11,11 +11,9 @@
         --normalization=NONE  
         --standardize=FALSE 
         --reference="diagnosis,nonIBD" &&
-        cp Rplots.pdf $output1 &&
-        zip -r  $outlocation2/Maaslin2_Results.zip  $outlocation &&
-        cp  $outlocation2/Maaslin2_Results.zip  $output2 &&
-        rm -r $outlocation &&
-        rm -r $outlocation2
+        cp Rplots.pdf $o1 &&
+        zip -r  o2/Maaslin2_Results.zip  o1 &&
+        cp  o2/Maaslin2_Results.zip  $output2 
             ]]></command>
     <inputs>
         <param type="data" name="taxonomy"  label="Input Taxonomy" format="maaslin2_input"  />
