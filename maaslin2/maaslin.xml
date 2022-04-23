@@ -2,7 +2,7 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        bash mkdir o1 &&
+        mkdir o1 &&
         mkdir o2 &&      
         Rscript /galaxy-central/tools/maaslin/Maaslin2/R/Maaslin2.R $taxonomy $metadata $outlocation 
         --transform=AST 
