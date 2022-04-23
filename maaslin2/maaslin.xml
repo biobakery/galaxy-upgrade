@@ -4,14 +4,14 @@
     <command detect_errors="exit_code"><![CDATA[
         mkdir o1 &&
         mkdir o2 &&      
-        Rscript /galaxy-central/tools/maaslin/Maaslin2/R/Maaslin2.R $taxonomy $metadata $outlocation 
+        Rscript /galaxy-central/tools/maaslin/Maaslin2/R/Maaslin2.R $taxonomy $metadata o2 
         --transform=AST 
         --fixed_effects="diagnosis,dysbiosisnonIBD;dysbiosisUC,dysbiosisCD;antibiotics,age" 
         --random_effects="site,subject" 
         --normalization=NONE  
         --standardize=FALSE 
         --reference="diagnosis,nonIBD" &&
-        cp Rplots.pdf $o1 &&
+        cp Rplots.pdf o1 &&
         zip -r  o2/Maaslin2_Results.zip  o1 &&
         cp  o2/Maaslin2_Results.zip  $output2 
             ]]></command>
@@ -33,6 +33,10 @@ MaAsLin2 provides a comprehensive multi-model system for performing multivariabl
 taxonomic, functional, or metabolomic - with analysis modules for preprocessing, normalization, transformation,
 and data-driven statistical modeling to tackle the challenges of microbial multi-omics (compositionality, overdispersion,
 zero-inflation, variable library size and high-dimensionality.
+
+
+**123456**
+==========
 
 
 **Inputs**
