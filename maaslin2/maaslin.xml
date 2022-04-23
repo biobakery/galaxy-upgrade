@@ -12,7 +12,8 @@
         --reference="diagnosis,nonIBD" &&
         cp Rplots.pdf $output1 &&
         zip -r  Maaslin2_Results.zip  o2 &&
-        cp  o2/Maaslin2_Results.zip  $output2 
+        cp  o2/Maaslin2_Results.zip  $output2  &&
+	rm -r o2
             ]]></command>
     <inputs>
         <param type="data" name="taxonomy"  label="Input Taxonomy" format="maaslin2_input"  />
