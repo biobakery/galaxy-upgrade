@@ -12,7 +12,7 @@
         --reference="diagnosis,nonIBD" &&
         cp Rplots.pdf $output1 &&
         zip -r  Maaslin2_Results.zip  o2 &&
-        cp  o2/Maaslin2_Results.zip  $output2  &&
+        cp  Maaslin2_Results.zip  $output2  &&
 	rm -r o2
             ]]></command>
     <inputs>
@@ -35,7 +35,7 @@ and data-driven statistical modeling to tackle the challenges of microbial multi
 zero-inflation, variable library size and high-dimensionality.
 
 
-**cc123456**
+**dd123456**
 ============
 
 
