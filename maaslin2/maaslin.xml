@@ -4,12 +4,6 @@
     <command detect_errors="exit_code"><![CDATA[
         mkdir maaslin_output &&      
         Rscript /galaxy-central/tools/maaslin/Maaslin2/R/Maaslin2.R $taxonomy $metadata maaslin_output 
-        --transform=AST 
-        --fixed_effects="diagnosis,dysbiosisnonIBD;dysbiosisUC,dysbiosisCD;antibiotics,age" 
-        --random_effects="site,subject" 
-        --normalization=NONE  
-        --standardize=FALSE 
-        --reference="diagnosis,nonIBD" 
         #if $str($gchoice_additional_analysis_types.global_additional_analysis_types)  == "1":
             -a $gchoice_additional_analysis_types.MIN_ABUNDANCE
 			-p $gchoice_additional_analysis_types.MIN_PREVALENCE		
@@ -21,6 +15,12 @@
             -i $gchoice_additional_analysis_types.HEATMAP_FIRST_N
             -g $gchoice_additional_analysis_types.MAX_PNGS
 		#end if
+        --transform=AST 
+        --fixed_effects="diagnosis,dysbiosisnonIBD;dysbiosisUC,dysbiosisCD;antibiotics,age" 
+        --random_effects="site,subject" 
+        --normalization=NONE  
+        --standardize=FALSE 
+        --reference="diagnosis,nonIBD" 
         &&
         cp Rplots.pdf $output1 &&
         zip -r  Maaslin2_Results.zip  maaslin_output &&
