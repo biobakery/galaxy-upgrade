@@ -9,6 +9,17 @@
         --random_effects="site,subject" 
         --normalization=NONE  
         --standardize=FALSE 
+        #if $str($gchoice_additional_analysis_types.global_additional_analysis_types)  == "1":
+            -a $gchoice_additional_analysis_types.MIN_ABUNDANCE
+			-p $gchoice_additional_analysis_types.MIN_PREVALENCE		
+			-b $gchoice_additional_analysis_types.MIN_VARIANCE
+            -n $gchoice_additional_analysis_types.NORMALIZATION	
+            -t $gchoice_additional_analysis_types.TRANSFORM	
+            -m $gchoice_additional_analysis_types.ANALYSIS_METHOD
+            -c $gchoice_additional_analysis_types.CORRECTION
+            -i $gchoice_additional_analysis_types.HEATMAP_FIRST_N
+            -g $gchoice_additional_analysis_types.MAX_PNGS
+		#end if
         --reference="diagnosis,nonIBD" &&
         cp Rplots.pdf $output1 &&
         zip -r  Maaslin2_Results.zip  o2 &&
@@ -16,9 +27,53 @@
 	rm -r o2
             ]]></command>
     <inputs>
-        <param type="data" name="taxonomy"  label="Input Taxonomy" format="maaslin2_input"  />
-        <param type="data" name="metadata"  label="Input Metadata" format="maaslin2_input"  />
-        <param name="MIN_ABUNDANCE" type="integer" size="4" value="0" min="0" label ="Minimum abundance for each feature "/>
+        <param type="data" name="taxonomy"  label="Input Taxonomy" format="maaslin_input"  />
+        <param type="data" name="metadata"  label="Input Metadata" format="maaslin_input"  />
+
+        <conditional name="gchoice_additional_analysis_types">
+        	<param name="global_additional_analysis_types" type="select" label="Display additional analysis types and arguments advanced parameters"  multiple="False" help="Select additional analysis types and argument advanced choices ">
+        		<option value="0" selected='True'>No</option>
+				<option value="1">Yes</option>
+        	</param>
+           	<when value="0">
+ 				<param name="Analysis_Type" type="hidden"  value=""  />
+			</when>
+
+        	<when value="1">
+				<param name="MIN_ABUNDANCE" type="integer" size="4" value="0" min="0" label ="Minimum abundance for each feature "/>
+				<param name="MIN_PREVALENCE" type="float" size="4" value="0.1"  label ="The minimum percent of samples for which a feature is detected at minimum abundance "/>
+				<param name="MIN_VARIANCE" type="integer" size="4" value="0" label ="Keep features with variances greater than value  "/>
+				<param name="MAX_SIGNIFICANCE" type="float" size="4" value="0.25"  label ="The q-value threshold for significance "/>
+                <param name="NORMALIZATION" type="select" value="TSS" format="text" >
+					<label>The normalization method to apply </label>
+						<option value="TSS">TSS</option>
+						<option value="CLR">CLR</option>
+                        <option value="CSS">CSS</option>
+                        <option value="NONE">NONE</option>
+                        <option value="TMM">TMM</option>
+				</param>
+	            <param name="TRANSFORM" type="select" value="LOG" format="text" >
+					<label>The transform method to apply </label>
+						<option value="LOG">LOG</option>
+						<option value="LOGIT">LOGIT</option>
+                        <option value="AST">AST</option>
+                        <option value="NONE">NONE</option>
+				</param>
+	            <param name="ANALYSIS_METHOD" type="select" value="LM" format="text" >
+					<label>The analysis method to apply </label>
+						<option value="LM">LM</option>
+						<option value="CPLM">CPLM</option>
+                        <option value="NEGBIN">NEGBIN</option>
+                        <option value="ZINB">ZINB</option>
+				</param>
+                <param name="CORRECTION" label="The correction method for computing  the q-value"  value="BH" type="text" format="text"/>
+				<param name="HEATMAP_FIRST_N" type="integer" size="4" value="50" label ="In heatmap, plot top N features with significant  associations  "/>
+				<param name="MAX_PNGS" type="integer" size="4" value="10" label ="The maximum number of scatterplots for signficant  associations to save as png files "/>
+
+			</when>
+    	</conditional>
+
+
     </inputs>
     <outputs>
         <data name="output1"  format="pdf" label="MaAsLin Output pdf" />
@@ -35,7 +90,7 @@ and data-driven statistical modeling to tackle the challenges of microbial multi
 zero-inflation, variable library size and high-dimensionality.
 
 
-**dd123456**
+**ee123456**
 ============
 
 
