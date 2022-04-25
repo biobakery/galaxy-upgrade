@@ -1,23 +1,3 @@
-  <section id="HUMAnN" name="HUMAnN">
-     <tool file="humann/humann.xml" />
-  </section>
-  <section id="MetaPhLan" name="MetaPhLan">
-        <tool file="metaphlan/metaphlan.xml" />
-  </section>
-  <section id="MaAsLin" name="MaAsLin">
-        <tool file="maaslin/maaslin.xml" />
-  </section>
-  <section id="PanPhlAn" name="PanPhlAn">
-        <tool file="panphlan/panphlan.xml" />
-  </section>
-  <section id="SparseDOSSA" name="SparseDOSSA">
-        <tool file="sparsedossa/sparsedossa.xml" />
-  </section>
-  <section name="GraPhlAn" id="graphlan">
-    <tool file="galaxy_graphlan/graphlan_annotate.xml" />
-    <tool file="galaxy_graphlan/graphlan_ring_annotate.xml" />
-    <tool file="galaxy_graphlan/graphlan.xml" />
-  </section>
   <section name="LEfSe" id="lefse">
    <tool file="galaxy_lefse/format_input.xml" />
    <tool file="galaxy_lefse/run_lefse.xml" />
@@ -26,16 +6,37 @@
    <tool file="galaxy_lefse/plot_single_feature.xml" />
    <tool file="galaxy_lefse/plot_features.xml" />
   </section>
-  <section id="MMUPHin" name="MMUPHin">
+  <section name="GraPhlAn" id="graphlan">
+    <tool file="galaxy_graphlan/graphlan_annotate.xml" />
+    <tool file="galaxy_graphlan/graphlan_ring_annotate.xml" />
+    <tool file="galaxy_graphlan/graphlan.xml" />
+  </section>
+  <section id="MetaPhLan" name="MetaPhLan">
+        <tool file="metaphlan/metaphlan.xml" />
+  </section>
+  <section id="MaAsLin" name="MaAsLin">
+        <tool file="maaslin/maaslin.xml" />
+  </section>
+ <section id="HUMAnN" name="HUMAnN">
+     <tool file="humann/humann.xml" />
+  </section>
+  <section id="PanPhlAn" name="PanPhlAn">
+        <tool file="panphlan/panphlan.xml" />
+  </section>
+  <section id="SparseDOSSA" name="SparseDOSSA">
+        <tool file="sparsedossa/sparsedossa.xml" />
+  </section>
+   <section id="MMUPHin" name="MMUPHin">
          <tool file="mmuphin/mmuphin_preprocess_metadata.xml" />
         <tool file="mmuphin/adjust_batch.xml" />
         <tool file="mmuphin/lm_meta.xml" />
   </section>
   <section id="HAllA" name="HAllA">
-	  <tool file="galaxy_halla/halla.xml" />
+          <tool file="galaxy_halla/halla.xml" />
   </section>
  <section id="WAAFLE" name="WAAFLE">
           <tool file="galaxy_waafle/waafle1.xml" />
-	  <tool file="galaxy_waafle/waafle2.xml" />
+          <tool file="galaxy_waafle/waafle2.xml" />
           <tool file="galaxy_waafle/waafle3.xml" />
   </section>
+
