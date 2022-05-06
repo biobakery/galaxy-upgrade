@@ -3,9 +3,9 @@
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
         Rscript '$__tool_directory__/sparsedossa_wrapper.R' 
-        '$template' 
-        $samples' 
-        $features' && 
+        $template 
+        $samples 
+        $features && 
         cp simulated_data.csv ${output1} &&
         cp simulated_matrices.csv ${output2} &&
         cp Simulation.RData ${output3}
