@@ -2,7 +2,16 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        bash '$__tool_directory__/sparsedossa_wrapper.sh' '$template' '$samples' '$features' '$output1' '$output2' '$output3'
+        bash  Rscript '$__tool_directory__/sparsedossa_wrapper.R' 
+        '$template' 
+        '$samples' 
+        '$features' 
+        '$output1' 
+        '$output2' 
+        '$output3' &&
+        cp simulated_data.csv ${output1} &&
+        cp simulated_matrices.csv ${output2} &&
+        cp Simulation.RData ${output3}
             ]]></command>
     <inputs>
                 <param name="template" type="select" format="text" >
