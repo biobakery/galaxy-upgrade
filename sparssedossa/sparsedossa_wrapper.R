@@ -1,24 +1,27 @@
 library("optparse")
 library('SparseDOSSA2')
-option_list = list(
-    make_option(c("--template"), action="store", default="Stool", type='character',
-              help="Template name"),
-    make_option(c("--n_sample"), type = "integer", default = 100,
-            help = "Number of samples [default %default]",
-            metavar = "number"),
-    make_option(c("--n_feature"), type = "integer", default = 100,
-            help = "Number of features [default %default]",
-            metavar = "number")
-)
+myargs = commandArgs(trailingOnly=TRUE)
 
-opt = parse_args(OptionParser(option_list=option_list))
-browser()
+ns <- as.numeric(myargs[2])
+nf <- as.numeric(myargs[3])
 
 
-Simulation_Results_List  <- SparseDOSSA2(template = opt$template,
-                                 n_sample = opt$n_sample,
-                                 n_feature = opt$n_feature,
-                                 verbose = TRUE)
+
+
+
+Simulation_Results_List<-SparseDOSSA2(
+        template = myargs[1],
+        n_sample = ns,
+        new_features = TRUE,
+        n_feature = nf,
+        spike_metadata = "none",
+        metadata_effect_size = 1,
+        perc_feature_spiked_metadata = 0.05,
+        metadata_matrix = NULL,
+        median_read_depth = 50000,
+        verbose = TRUE
+      )
+
 
 lNames <- names(Simulation_Results_List)
 
@@ -28,6 +31,6 @@ for(i in 1:2) {
     Output_FileName <- paste(Output_FileName,sep="")
     write.csv(df ,Output_FileName)
                 }
-Simulation_Results_FileName <- paste(Simulation.RData",sep="")
+Simulation_Results_FileName <- paste("Simulation.RData",sep="")
 
 save(Simulation_Results_List,file=Simulation_Results_FileName)
