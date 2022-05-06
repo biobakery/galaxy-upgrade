@@ -1,17 +1,18 @@
 library("optparse")
 library('SparseDOSSA2')
 option_list = list(
-    make_option(c("-t", "--template"), action="store", default="Stool", type='character',
+    make_option(c("--template"), action="store", default="Stool", type='character',
               help="Template name"),
-    make_option(c("-s", "--n_sample"), type = "integer", default = 100,
+    make_option(c("--n_sample"), type = "integer", default = 100,
             help = "Number of samples [default %default]",
             metavar = "number"),
-    make_option(c("-f", "--n_feature"), type = "integer", default = 100,
+    make_option(c("--n_feature"), type = "integer", default = 100,
             help = "Number of features [default %default]",
             metavar = "number")
 )
 
 opt = parse_args(OptionParser(option_list=option_list))
+browser()
 
 
 Simulation_Results_List  <- SparseDOSSA2(template = opt$template,
