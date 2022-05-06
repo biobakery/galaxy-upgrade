@@ -2,7 +2,7 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        bash  Rscript '$__tool_directory__/sparsedossa_wrapper.R' 
+        Rscript '$__tool_directory__/sparsedossa_wrapper.R' 
         '$template' 
         '$samples' 
         '$features' 
