@@ -2,23 +2,24 @@ library("optparse")
 library('SparseDOSSA2')
 myargs = commandArgs(trailingOnly=TRUE)
 
-ns <- as.numeric(myargs[2])
-nf <- as.numeric(myargs[3])
-
-
-
+p_template <- myargs[1]
+p_ns <- as.numeric(myargs[2])
+p_nf <- as.numeric(myargs[3])
+p_metadata_effect_size <-  as.numeric(myargs[4])
+p_perc_feature_spiked_metadata <- as.double(myargs[5])
+p_median_read_depth <- as.numeric(myargs[6])
 
 
 Simulation_Results_List<-SparseDOSSA2(
-        template = myargs[1],
-        n_sample = ns,
+        template = p_template,
+        n_sample = p_ns,
         new_features = TRUE,
-        n_feature = nf,
+        n_feature = p_nf,
         spike_metadata = "none",
-        metadata_effect_size = 1,
-        perc_feature_spiked_metadata = 0.05,
+        metadata_effect_size = p_metadata_effect_size,
+        perc_feature_spiked_metadata = p_perc_feature_spiked_metadata,
         metadata_matrix = NULL,
-        median_read_depth = 50000,
+        median_read_depth = p_median_read_depth,
         verbose = TRUE
       )
 
