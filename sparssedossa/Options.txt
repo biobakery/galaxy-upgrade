@@ -1,0 +1,102 @@
+SparseDOSSA2           package:SparseDOSSA2            R Documentation
+
+Simulate synthetic microbial abundance observations with SparseDOSSA2
+
+Description:
+
+     ‘SparseDOSSA2’ generates synthetic microbial abundance
+     observations from either pre-trained template, or user-provided
+     fitted results from ‘fit_SparseDOSSA2’ or ‘fitCV_SparseDOSSA2’.
+     Additional options are available for simulating associations
+     between microbial features and metadata variables.
+
+Usage:
+
+     SparseDOSSA2(
+       template = "Stool",
+       n_sample = 100,
+       new_features = TRUE,
+       n_feature = 100,
+       spike_metadata = "none",
+       metadata_effect_size = 1,
+       perc_feature_spiked_metadata = 0.05,
+       metadata_matrix = NULL,
+       median_read_depth = 50000,
+       verbose = TRUE
+     )
+     
+Arguments:
+template: can be 1) a character string (‘"Stool"’, ‘"Vaginal"’, or
+          ‘"IBD"’) indicating one of the pre-trained templates in
+          SparseDOSSA2, or 2) user-provided, fitted results. In the
+          latter case this should be an output from ‘fit_SparseDOSSA2’
+          or ‘fitCV_SparseDOSSA2’.
+
+n_sample: number of samples to simulate
+
+new_features: ‘TRUE’/‘FALSE’ indicator for whether or not new features
+          should be simulated. If ‘FALSE’ then the same set of features
+          in ‘template’ will be simulated.
+
+n_feature: number of features to simulate. Only relevant when
+          ‘new_features’ is ‘TRUE’
+
+spike_metadata: for metadata spike-in configurations. Must be one of
+          two things: a) ,
+
+            • a character string of ‘"none"’, ‘"both"’ ‘"abundance"’,
+              or ‘"prevalence"’, indicating whether or not association
+              with metadata will be spiked in. For the spiked-in case,
+              it indicates if features' abundance/prevalence/both
+              characteristics will be associated with metadata (also
+              see explanations for ‘metadata_effect_size’ and
+              ‘perc_feature_spiked_metadata’)
+
+            • a data.frame for detailed spike-in configurations. This
+              is the more advanced approach, where detailed
+              specification for metadata-microbial feature associations
+              are provided. Note: if ‘spike_metadata’ is provided as a
+              data.frame, then ‘metadata_matrix’ must be provided as
+              well (cannot be generated automatically). In this case,
+              ‘spike_metadata’ must have exactly four columns:
+              ‘metadata_datum’, ‘feature_spiked’,
+              ‘associated_property’, and ‘effect_size’. Each row of the
+              data.frame configures one specific metadata-microbe
+              association. Specifically:
+                • ‘metadata_datum’ (integer) indicates the column
+                  number for the metadata variable to be associated
+                  with the microbe
+
+                • ‘feature_spiked’ (character) indicates the microbe
+                  name to be associated with the metadata variable
+
+                • ‘associated_property’ (character, either
+                  ‘"abundance"’ or ‘"prevalence"’), indicating the
+                  property of the microbe to be modified. If you want
+                  the microbe to be associated with the metadata
+                  variable in both properties, include two rows in
+                  ‘spike_metadata’, one for abundance and one for
+                  prevalence
+
+                • ‘effect_size’ (numeric) indicating the strength of
+                  the association.  This corresponds to log fold change
+                  in non-zero abundance for ‘"abundance"’ spike-in, and
+                  log odds ratio for ‘"prevalence"’ spike-in
+metadata_effect_size: (for when ‘spike_metadata’ is ‘"abundance"’,
+          ‘"prevalence"’, or ‘"both"’) effect size of the spiked-in
+          associations. This is non-zero log fold change for abundance
+          spike-in, and log odds ratio for prevalence spike-in
+
+perc_feature_spiked_metadata: (for when ‘spike_metadata’ is
+          ‘"abundance"’, ‘"prevalence"’, or ‘"both"’) percentage of
+          features to be associated with metadata
+
+metadata_matrix: the user can provide a metadata matrix to use for
+          spiking-in of feature abundances. If using default (‘NULL’)
+          two variables will be generated: one continous, and a binary
+          one of balanced cases and controls. Note: if ‘spike_metadata’
+          is provided as a data.frame, then the user must provide
+          ‘metadata_matrix’ too
+median_read_depth: targeted median per-sample read depth
+
+ verbose: whether detailed information should be printed

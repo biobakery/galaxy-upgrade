@@ -5,10 +5,16 @@
         Rscript '$__tool_directory__/sparsedossa_wrapper.R' 
         $template 
         $samples 
-        $features && 
+        $features
+        $metadata_effect_size 
+        $perc_feature_spiked_metadata
+        $median_read_depth && 
         cp simulated_data.csv ${output1} &&
         cp simulated_matrices.csv ${output2} &&
-        cp Simulation.RData ${output3}
+        cp Simulation.RData ${output3} &&
+        rm simulated_data.csv &&
+        rm simulated_matrices.csv &&
+        rm  Simulation.RData
             ]]></command>
     <inputs>
                 <param name="template" type="select" format="text" >
@@ -18,6 +24,10 @@
                 </param>
         <param name="samples" type="integer" size="4"   value="100" label="Number of required samples  "/>
         <param name="features" type="integer" size="4"   value="100" label="Number of required features  "/>
+        <param name="metadata_effect_size" type="integer" size="4"   value="1" label="Effect size of the spiked-in associations "/>
+        <param name="perc_feature_spiked_metadata" type="float" size="4"   value="0.05" label="Percent features to be associated with metadata  "/>
+        <param name="median_read_depth" type="integer" size="4"   value="50000" label="Targeted median per-sample read depth  "/>
+
     </inputs>
     <outputs>
         <data name="output1"  format="csv" label="Simulated Data" />
