@@ -8,7 +8,8 @@
         $features
         $metadata_effect_size 
         $perc_feature_spiked_metadata
-        $median_read_depth && 
+        $median_read_depth 
+        $spike_metadata && 
         cp simulated_data.csv ${output1} &&
         cp simulated_matrices.csv ${output2} &&
         cp Simulation.RData ${output3} &&
@@ -27,6 +28,12 @@
         <param name="metadata_effect_size" type="integer" size="4"   value="1" label="Effect size of the spiked-in associations "/>
         <param name="perc_feature_spiked_metadata" type="float" size="4"   value="0.05" label="Percent features to be associated with metadata  "/>
         <param name="median_read_depth" type="integer" size="4"   value="50000" label="Targeted median per-sample read depth  "/>
+        <param name="spike_metadata" type="select" label="Metadata spike-in configurations options"  multiple="False" help="Select one of the drop down options ">
+        		<option value="none" selected='True'>none</option>
+				<option value="both">both</option>
+                <option value="abundance">abundance</option>
+                <option value="prevalence">prevalence</option>
+        </param>
 
     </inputs>
     <outputs>
