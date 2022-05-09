@@ -28,11 +28,11 @@
         <param name="metadata_effect_size" type="integer" size="4"   value="1" label="Effect size of the spiked-in associations "/>
         <param name="perc_feature_spiked_metadata" type="float" size="4"   value="0.05" label="Percent features to be associated with metadata  "/>
         <param name="median_read_depth" type="integer" size="4"   value="50000" label="Targeted median per-sample read depth  "/>
-        <param name="spike_metadata" type="select" label="Metadata spike-in configurations options"  multiple="False" help="Select one of the drop down options ">
-        		<option value="none" selected='True'>none</option>
-				<option value="both">both</option>
-                <option value="abundance">abundance</option>
-                <option value="prevalence">prevalence</option>
+        <param name="spike_metadata" type="select" format="text" label="Metadata spike-in configurations options"  multiple="False" help="Select one of the drop down options ">
+        		<option value='"none"' selected='True'>none</option>
+				<option value='"both"'>both</option>
+                <option value='"abundance"'>abundance</option>
+                <option value='"prevalence"'>prevalence</option>
         </param>
 
     </inputs>
