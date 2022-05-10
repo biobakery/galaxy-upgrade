@@ -9,15 +9,14 @@ p_metadata_effect_size <-  as.numeric(myargs[4])
 p_perc_feature_spiked_metadata <- as.double(myargs[5])
 p_median_read_depth <- as.numeric(myargs[6])
 p_spike_metadata0 <- myargs[7]
-p_spike_metadata1 <- gsub("dq","",p_spike_metadata0)
-p_spike_metadata <- gsub("_","", p_spike_metadata1)
+
 
 Simulation_Results_List<-SparseDOSSA2(
         template = p_template,
         n_sample = p_ns,
         new_features = TRUE,
         n_feature = p_nf,
-        spike_metadata = "none",
+        spike_metadata = p_spike_metadata,
         metadata_effect_size = p_metadata_effect_size,
         perc_feature_spiked_metadata = p_perc_feature_spiked_metadata,
         metadata_matrix = NULL,
