@@ -1,0 +1,18 @@
+Simulation_Results_List<-SparseDOSSA2(
+        template = "Stool",
+        n_sample = 100,
+        new_features = TRUE,
+        n_feature = 100,
+        spike_metadata = "both",
+        metadata_effect_size = 1,
+        perc_feature_spiked_metadata = 0.05,
+        metadata_matrix = NULL,
+        median_read_depth = 50000,
+        verbose = TRUE
+      )
+
+> names(Simulation_Results_List)
+[1] "simulated_data"     "simulated_matrices" "params"            
+[4] "template"           "spike_metadata
+
+write.csv(out1,"simulated_metadata.csv", row.names = FALSE)

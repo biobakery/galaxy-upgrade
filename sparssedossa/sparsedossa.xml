@@ -2,6 +2,8 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
+        touch simulated_metadata.csv &&
+        touch microbiome_metadata_association.csv &&
         Rscript '$__tool_directory__/sparsedossa_wrapper.R' 
         $template 
         $samples 
@@ -10,12 +12,17 @@
         $perc_feature_spiked_metadata
         $median_read_depth 
         $spike_metadata && 
-        cp simulated_data.csv ${output1} &&
-        cp simulated_matrices.csv ${output2} &&
+        cp simulated_data.csv simulated_microbial_counts.csv && 
+        cp simulated_microbial_counts.csv ${output1} &&
+        cp simulated_metadata.csv  ${output2} &&
         cp Simulation.RData ${output3} &&
+        cp microbiome_metadata_association.csv ${output4} &&
         rm simulated_data.csv &&
         rm simulated_matrices.csv &&
-        rm  Simulation.RData
+        rm simulated_microbial_counts.csv && 
+        rm microbiome_metadata_association.csv &&
+        rm  Simulation.RData &&
+        rm microbiome_metadata_association.csv
             ]]></command>
     <inputs>
                 <param name="template" type="select" format="text" >
@@ -37,9 +44,10 @@
 
     </inputs>
     <outputs>
-        <data name="output1"  format="csv" label="Simulated Data" />
-        <data name="output2"  format="csv" label="Simulated Matrices" />
+        <data name="output1"  format="csv" label="Simulated microbial counts" />
+        <data name="output2"  format="csv" label="Simulated_metadata" />
         <data name="output3"  format="rdata" label="Simulated RData" />
+        <data name="output4"  format="csv" label="Microbiome metadata association" />
     </outputs>
     <help><![CDATA[
 

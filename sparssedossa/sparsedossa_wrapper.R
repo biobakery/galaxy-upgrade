@@ -36,3 +36,14 @@ for(i in 1:2) {
 Simulation_Results_FileName <- paste("Simulation.RData",sep="")
 
 save(Simulation_Results_List,file=Simulation_Results_FileName)
+
+if (p_spike_metadata != "none")
+{
+  out1 <- as.data.frame(Simulation_Results_List$spike_metadata$metadata_matrix)
+  write.csv(out1,"simulated_metadata.csv", row.names = FALSE)
+
+  out2 <- as.data.frame(Simulation_Results_List$spike_metadata$feature_metadata_spike_df)
+  write.csv(out2,"microbiome_metadata_association.csv", row.names = FALSE)
+}
+
+
