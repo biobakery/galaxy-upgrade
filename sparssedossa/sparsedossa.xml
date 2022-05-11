@@ -10,11 +10,15 @@
         $perc_feature_spiked_metadata
         $median_read_depth 
         $spike_metadata && 
-        cp simulated_data.csv ${output1} &&
+        touch simulated_metadata.csv &&
+        touch microbiome_metadata_association.csv &&
+        cp simulated_data.csv simulated_microbial_counts.csv && 
+        cp simulated_microbial_counts.csv ${output1} &&
         cp simulated_matrices.csv ${output2} &&
         cp Simulation.RData ${output3} &&
         rm simulated_data.csv &&
         rm simulated_matrices.csv &&
+        rm simulated_microbial_counts.csv && 
         rm  Simulation.RData
             ]]></command>
     <inputs>
