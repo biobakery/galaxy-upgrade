@@ -21,8 +21,7 @@
         rm simulated_matrices.csv &&
         rm simulated_microbial_counts.csv && 
         rm microbiome_metadata_association.csv &&
-        rm  Simulation.RData &&
-        rm microbiome_metadata_association.csv
+        rm  Simulation.RData  
             ]]></command>
     <inputs>
                 <param name="template" type="select" format="text" >

@@ -16,3 +16,6 @@ Simulation_Results_List<-SparseDOSSA2(
 [4] "template"           "spike_metadata
 
 write.csv(out1,"simulated_metadata.csv", row.names = FALSE)
+
+
+touch simulated_metadata.csv && touch microbiome_metadata_association.csv && Rscript '/export/galaxy-central/tools/sparsedossa/sparsedossa_wrapper.R' Stool 100 100 1 0.05 50000 both && cp simulated_data.csv simulated_microbial_counts.csv && cp simulated_microbial_counts.csv /export/galaxy-central/database/files/002/dataset_2226.dat && cp simulated_metadata.csv  /export/galaxy-central/database/files/002/dataset_2227.dat && cp Simulation.RData /export/galaxy-central/database/files/002/dataset_2228.dat && cp microbiome_metadata_association.csv /export/galaxy-central/database/files/002/dataset_2229.dat && rm simulated_data.csv && rm simulated_matrices.csv && rm simulated_microbial_counts.csv && rm microbiome_metadata_association.csv && rm  Simulation.RData && rm microbiome_metadata_association.csv
