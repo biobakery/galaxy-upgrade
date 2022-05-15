@@ -29,8 +29,8 @@
         rm Rplots.pdf
             ]]></command>
     <inputs>
-        <param type="data" name="taxonomy"  label="Input Taxonomy" format="maaslin_input"  />
-        <param type="data" name="metadata"  label="Input Metadata" format="maaslin_input"  />
+        <param type="data" name="taxonomy"  label="Input Taxonomy" format="text"  />
+        <param type="data" name="metadata"  label="Input Metadata" format="text"  />
 
         <conditional name="gchoice_additional_analysis_types">
         	<param name="global_additional_analysis_types" type="select" label="Display additional analysis types and arguments advanced parameters"  multiple="False" help="Select additional analysis types and argument advanced choices ">
@@ -113,8 +113,6 @@ The MaAsLin 2 implementation requires two inputs:
 
 You can download sample data to your computer from the following locations and then upload it to Galaxy using the Get-Data / Upload file from your computer. 
 
-**Please make sure to modify the Type from Auto-Detect to  maaslin2_input**
-===========================================================================
 
 
 * Sample_Metadata_

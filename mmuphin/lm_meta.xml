@@ -5,8 +5,8 @@
         bash '$__tool_directory__/lm_meta_wrapper.sh' '$feature_abd' '$data' '$batch' '$exposure'  '$covariates' '$output1' 
             ]]></command>
     <inputs>
-                <param type="data" name="feature_abd"  label="Abundance Matrix - See format in samples below" format="mmuphin_input"  />
-                <param type="data" name="data"  label="Metadata - See format in samples below" format="mmuphin_input"  />
+                <param type="data" name="feature_abd"  label="Abundance Matrix - See format in samples below" format="text"  />
+                <param type="data" name="data"  label="Metadata - See format in samples below" format="text"  />
 
 	        <param name="metadata_headers" type="data"  label="Metadata headers"  format="mmuphin_metadata_headers" help="Metadata Headers (Output of the first step: Preprocess_Metadata)"/>
 
