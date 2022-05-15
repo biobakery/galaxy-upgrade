@@ -6,8 +6,8 @@
             ]]>
     </command>
     <inputs>
-                <param type="data" name="feature_abd"  label="Abundance Table - See format in samples below" format="text"  />
-                <param type="data" name="meta_data"  label="Metadata - See format in samples below" format="text"  />
+                <param type="data" name="feature_abd"  label="Abundance Table - See format in samples below" format="csv"  />
+                <param type="data" name="meta_data"  label="Metadata - See format in samples below" format="csv"  />
 
 		<param name="metadata_headers" type="data"  label="Metadata Headers"  format="mmuphin_metadata_headers" help="Metadata Headers (Output of the first step: Preprocess_Metadata)"/>
 
@@ -72,7 +72,7 @@ As an example we privide two sample files taken from colorectal cancer (CRC) sto
 
 Please download these files to your computer and use the Galaxy Get-Data / Upload file from your computer to upload these two files.
 
-Make sure you modify the default file type from "Auto detect" to  the "cvs"  
+
 
 
 ..  _CRC_Feature_Abundances:  https://github.com/biobakery/galaxy-upgrade/blob/main/mmuphin/CRC_abd.csv
