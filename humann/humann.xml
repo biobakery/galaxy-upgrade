@@ -8,7 +8,7 @@
         cp humann_analysis/*_pathcoverage.tsv  $output3  
     ]]></command>
     <inputs>
-        <param type="data" name="input" />
+        <param type="data" name="input" format="fasta, fastq" />
        	
     </inputs>
     <outputs>
