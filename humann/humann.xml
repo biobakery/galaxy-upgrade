@@ -2,21 +2,19 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        humann -i $input -o . 
+        humann -i $input -o humann_analysis &&
+        cp humann_analysis/*_genefamilies.tsv  $output1 &&
+        cp humann_analysis/*_pathabundance.tsv  $output2 && 
+        cp humann_analysis/*_pathcoverage.tsv  $output3  
     ]]></command>
     <inputs>
         <param type="data" name="input" />
-        <param name="PresetsForHumann" type="select" format="text">
-		<label>There are multiple bypass options that will allow you to adjust the standard workflow.</label>
-				<option value="--bypass-translated-search">--bypass-translated-search</option>
-				<option value="--bypass-nucleotide-search">--bypass-nucleotide-search</option>
-				<option value="--bypass-prescreen">--bypass-prescreen</option>
-				<option value="--taxonomic-profile bugs_list.tsv">--taxonomic-profile bugs_list.tsv</option>
-				 <option value="--bypass-nucleotide-index">--bypass-nucleotide-index</option>
-		</param>		
+       	
     </inputs>
     <outputs>
-        <data name="output" format="tabular" />
+        <data name="output1" format="tsv"  label="Gene families"/>
+        <data name="output2" format="tsv"  label="Path Abundances"/>
+        <data name="output3" format="tsv"  label="Path Coverages"/>
     </outputs>
     <help><![CDATA[
         HUMAnN is a pipeline for efficiently and accurately profiling the presence/absence and abundance of microbial pathways in a community from metagenomic or metatranscriptomic sequencing data (typically millions of short DNA/RNA reads). This process, referred to as functional profiling, aims to describe the metabolic potential of a microbial community and its members. More generally, functional profiling answers the question "What are the microbes in my community-of-interest doing (or capable of doing)?"
