@@ -104,9 +104,9 @@ The MaAsLin 2 implementation requires two inputs:
 * Microbial feature abundances (e.g. taxa, genes, transcripts, or metabolites) across samples, in either counts or relative counts 
 * Environmental, clinical, or epidemiological phenotypes or covariates of interest (together “metadata”).
 
-.. _Sample_Metadata:  https://github.com/biobakery/Maaslin2/blob/master/inst/extdata/HMP2_metadata.tsv
+.. _Sample_Metadata:  https://github.com/biobakery/galaxy-upgrade/blob/main/maaslin2/HMP2_metadata.tsv
 
-.. _Sample_Taxonomy:  https://github.com/biobakery/Maaslin2/blob/master/inst/extdata/HMP2_taxonomy.tsv
+.. _Sample_Taxonomy:  https://github.com/biobakery/galaxy-upgrade/blob/main/maaslin2/HMP2_taxonomy.tsv
 
 **Sample Data**
 ===============
