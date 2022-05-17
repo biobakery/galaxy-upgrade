@@ -2,7 +2,7 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        bash '$__tool_directory__/space_checker.sh $input'&&
+	    bash '/galaxy-central/tools/humann/space_checker.sh $input' &&
         humann -i $input -o humann_analysis &&
         cp humann_analysis/*_genefamilies.tsv  $output1 &&
         cp humann_analysis/*_pathabundance.tsv  $output2 && 
