@@ -2,7 +2,7 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-	python "/galaxy-central/tools/humann/check_file_size.py" $1 4194304 &&
+	python "/galaxy-central/tools/humann/check_file_size.py" $input 4194304 &&
         humann -i $input -o humann_analysis &&
         cp humann_analysis/*_genefamilies.tsv  $output1 &&
         cp humann_analysis/*_pathabundance.tsv  $output2 && 
