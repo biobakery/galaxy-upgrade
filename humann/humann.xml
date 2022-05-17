@@ -2,12 +2,7 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        myFileSizeCheck=$(stat -c %s $input) &&
-        Thresh=4194304 &&
-        if (( $myFileSizeCheck > $Thresh )); then
-            exit 9
-        fi 
-        &&
+        bash '$__tool_directory__/space_checker.sh $input'&&
         humann -i $input -o humann_analysis &&
         cp humann_analysis/*_genefamilies.tsv  $output1 &&
         cp humann_analysis/*_pathabundance.tsv  $output2 && 
