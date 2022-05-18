@@ -13,7 +13,7 @@
 	</stdio>
 
     <inputs>
-        <param type="data" name="input" format="fasta, fastq" />
+        <param type="data" name="input" format="fasta, fastq,  sam" />
        	
     </inputs>
     <outputs>
