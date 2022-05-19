@@ -5,7 +5,7 @@
 	python "/galaxy-central/tools/humann/check_file_size.py" $input 4194304 &&
         humann -i $input -o humann_analysis
         #if $str($gchoice_additional_analysis_types.global_additional_analysis_types)  == "1":
-            --search-mode $gchoice_additional_analysis_types.search-mode
+            --search-mode $gchoice_additional_analysis_types.search_mode
         #end if
         &&
         cp humann_analysis/*_genefamilies.tsv  $output1 &&
@@ -28,7 +28,7 @@
 			</when>
 
         	<when value="1">
-                <param name="search-mode" type="select" value="uniref50" format="text" >
+                <param name="search_mode" type="select" value="uniref50" format="text" >
 					<label>Search Mode </label>
 						<option value="uniref50">uniref50</option>
 						<option value="uniref90">uniref90</option>
