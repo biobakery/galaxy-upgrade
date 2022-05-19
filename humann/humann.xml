@@ -3,7 +3,11 @@
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
 	python "/galaxy-central/tools/humann/check_file_size.py" $input 4194304 &&
-        humann -i $input -o humann_analysis &&
+        humann -i $input -o humann_analysis
+        #if $str($gchoice_additional_analysis_types.global_additional_analysis_types)  == "1":
+            --search-mode $gchoice_additional_analysis_types.search-mode
+        #end if
+        &&
         cp humann_analysis/*_genefamilies.tsv  $output1 &&
         cp humann_analysis/*_pathabundance.tsv  $output2 && 
         cp humann_analysis/*_pathcoverage.tsv  $output3  
@@ -14,8 +18,37 @@
 
     <inputs>
         <param type="data" name="input" format="fasta, fastq,  sam" />
-       	
+        <conditional name="gchoice_additional_analysis_types">
+        	<param name="global_additional_analysis_types" type="select" label="Display additional analysis types and arguments advanced parameters"  multiple="False" help="Select additional analysis types and argument advanced choices ">
+        		<option value="0" selected='True'>No</option>
+				<option value="1">Yes</option>
+        	</param>
+           	<when value="0">
+ 				<param name="Analysis_Type" type="hidden"  value=""  />
+			</when>
+
+        	<when value="1">
+                <param name="search-mode" type="select" value="uniref50" format="text" >
+					<label>Search Mode </label>
+						<option value="uniref50">uniref50</option>
+						<option value="uniref90">uniref90</option>
+				</param>
+	            
+
+			</when>
+    	</conditional>
+
+
+
+
+
+
     </inputs>
+
+
+
+
+
     <outputs>
         <data name="output1" format="tsv"  label="Gene families"/>
         <data name="output2" format="tsv"  label="Path Abundances"/>
