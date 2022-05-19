@@ -6,6 +6,8 @@
         humann -i $input -o humann_analysis
         #if $str($gchoice_additional_analysis_types.global_additional_analysis_types)  == "1":
             --search-mode $gchoice_additional_analysis_types.search_mode
+            --prescreen-threshold $gchoice_additional_analysis_types.prescreen_threshold
+            --nucleotide-identity-threshold $gchoice_additional_analysis_types.nucleotide_identity_threshold
         #end if
         &&
         cp humann_analysis/*_genefamilies.tsv  $output1 &&
@@ -29,12 +31,14 @@
 
         	<when value="1">
                 <param name="search_mode" type="select" value="uniref50" format="text" >
-					<label>Search Mode </label>
+					<label>Search for uniref50 or uniref90 gene families </label>
 						<option value="uniref50">uniref50</option>
 						<option value="uniref90">uniref90</option>
 				</param>
-	            
+	            <param name="prescreen_threshold" type="float" size="4" value="0.01"  label ="Minimum percentage of reads matching a species"/>
+	            <param name="nucleotide_identity_threshold" type="float" size="4" value="0.0"  label ="Identity threshold for nuclotide alignments"/>
 
+nucleotide-identity-threshold
 			</when>
     	</conditional>
 
