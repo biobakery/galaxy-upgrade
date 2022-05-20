@@ -2,7 +2,7 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-	python "/galaxy-central/tools/humann/check_file_size.py" $input 4194304 &&
+	python "/galaxy-central/tools/hutlab_tools/check_file_size.py" -i $input  &&
         humann -i $input -o humann_analysis
         #if $str($gchoice_additional_analysis_types.global_additional_analysis_types)  == "1":
             --search-mode $gchoice_additional_analysis_types.search_mode
