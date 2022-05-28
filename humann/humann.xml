@@ -45,7 +45,7 @@
 	            <param name="prescreen_threshold" type="float" size="4" value="0.01"  label ="Minimum percentage of reads matching a species"/>
 	            <param name="nucleotide_identity_threshold" type="float" size="4" value="0.0"  label ="Identity threshold for nuclotide alignments"/>
 	            <param name="nucleotide_query_coverage_threshold" type="float" size="4" value="90.0"  label ="Query coverage threshold for nucleotide alignments"/>
-	            <param name="nucleotide_subject_coverage_threshold" type="float" size="4" value="50.0"  label ="Query coverage threshold for nucleotide alignments"/>
+	            <param name="nucleotide_subject_coverage_threshold" type="float" size="4" value="50.0"  label ="Subject coverage threshold for nucleotide alignments"/>
 	            <param name="evalue" type="float" size="4" value="1.0"  label ="evalue threshold to use with the translated search"/>
 	            <param name="translated_identity_threshold" type="float" size="4" value="50.0"  label ="Identity threshold for translated alignments"/>
 	            <param name="translated_query_coverage_threshold" type="float" size="4" value="90.0"  label ="Query coverage threshold for translated alignments"/>
