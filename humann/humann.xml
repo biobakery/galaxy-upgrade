@@ -14,7 +14,10 @@
             --translated-identity-threshold $gchoice_additional_analysis_types.translated_identity_threshold
             --translated-query-coverage-threshold $gchoice_additional_analysis_types.translated_query_coverage_threshold
             --translated-subject-coverage-threshold $gchoice_additional_analysis_types.translated_subject_coverage_threshold
+        #end if
 
+        #if $str($gchoice_taxonomy.global_taxonomy)  == "1":
+            --taxonomic-profile $gchoice_taxonomy.input_taxonomy
         #end if
         &&
         cp humann_analysis/*_genefamilies.tsv  $output1 &&
@@ -51,10 +54,23 @@
 	            <param name="translated_query_coverage_threshold" type="float" size="4" value="90.0"  label ="Query coverage threshold for translated alignments"/>
 	            <param name="translated_subject_coverage_threshold" type="float" size="4" value="50.0"  label ="Subject coverage threshold for translated alignments"/>
 
-nucleotide-identity-threshold
 			</when>
     	</conditional>
 
+
+   <conditional name="gchoice_taxonomy">
+        	<param name="global_taxonomy" type="select" label="Display additional parameters for taxonomy analysis"  multiple="False" help="Select input taxonomy file (Max size: 4Mb - otherwise perform analysis out of Galaxy) ">
+        		<option value="0" selected='True'>No</option>
+				<option value="1">Yes</option>
+        	</param>
+           	<when value="0">
+ 				<param name="Analysis_Type_taxonomy" type="hidden"  value=""  />
+			</when>
+
+        	<when value="1">
+                <param type="data" name="input_taxonomy" label="Input taxonomy (Max size to use in Galaxy: 4Mb)" format="tabular" />
+			</when>
+    	</conditional>
 
     </inputs>
 
