@@ -2,8 +2,7 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        python '/galaxy-central/tools/mmuphin/decode_csv_header.py' '$meta_data' '$metadata_headers' &&
-	    Rscript /galaxy-central/tools/mmuphin/mmuphin_wrapper.R
+        Rscript /galaxy-central/tools/mmuphin/mmuphin_wrapper.R
         -f $feature_abd
         -b $batch
         -c $covariates
@@ -14,23 +13,24 @@
             ]]>
     </command>
     <inputs>
-        <param type="data" name="feature_abd"  label="Abundance Table - See format in samples below" format="csv"  />
-        <param type="data" name="meta_data"  label="Metadata - See format in samples below" format="csv"  />
+                <param type="data" name="feature_abd"  label="Abundance Table - See format in samples below" format="csv"  />
+                <param type="data" name="meta_data"  label="Metadata - See format in samples below" format="csv"  />
 
+		<param name="metadata_headers" type="data"  label="Metadata Headers"  format="mmuphin_metadata_headers" help="Metadata Headers (Output of the first step: Preprocess_Metadata)"/>
 
  		<param name="batch" type="select" optional="false" multiple="false" label="Batch - For a sample run select StudyID">
                          <options from_dataset="metadata_headers">
                                  <column name="name" index="0"/>
                                 <column name="value" index="0"/>
                         </options>
-        </param>
+                </param>
 
 		<param name="covariates" type="select" optional="false" multiple="false" label="Covariates - For a sample run select study_condition">
  		         <options from_dataset="metadata_headers">
-       			    <column name="name" index="0"/>
+       				 <column name="name" index="0"/>
         			<column name="value" index="0"/>
     			</options>
-    	</param>
+    		</param>
 
 
 
@@ -39,8 +39,6 @@
     <outputs>
         <data name="output1"  format="csv" label="Adjusted abundance table" />
         <data name="output2"  format="pdf" label="Adjust batch diagnostic" />
-        <param name="metadata_headers" type="data"  label="Metadata Headers"  format="mmuphin_metadata_headers" help="Metadata Headers (Output of the first step: Preprocess_Metadata)"/>
-
     </outputs>
     <help><![CDATA[
 
