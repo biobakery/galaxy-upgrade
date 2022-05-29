@@ -2,7 +2,7 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        Rscript /galaxy-central/tools/mmuphin_wrapper.R
+	    Rscript /galaxy-central/tools/mmuphin/mmuphin_wrapper.R
         -f $feature_abd
         -b $batch
         -c $covariates
