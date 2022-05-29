@@ -2,7 +2,14 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        bash '$__tool_directory__/mmuphin_wrapper.sh' '$feature_abd' '$batch' '$covariates' '$meta_data' '$output1' '$output2' 
+        Rscript /galaxy-central/tools/mmuphin_wrapper.R
+        -f $feature_abd
+        -b $batch
+        -c $covariates
+        -d $meta_data
+        -o $output1  &&
+        cp "CRC_abd_adj.csv"  $output1 && 
+        cp "adjust_batch_diagnostic.pdf" $output2
             ]]>
     </command>
     <inputs>
