@@ -2,6 +2,8 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
+        touch headers_file.tab &&
+        python '/galaxy-central/tools/mmuphin/decode_csv_header.py' '$meta_data' headers_file.tab &&
         Rscript /galaxy-central/tools/mmuphin/mmuphin_wrapper.R
         -f $feature_abd
         -b $batch
@@ -16,17 +18,16 @@
                 <param type="data" name="feature_abd"  label="Abundance Table - See format in samples below" format="csv"  />
                 <param type="data" name="meta_data"  label="Metadata - See format in samples below" format="csv"  />
 
-		<param name="metadata_headers" type="data"  label="Metadata Headers"  format="mmuphin_metadata_headers" help="Metadata Headers (Output of the first step: Preprocess_Metadata)"/>
 
  		<param name="batch" type="select" optional="false" multiple="false" label="Batch - For a sample run select StudyID">
-                         <options from_dataset="metadata_headers">
+                         <options from_dataset="headers_file.tab">
                                  <column name="name" index="0"/>
                                 <column name="value" index="0"/>
                         </options>
                 </param>
 
 		<param name="covariates" type="select" optional="false" multiple="false" label="Covariates - For a sample run select study_condition">
- 		         <options from_dataset="metadata_headers">
+ 		         <options from_dataset="headers_file.tab">
        				 <column name="name" index="0"/>
         			<column name="value" index="0"/>
     			</options>
