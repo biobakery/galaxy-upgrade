@@ -2,8 +2,15 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        bash '$__tool_directory__/lm_meta_wrapper.sh' '$feature_abd' '$data' '$batch' '$exposure'  '$covariates' '$output1' 
-            ]]></command>
+        Rscript /galaxy-central/tools/mmuphin/lm_meta_wrapper.R 
+                -f $feature_abd
+                -d $data
+                -b $batch
+                -e $exposure
+                -c $covariates &&
+        cp "meta_fits.csv" $output1 &&
+        rm "meta_fits.csv"
+                 ]]></command>
     <inputs>
                 <param type="data" name="feature_abd"  label="Abundance Matrix - See format in samples below" format="csv"  />
                 <param type="data" name="data"  label="Metadata - See format in samples below" format="csv"  />
