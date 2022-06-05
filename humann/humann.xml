@@ -94,6 +94,9 @@
 **Features**
 ============
 
+.. _Sample_sam:    https://github.com/biobakery/galaxy-upgrade/blob/main/humann/examples/demo.sam
+.. _Sample_fasta:  https://github.com/biobakery/galaxy-upgrade/blob/main/humann/examples/demo.fasta
+.. _Sample_Taxonomy:  https://github.com/biobakery/galaxy-upgrade/blob/main/humann/examples/SRS014476-Supragingival_plaque_profile.txt
 
 
 1. Community functional profiles stratified by known and unclassified organisms
@@ -112,6 +115,19 @@ MinPath is run to identify the set of minimum pathways
 - Bowtie2 is run for accelerated nucleotide-level searches
 - Diamond is run for accelerated translated searches
 
+
+**Sample Data**
+===============
+
+You can download sample data to your computer from the following locations and then upload it to Galaxy using the Get-Data / Upload file from your computer. 
+
+
+
+* Sample_sam_
+
+* Sample_fasta_
+
+* Sample_Taxonomy_     (Use the "Display additional parameters for taxonomy analysis" in the screen)
 
 **Workflow by input file type:**
 ================================
