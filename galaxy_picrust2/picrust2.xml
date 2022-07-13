@@ -1,0 +1,104 @@
+<tool id="picrust2" name="PICRUSt2" version="2.0.0" python_template_version="3.5">
+	<description>Prediction of functional abundances based only on marker gene sequences</description>
+    <requirements>
+    </requirements>
+
+	<command detect_errors="exit_code"><![CDATA[
+        picrust2_pipeline.py 
+		-s $study_fasta 
+		-i $input_abun 
+		-o picrust2_out 
+		--processes 10 
+		--stratified &&
+		gunzip picrust2_out/EC_predicted.tsv.gz &&
+		cp picrust2_out/EC_predicted.tsv $EC_predicted &&
+		gunzip picrust2_out/KO_predicted.tsv.gz &&
+		cp picrust2_out/KO_predicted.tsv $KO_predicted &&
+		zip -r  picrust2_out.zip  picrust2_out && 
+		cp picrust2_out.zip  $picrust2_all_outputs
+            ]]></command>
+
+    <inputs>
+        <param type="data" name="study_fasta"  label="FASTA of unaligned study sequences " format="fasta"  />
+		<param type="data" name="input_abun"  label="Input table of sequence abundances" format="biom,tsv"  />
+
+    </inputs>
+    
+	<outputs>
+        <data name="EC_predicted" format="tsv"  />
+		<data name="KO_predicted" format="tsv"  />
+	 	<data name="picrust2_all_outputs"  format="zip" label="Picrust2 Output zip results - please download" />
+    </outputs>
+   <help><![CDATA[
+  
+  
+Picrust2
+
+PICRUSt2 (Phylogenetic Investigation of Communities by Reconstruction of Unobserved States) is a software for predicting functional abundances based only on marker gene sequences.  
+
+"Function" usually refers to gene families such as KEGG orthologs and Enzyme Classification numbers, but predictions can be made for any arbitrary trait. Similarly, predictions are typically based on 16S rRNA gene sequencing data, but other marker genes can also be used.
+
+On this wiki you will find descriptions of the scripts, installation instructions, and workflows. See the right side-bar for details.
+
+PICRUSt2 includes these and other improvements over the original version:
+
+Allow users to predict functions for any 16S sequences. Representative sequences from OTUs or amplicon sequence variants (e.g. DADA2 and deblur output) can be used as input by taking a sequence placement approach
+Database of reference genomes used for prediction has been expanded by >10X.
+Addition of hidden-state prediction algorithms from the castor R package.
+Allows output of MetaCyc ontology predictions that will be comparable with common shotgun metagenomics outputs.
+Inference of pathway abundances now relies on MinPath, which makes these predictions more stringent.
+
+
+
+.. image:: https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_halla/fig1.png?raw=true 
+    :height: 600        
+    :width: 800 
+
+.. _Sample_Fasta:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_picrust2/test_data/study_seqs_test.fasta
+.. _Sample_Sequence Abundances:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_picrust2/test_data/workflow/workflow_seq_abun.biom
+
+ 
+**Inputs**
+==========
+
+Picrust2 requires two input files 
+
+* FASTA of unaligned study sequences 
+
+* Table of sequence abundances (biom or tsv)
+
+Sample data is avalable using the following links:
+
+* Sample_Fasta_
+
+* Sample_Sequence Abundances_
+
+Please download the files to your PC and upload them to Galaxy using the "Get Data / Upload file" in Galaxy
+
+
+
+**Outputs**
+===========
+ 
+.. image:: https://github.com/picrust/picrust2/wiki/images/PICRUSt2_flowchart.png
+    :height: 600        
+    :width: 600 
+
+We provide three outputs:
+ 
+* EC predictions - in the "EC_predicted.tsv" file
+* KO predictions - in the "KO_predicted.tsv" file
+* A zip file containing all the files in the generated output directory
+
+..  _PICRUST2_wiki:  https://github.com/picrust/picrust2/wiki
+..  _PICRUST2_Paper: https://www.nature.com/articles/s41587-020-0548-6
+..   _PICRUST2_User_Forum: https://groups.google.com/forum/#!forum/picrust-users
+
+
+**If you use this software, please cite:**
+==========================================
+
+
+    ]]>
+</help>
+</tool>
