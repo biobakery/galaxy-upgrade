@@ -20,7 +20,7 @@
 
     <inputs>
         <param type="data" name="study_fasta"  label="FASTA of unaligned study sequences " format="fasta"  />
-		<param type="data" name="input_abun"  label="Input table of sequence abundances" format="biom,tsv"  />
+		<param type="data" name="input_abun"  label="Input table of sequence abundances" format="biom2"  />
 
     </inputs>
     
@@ -50,9 +50,7 @@ Inference of pathway abundances now relies on MinPath, which makes these predict
 
 
 
-.. image:: https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_halla/fig1.png?raw=true 
-    :height: 600        
-    :width: 800 
+
 
 .. _Sample_Fasta:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_picrust2/test_data/study_seqs_test.fasta
 .. _Sample_Sequence Abundances:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_picrust2/test_data/workflow/workflow_seq_abun.biom
