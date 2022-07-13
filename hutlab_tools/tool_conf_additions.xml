@@ -39,4 +39,6 @@
           <tool file="galaxy_waafle/waafle2.xml" />
           <tool file="galaxy_waafle/waafle3.xml" />
   </section>
-
+  <section id="PICRUSt2" name="PICRUSt2">
+          <tool file="galaxy_hpicrust2/picrust2.xml" />
+  </section>
