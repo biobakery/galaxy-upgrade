@@ -1,0 +1,158 @@
+(galaxy_venv) root@5cc594913c8f:/galaxy-central/tools/galaxy_picrust2# picrust2_pipeline.py --help
+usage: picrust2_pipeline.py [-h] -s PATH -i PATH -o PATH [-p PROCESSES]
+                            [-t epa-ng|sepp] [-r PATH] [--in_traits IN_TRAITS]
+                            [--custom_trait_tables PATH]
+                            [--marker_gene_table PATH] [--pathway_map MAP]
+                            [--reaction_func MAP] [--no_pathways]
+                            [--regroup_map ID_MAP] [--no_regroup]
+                            [--stratified] [--max_nsti FLOAT]
+                            [--min_reads INT] [--min_samples INT]
+                            [-m {mp,emp_prob,pic,scp,subtree_average}]
+                            [-e EDGE_EXPONENT] [--min_align MIN_ALIGN]
+                            [--skip_nsti] [--skip_minpath] [--no_gap_fill]
+                            [--coverage] [--per_sequence_contrib]
+                            [--wide_table] [--skip_norm]
+                            [--remove_intermediate] [--verbose] [-v]
+
+Wrapper for full PICRUSt2 pipeline. Run sequence placement with EPA-NG and GAPPA to place study sequences (i.e. OTUs and ASVs) into a reference tree. Then runs hidden-state prediction with the castor R package to predict genome for each study sequence. Metagenome profiles are then generated, which can be optionally stratified by the contributing sequence. Finally, pathway abundances are predicted based on metagenome profiles. By default, output files include predictions for Enzyme Commission (EC) numbers, KEGG Orthologs (KOs), and MetaCyc pathway abundances. However, this script enables users to use custom reference and trait tables to customize analyses.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -s PATH, --study_fasta PATH
+                        FASTA of unaligned study sequences (e.g. ASVs). The
+                        headerline should be only one field (i.e. no
+                        additional whitespace-delimited fields).
+  -i PATH, --input PATH
+                        Input table of sequence abundances (BIOM, TSV or
+                        mothur shared file format).
+  -o PATH, --output PATH
+                        Output folder for final files.
+  -p PROCESSES, --processes PROCESSES
+                        Number of processes to run in parallel (default: 1).
+  -t epa-ng|sepp, --placement_tool epa-ng|sepp
+                        Placement tool to use when placing sequences into
+                        reference tree. One of "epa-ng" or "sepp" must be
+                        input (default: epa-ng)
+  -r PATH, --ref_dir PATH
+                        Directory containing reference sequence files
+                        (default: /galaxy-central/tools/picrust2/picrust2/defa
+                        ult_files/prokaryotic/pro_ref). Please see the online
+                        documentation for how to name the files in this
+                        directory.
+  --in_traits IN_TRAITS
+                        Comma-delimited list (with no spaces) of which gene
+                        families to predict from this set: COG, EC, KO, PFAM,
+                        TIGRFAM. Note that EC numbers will always be predicted
+                        unless --no_pathways is set (default: EC,KO).
+  --custom_trait_tables PATH
+                        Optional path to custom trait tables with gene
+                        families as columns and genomes as rows (overrides
+                        --in_traits setting) to be used for hidden-state
+                        prediction. Multiple tables can be specified by
+                        delimiting filenames by commas. Importantly, the first
+                        custom table specified will be used for inferring
+                        pathway abundances. Typically this command would be
+                        used with a custom marker gene table
+                        (--marker_gene_table) as well.
+  --marker_gene_table PATH
+                        Path to marker gene copy number table (16S copy
+                        numbers by default).
+  --pathway_map MAP     MinPath mapfile. The default mapfile maps MetaCyc
+                        reactions to prokaryotic pathways (default: /galaxy-ce
+                        ntral/tools/picrust2/picrust2/default_files/pathway_ma
+                        pfiles/metacyc_path2rxn_struc_filt_pro.txt).
+  --reaction_func MAP   Functional database to use as reactions for inferring
+                        pathway abundances (default: EC). This should be
+                        either the short-form of the database as specified in
+                        --in_traits, or the path to the file as would be
+                        specified for --custom_trait_tables. Note that when
+                        functions besides the default EC numbers are used
+                        typically the --no_regroup option would also be set.
+  --no_pathways         Flag to indicate that pathways should NOT be inferred
+                        (otherwise they will be inferred by default).
+                        Predicted EC number abundances are used to infer
+                        pathways when the default reference files are used.
+  --regroup_map ID_MAP  Mapfile of ids to regroup gene families to before
+                        running MinPath. The default mapfile is for regrouping
+                        EC numbers to MetaCyc reactions (default: /galaxy-cent
+                        ral/tools/picrust2/picrust2/default_files/pathway_mapf
+                        iles/ec_level4_to_metacyc_rxn.tsv).
+  --no_regroup          Do not regroup input gene families to reactions as
+                        specified in the regrouping mapfile. This option
+                        should only be used if you are using custom reference
+                        and/or mapping files.
+  --stratified          Flag to indicate that stratified tables should be
+                        generated at all steps (will increase run-time).
+  --max_nsti FLOAT      Sequences with NSTI values above this value will be
+                        excluded (default: 2).
+  --min_reads INT       Minimum number of reads across all samples for each
+                        input ASV. ASVs below this cut-off will be counted as
+                        part of the "RARE" category in the stratified output
+                        (default: 1).
+  --min_samples INT     Minimum number of samples that an ASV needs to be
+                        identfied within. ASVs below this cut-off will be
+                        counted as part of the "RARE" category in the
+                        stratified output (default: 1).
+  -m {mp,emp_prob,pic,scp,subtree_average}, --hsp_method {mp,emp_prob,pic,scp,subtree_average}
+                        HSP method to use."mp": predict discrete traits using
+                        max parsimony. "emp_prob": predict discrete traits
+                        based on empirical state probabilities across tips.
+                        "subtree_average": predict continuous traits using
+                        subtree averaging. "pic": predict continuous traits
+                        with phylogentic independent contrast. "scp":
+                        reconstruct continuous traits using squared-change
+                        parsimony (default: mp).
+  -e EDGE_EXPONENT, --edge_exponent EDGE_EXPONENT
+                        Setting for maximum parisomony hidden-state
+                        prediction. Specifies weighting transition costs by
+                        the inverse length of edge lengths. If 0, then edge
+                        lengths do not influence predictions. Must be a non-
+                        negative real-valued number (default: 0.500000).
+  --min_align MIN_ALIGN
+                        Proportion of the total length of an input query
+                        sequence that must align with reference sequences. Any
+                        sequences with lengths below this value after making
+                        an alignment with reference sequences will be excluded
+                        from the placement and all subsequent steps. (default:
+                        0).
+  --skip_nsti           Do not calculate nearest-sequenced taxon index (NSTI).
+  --skip_minpath        Do not run MinPath to identify which pathways are
+                        present as a first pass (on by default).
+  --no_gap_fill         Do not perform gap filling before predicting pathway
+                        abundances (Gap filling is on otherwise by default.
+  --coverage            Calculate pathway coverages as well as abundances,
+                        which are experimental and only useful for advanced
+                        users.
+  --per_sequence_contrib
+                        Flag to specify that MinPath is run on the genes
+                        contributed by each sequence (i.e. a predicted genome)
+                        individually. Note this will greatly increase the
+                        runtime. The output will be the predicted pathway
+                        abundance contributed by each individual sequence.
+                        This is in contrast to the default stratified output,
+                        which is the contribution to the community-wide
+                        pathway abundances. Pathway coverage stratified by
+                        contributing sequence will also be output when
+                        --coverage is set (default: False).
+  --wide_table          Output wide-format stratified table of metagenome and
+                        pathway predictions when "--stratified" is set. This
+                        is the deprecated method of generating stratified
+                        tables since it is extremely memory intensive. The
+                        stratified filenames contain "strat" rather than
+                        "contrib" when this option is used.
+  --skip_norm           Skip normalizing sequence abundances by predicted
+                        marker gene copy numbers (typically 16S rRNA genes).
+                        This step will be performed automatically unless this
+                        option is specified.
+  --remove_intermediate
+                        Remove the intermediate outfiles of the sequence
+                        placement and pathway inference steps.
+  --verbose             Print out details as commands are run.
+  -v, --version         show program's version number and exit
+
+Run full default pipeline with 10 cores (only unstratified output):
+picrust2_pipeline.py -s study_seqs.fna -i seqabun.biom -o picrust2_out --processes 10
+
+Run full default pipeline with 10 cores with stratified output (including pathway stratified output based on per-sequence contributions):
+picrust2_pipeline.py -s study_seqs.fna -i seqabun.biom -o picrust2_out --processes 10 --stratified --per_sequence_contrib
+
