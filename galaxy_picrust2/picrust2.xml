@@ -4,9 +4,10 @@
     </requirements>
 
 	<command detect_errors="exit_code"><![CDATA[
+		cp $input_abun  input_abun.biom &&
         picrust2_pipeline.py 
 		-s $study_fasta 
-		-i $input_abun 
+		-i input_abun.biom  
 		-o picrust2_out 
 		--processes 10 
 		--stratified &&
