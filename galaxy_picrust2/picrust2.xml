@@ -31,8 +31,6 @@
     </outputs>
    <help><![CDATA[
   
-  
-Picrust2
 
 PICRUSt2 (Phylogenetic Investigation of Communities by Reconstruction of Unobserved States) is a software for predicting functional abundances based only on marker gene sequences.  
 
@@ -48,7 +46,9 @@ Addition of hidden-state prediction algorithms from the castor R package.
 Allows output of MetaCyc ontology predictions that will be comparable with common shotgun metagenomics outputs.
 Inference of pathway abundances now relies on MinPath, which makes these predictions more stringent.
 
-
+.. image:: https://github.com/picrust/picrust2/wiki/images/PICRUSt2_flowchart.png
+    :height: 600        
+    :width: 600 
 
 
 
@@ -77,10 +77,6 @@ Please download the files to your PC and upload them to Galaxy using the "Get Da
 
 **Outputs**
 ===========
- 
-.. image:: https://github.com/picrust/picrust2/wiki/images/PICRUSt2_flowchart.png
-    :height: 600        
-    :width: 600 
 
 We provide three outputs:
  
@@ -96,6 +92,11 @@ We provide three outputs:
 **If you use this software, please cite:**
 ==========================================
 
+PICRUSt2 for prediction of metagenome functions
+
+Gavin M. Douglas, Vincent J. Maffei, Jesse R. Zaneveld, Svetlana N. Yurgel, James R. Brown, Christopher M. Taylor, Curtis Huttenhower & Morgan G. I. Langille 
+
+https://www.nature.com/articles/s41587-020-0548-6
 
     ]]>
 </help>
