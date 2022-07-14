@@ -53,7 +53,7 @@ Inference of pathway abundances now relies on MinPath, which makes these predict
 
 
 .. _Sample_Fasta:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_picrust2/test_data/study_seqs_test.fasta
-.. _Sample_Sequence Abundances:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_picrust2/test_data/workflow/workflow_seq_abun.biom
+.. _Sample_Sequence_Abundances:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_picrust2/test_data/workflow/workflow_seq_abun.biom
 
  
 **Inputs**
@@ -69,7 +69,7 @@ Sample data is avalable using the following links:
 
 * Sample_Fasta_
 
-* Sample_Sequence Abundances_
+* Sample_Sequence_Abundances_
 
 Please download the files to your PC and upload them to Galaxy using the "Get Data / Upload file" in Galaxy
 
@@ -90,7 +90,7 @@ We provide three outputs:
 
 ..  _PICRUST2_wiki:  https://github.com/picrust/picrust2/wiki
 ..  _PICRUST2_Paper: https://www.nature.com/articles/s41587-020-0548-6
-..   _PICRUST2_User_Forum: https://groups.google.com/forum/#!forum/picrust-users
+..  _PICRUST2_User_Forum: https://groups.google.com/forum/#!forum/picrust-users
 
 
 **If you use this software, please cite:**
