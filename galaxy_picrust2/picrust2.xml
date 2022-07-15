@@ -16,7 +16,9 @@
 		gunzip picrust2_out/KO_predicted.tsv.gz &&
 		cp picrust2_out/KO_predicted.tsv $KO_predicted &&
 		zip -r  picrust2_out.zip  picrust2_out && 
-		cp picrust2_out.zip  $picrust2_all_outputs
+		cp picrust2_out.zip  $picrust2_all_outputs &&
+		rm input_abun.biom &&
+		rm -r picrust2_out
             ]]></command>
 
     <inputs>
@@ -37,7 +39,6 @@ PICRUSt2 (Phylogenetic Investigation of Communities by Reconstruction of Unobser
 
 "Function" usually refers to gene families such as KEGG orthologs and Enzyme Classification numbers, but predictions can be made for any arbitrary trait. Similarly, predictions are typically based on 16S rRNA gene sequencing data, but other marker genes can also be used.
 
-On this wiki you will find descriptions of the scripts, installation instructions, and workflows. See the right side-bar for details.
 
 PICRUSt2 includes these and other improvements over the original version:
 
