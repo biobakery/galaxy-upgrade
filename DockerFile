@@ -16,6 +16,14 @@ pip uninstall numpy
 pip install numpy
 metaphlan --install
 
+#########################################################################
+# If you want to reorder the applications order, you need to update     #
+# the integrated_tools_panel.xml file with the order you want           #
+# That file resides in /export/galaxy-central                           #
+# There is a copy of that file in our git which I kept in the           #
+# hutlab_tools directory (as of 7/18/2022)  GW.                         #
+#########################################################################  
+
 
 ##########################################################################
 #    maaslin2 install                                                    #

@@ -139,6 +139,12 @@
 
     </section>
 
+    <section id="PICRUSt2" name="PICRUSt2" version="">
+
+        <tool id="picrust2" />
+
+    </section>
+
     <section id="collection_operations" name="Collection Operations" version="">
 
         <tool id="__UNZIP_COLLECTION__" />
@@ -212,12 +218,6 @@
         <tool id="wc_gnu" />
 
         <tool id="secure_hash_message_digest" />
-
-    </section>
-
-    <section id="PICRUSt2" name="PICRUSt2" version="">
-
-        <tool id="picrust2" />
 
     </section>
 
