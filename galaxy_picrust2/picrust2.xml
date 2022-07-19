@@ -19,13 +19,13 @@
 		cp picrust2_out.zip  $picrust2_all_outputs &&
 		gunzip picrust2_out/KO_metagenome_out/pred_metagenome_unstrat.tsv.gz &&
 		cp pred_metagenome_unstrat.tsv.gz KO_metagenome_unstrat &&
-		rm pred_metagenome_unstrat.tsv.gz && 
+		rm pred_metagenome_unstrat.tsv  && 
 		gunzip picrust2_out/EC_metagenome_out/pred_metagenome_unstrat.tsv.gz &&
 		cp pred_metagenome_unstrat.tsv.gz EC_metagenome_unstrat &&
-		rm pred_metagenome_unstrat.tsv.gz && 
+		rm pred_metagenome_unstrat.tsv  && 
 		gunzip picrust2_out/pathways_out/pred_metagenome_unstrat.tsv.gz &&
 		cp pred_metagenome_unstrat.tsv.gz EC_pathways_unstrat &&
-		rm pred_metagenome_unstrat.tsv.gz && 
+		rm pred_metagenome_unstrat.tsv  && 
 		rm input_abun.biom &&
 		rm -r picrust2_out
             ]]></command>
