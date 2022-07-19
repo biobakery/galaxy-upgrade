@@ -17,6 +17,15 @@
 		cp picrust2_out/KO_predicted.tsv $KO_predicted &&
 		zip -r  picrust2_out.zip  picrust2_out && 
 		cp picrust2_out.zip  $picrust2_all_outputs &&
+		gunzip picrust2_out/KO_metagenome_out/pred_metagenome_unstrat.tsv.gz &&
+		cp pred_metagenome_unstrat.tsv.gz KO_metagenome_unstrat &&
+		rm pred_metagenome_unstrat.tsv.gz && 
+		gunzip picrust2_out/EC_metagenome_out/pred_metagenome_unstrat.tsv.gz &&
+		cp pred_metagenome_unstrat.tsv.gz EC_metagenome_unstrat &&
+		rm pred_metagenome_unstrat.tsv.gz && 
+		gunzip picrust2_out/pathways_out/pred_metagenome_unstrat.tsv.gz &&
+		cp pred_metagenome_unstrat.tsv.gz EC_pathways_unstrat &&
+		rm pred_metagenome_unstrat.tsv.gz && 
 		rm input_abun.biom &&
 		rm -r picrust2_out
             ]]></command>
@@ -30,6 +39,9 @@
 	<outputs>
         <data name="EC_predicted" format="tsv"  />
 		<data name="KO_predicted" format="tsv"  />
+		<data name="KO_metagenome_unstrat" format="tsv"  />
+		<data name="EC_metagenome_unstrat" format="tsv"  />
+		<data name="pathways_metagenome_unstrat" format="tsv"  />
 	 	<data name="picrust2_all_outputs"  format="zip" label="Picrust2 Output zip results - please download" />
     </outputs>
    <help><![CDATA[
@@ -39,7 +51,7 @@ PICRUSt2 (Phylogenetic Investigation of Communities by Reconstruction of Unobser
 
 "Function" usually refers to gene families such as KEGG orthologs and Enzyme Classification numbers, but predictions can be made for any arbitrary trait. Similarly, predictions are typically based on 16S rRNA gene sequencing data, but other marker genes can also be used.
 
-Please see the Picrust-Tutorial-How-To-Generate-Metagenome-Predictions_ , Picrust-FAQ_  and the Picrust_Google_Group_ for more detailed information
+Please see the Picrust-Tutorial-How-To-Generate-Metagenome-Predictions_  , Picrust-FAQ_  and the Picrust-Google-Group_ for more detailed information
 
 PICRUSt2 includes these and other improvements over the original version:
 
@@ -59,11 +71,11 @@ Inference of pathway abundances now relies on MinPath, which makes these predict
 
 .. _Sample_Sequence_Abundances:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_picrust2/test_data/workflow/workflow_seq_abun.biom
 
-.. _Picrust_Tutorial_How_To_Generate_Metagenome_Predictions:  https://github.com/picrust/picrust2/wiki/PICRUSt2-Tutorial-(v2.5.0)#generate-metagenome-predictions 
+.. _Picrust-Tutorial-How-To-Generate-Metagenome-Predictions:  https://github.com/picrust/picrust2/wiki/PICRUSt2-Tutorial-(v2.5.0)#generate-metagenome-predictions 
 
 .. _Picrust-FAQ: https://github.com/picrust/picrust2/wiki/Frequently-Asked-Questions
 
-.. _Picrust_Google_Group: https://groups.google.com/g/picrust-users
+.. _Picrust-Google-Group: https://groups.google.com/g/picrust-users
 
 
 **Inputs**
@@ -93,6 +105,7 @@ We provide three outputs:
 * EC predictions - in the "EC_predicted.tsv" file
 * KO predictions - in the "KO_predicted.tsv" file
 * A zip file containing all the files in the generated output directory
+* A set of unstratified community-wide abundance tables:  KO, EC and pathways (All in tsv format)
 
 ..  _PICRUST2_wiki:  https://github.com/picrust/picrust2/wiki
 ..  _PICRUST2_Paper: https://www.nature.com/articles/s41587-020-0548-6
