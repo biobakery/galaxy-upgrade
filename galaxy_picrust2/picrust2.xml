@@ -18,14 +18,11 @@
 		zip -r  picrust2_out.zip  picrust2_out && 
 		cp picrust2_out.zip  $picrust2_all_outputs &&
 		gunzip picrust2_out/KO_metagenome_out/pred_metagenome_unstrat.tsv.gz &&
-		cp pred_metagenome_unstrat.tsv  KO_metagenome_unstrat &&
-		rm pred_metagenome_unstrat.tsv  && 
+		cp picrust2_out/KO_metagenome_out/pred_metagenome_unstrat.tsv  $KO_metagenome_unstrat &&
 		gunzip picrust2_out/EC_metagenome_out/pred_metagenome_unstrat.tsv.gz &&
-		cp pred_metagenome_unstrat.tsv  EC_metagenome_unstrat &&
-		rm pred_metagenome_unstrat.tsv  && 
+		cp picrust2_out/EC_metagenome_out/pred_metagenome_unstrat.tsv  $EC_metagenome_unstrat &&
 		gunzip picrust2_out/pathways_out/pred_metagenome_unstrat.tsv.gz &&
-		cp pred_metagenome_unstrat.tsv  EC_pathways_unstrat &&
-		rm pred_metagenome_unstrat.tsv  && 
+		cp picrust2_out/pathways_out/pred_metagenome_unstrat.tsv  $EC_pathways_unstrat &&
 		rm input_abun.biom &&
 		rm -r picrust2_out
             ]]></command>
@@ -37,11 +34,11 @@
     </inputs>
     
 	<outputs>
-        <data name="EC_predicted" format="tsv"  />
-		<data name="KO_predicted" format="tsv"  />
-		<data name="KO_metagenome_unstrat" format="tsv"  />
-		<data name="EC_metagenome_unstrat" format="tsv"  />
-		<data name="pathways_metagenome_unstrat" format="tsv"  />
+        <data name="EC_predicted" format="tsv" label="EC Predicted"  />
+		<data name="KO_predicted" format="tsv" label="KO Predicted" />
+		<data name="KO_metagenome_unstrat" format="tsv"  label="KO metagenome unstrat" />
+		<data name="EC_metagenome_unstrat" format="tsv" label="EC metagenome unstrat" />
+		<data name="pathways_metagenome_unstrat" format="tsv" label="Pathways metagenome unstrat"   />
 	 	<data name="picrust2_all_outputs"  format="zip" label="Picrust2 Output zip results - please download" />
     </outputs>
    <help><![CDATA[
