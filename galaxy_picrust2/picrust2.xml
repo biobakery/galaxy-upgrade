@@ -39,6 +39,7 @@ PICRUSt2 (Phylogenetic Investigation of Communities by Reconstruction of Unobser
 
 "Function" usually refers to gene families such as KEGG orthologs and Enzyme Classification numbers, but predictions can be made for any arbitrary trait. Similarly, predictions are typically based on 16S rRNA gene sequencing data, but other marker genes can also be used.
 
+Please see the Picrust-Tutorial-How-To-Generate-Metagenome-Predictions_ , Picrust-FAQ_  and the Picrust_Google_Group_ for more detailed information
 
 PICRUSt2 includes these and other improvements over the original version:
 
@@ -50,14 +51,21 @@ Inference of pathway abundances now relies on MinPath, which makes these predict
 
 .. image:: https://github.com/picrust/picrust2/wiki/images/PICRUSt2_flowchart.png
     :height: 600        
-    :width: 600 
+    :width: 700 
 
 
 
 .. _Sample_Fasta:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_picrust2/test_data/study_seqs_test.fasta
+
 .. _Sample_Sequence_Abundances:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_picrust2/test_data/workflow/workflow_seq_abun.biom
 
- 
+.. _Picrust_Tutorial_How_To_Generate_Metagenome_Predictions:  https://github.com/picrust/picrust2/wiki/PICRUSt2-Tutorial-(v2.5.0)#generate-metagenome-predictions 
+
+.. _Picrust-FAQ: https://github.com/picrust/picrust2/wiki/Frequently-Asked-Questions
+
+.. _Picrust_Google_Group: https://groups.google.com/g/picrust-users
+
+
 **Inputs**
 ==========
 
