@@ -8,7 +8,7 @@
         -c $covariates
         -d $meta_data
         -o $output1  &&
-        cp "CRC_abd_adj.csv"  $output1 && 
+        cut --complement -d "," -f 1 "CRC_abd_adj.csv">$output1 &&
         cp "adjust_batch_diagnostic.pdf" $output2
             ]]>
     </command>
