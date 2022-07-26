@@ -173,3 +173,17 @@ chown -R galaxy /galaxy-central/tools/galaxy_halla
 
 chgrp -R galaxy /galaxy-central/tools/mmuphin
 chown -R galaxy /galaxy-central/tools/mmuphin
+
+### Install Picrust2 dependencies
+#Install epa-ng
+git clone https://github.com/Pbdas/epa-ng.git
+make
+cp /galaxy-central/tools/galaxy-upgrade/epa-ng/bin/epa-ng /bin/
+#Install gappa
+git clone --recursive https://github.com/lczech/gappa.git
+cd gappa
+make
+cp /galaxy-central/tools/galaxy-upgrade/gappa/bin/gappa /bin/
+#Install castor (R package)  
+install.packages('castor')
+
