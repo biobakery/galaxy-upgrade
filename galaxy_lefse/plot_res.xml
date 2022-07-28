@@ -110,6 +110,13 @@ This module plots the biomarkers found by LEfSe ranking them accordingly to thei
 
 ------
 
+
+.. image::  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_lefse/lefse_C.png?raw=true
+    :height: 300        
+    :width: 800 
+
+
+
 **Input format**
 
 The module accepts the output of the LEfSe module (B) only.
@@ -150,9 +157,7 @@ The dataset provided here_ and described in the "Introduction" module produces t
 
 
 
-.. image::  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_lefse/lefse_C.png?raw=true
-    :height: 800        
-    :width: 600 
+
   
 
 .. _here: http://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_lefse/hmp_aerobiosis_small.txt

@@ -152,6 +152,11 @@ This module produces cladograms representing the LEfSe results (obtained with th
 
 Below you can find a couple of examples.
 
+
+.. image::  https://github.com/biobakery/galaxy-upgrade/blob/main/mmuphin/adjust_batch.png?raw=true
+    :height: 525        
+    :width: 800 
+
 ------
 
 **Input format**
@@ -209,9 +214,7 @@ The dataset provided here_ and described in the "Introduction" module produces t
 
 .. _here: http://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_lefse/hmp_aerobiosis_small.txt 
 
-.. image::  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_lefse/lefse_D.png?raw=true
-    :height: 800        
-    :width: 600 
+
 
 Focusing the cladogram on the Firmicutes phylum only and playing a bit with the graphical options, we can obtain the following plot:
 
