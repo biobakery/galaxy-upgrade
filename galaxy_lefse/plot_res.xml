@@ -148,9 +148,14 @@ In addition to the output format and the dpi resolution two sets of parameters c
 
 The dataset provided here_ and described in the "Introduction" module produces the following image (alpha values of LEfSe - step B - are set to 0.01)
 
-.. image:: ../galaxy/static/images/plot_res_ex.png
-.. _here: http://www.huttenhower.org/webfm_send/73  
 
+
+.. image::  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_lefse/lefse_C.png?raw=true
+    :height: 800        
+    :width: 600 
+  
+
+.. _here: http://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_lefse/hmp_aerobiosis_small.txt
 
 
 

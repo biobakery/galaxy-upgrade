@@ -206,7 +206,12 @@ In addition to the output format and the dpi resolution three sets of parameters
 The dataset provided here_ and described in the "Introduction" module produces the following image (alpha values of LEfSe - step B - are set to 0.01)
 
 
-.. _here: http://www.huttenhower.org/webfm_send/73  
+
+.. _here: http://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_lefse/hmp_aerobiosis_small.txt 
+
+.. image::  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_lefse/lefse_D.png?raw=true
+    :height: 800        
+    :width: 600 
 
 Focusing the cladogram on the Firmicutes phylum only and playing a bit with the graphical options, we can obtain the following plot:
 

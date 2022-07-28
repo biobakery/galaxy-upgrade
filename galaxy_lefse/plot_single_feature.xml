@@ -141,11 +141,14 @@ The module generates images in png, svg or pdf format. The png format is recomme
 
 Selecting the Clostridia clade from the biomarkers detected by LEfSe in the dataset provided here_ and described in the "Introduction", we obtain the following image:
 
-.. _here: http://www.huttenhower.org/webfm_send/73  
+.. _here: http://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_lefse/hmp_aerobiosis_small.txt
+ 
 
 Another example, taken from the analysis we detailed in `(Segata et. al 2011)`_ that compares the viral and bacterial microbiomes using metagenomic data from `(Dinsdale et. al 2008)`_:
 
-
+.. image::  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_lefse/lefse_E.png?raw=true
+    :height: 800        
+    :width: 600 
 
 .. _(Segata et. al 2011): http://www.ncbi.nlm.nih.gov/pubmed/21702898
 .. _(Dinsdale et. al 2008): http://www.ncbi.nlm.nih.gov/pubmed/18337718
