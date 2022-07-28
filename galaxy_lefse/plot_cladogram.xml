@@ -153,8 +153,8 @@ This module produces cladograms representing the LEfSe results (obtained with th
 Below you can find a couple of examples.
 
 
-.. image::  https://github.com/biobakery/galaxy-upgrade/blob/main/mmuphin/adjust_batch.png?raw=true
-    :height: 525        
+.. image::   https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_lefse/lefse_D.png?raw=true
+    :height: 550        
     :width: 800 
 
 ------
