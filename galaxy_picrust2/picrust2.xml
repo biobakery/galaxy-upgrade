@@ -59,7 +59,7 @@
 				</param>
                 <param name="placement_tool" type="select" value="epa-ng" format="text" >
 					<label>Placement tool to use when placing sequences into reference tree. </label>
-						<option value="epa_ng">epa_ng</option>
+						<option value="epa-ng">epa-ng</option>
 						<option value="sepp">sepp</option>
 				</param>
 				<param name="edge_exponent" type="float" size="4" value="0.5"  label ="Setting for maximum parisomony hidden-state prediction"/>
