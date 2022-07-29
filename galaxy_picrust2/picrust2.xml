@@ -10,6 +10,13 @@
 		-i input_abun.biom  
 		-o picrust2_out 
 		--processes 10 
+		#if $str($gchoice_additional_analysis_types.global_additional_analysis_types)  == "1":
+            --max_nsti $gchoice_additional_analysis_types.max_nsti
+			--hsp_method $gchoice_additional_analysis_types.hsp_method		
+			--placement_tool $gchoice_additional_analysis_types.placement_tool
+            --edge_exponent $gchoice_additional_analysis_types.edge_exponent	
+            --min_align $gchoice_additional_analysis_types.min_align
+		#end if
 		--stratified &&
 		gunzip picrust2_out/EC_predicted.tsv.gz &&
 		cp picrust2_out/EC_predicted.tsv $EC_predicted &&
@@ -30,6 +37,41 @@
     <inputs>
         <param type="data" name="study_fasta"  label="FASTA of unaligned study sequences " format="fasta"  />
 		<param type="data" name="input_abun"  label="Input table of sequence abundances" format="biom2"  />
+
+		<conditional name="gchoice_additional_analysis_types">
+        	<param name="global_additional_analysis_types" type="select" label="Display additional analysis types and arguments advanced parameters"  multiple="False" help="Select additional analysis types and argument advanced choices ">
+        		<option value="0" selected='True'>No</option>
+				<option value="1">Yes</option>
+        	</param>
+           	<when value="0">
+ 				<param name="Analysis_Type" type="hidden"  value=""  />
+			</when>
+
+        	<when value="1">
+				<param name="max_nsti" type="float" size="4" value="2"  label ="Sequences with NSTI values above this value will be excluded"/>
+                <param name="hsp_method" type="select" value="mp" format="text" >
+					<label>The normalization method to apply </label>
+						<option value="mp">mp: Predict discrete traits using max parsimony</option>
+						<option value="emp_prob">emp_prob:  Predict discrete traits based on empirical state probabilities across tips</option>
+                        <option value="subtree_average">subtree_average: Predict continuous traits using subtree averaging  </option>
+                        <option value="pic">pic:  Predict continuous traits with phylogentic independent contrast</option>
+                        <option value="scp">scp:  Preconstruct continuous traits using squared-change parsimony</option>
+				</param>
+                <param name="placement_tool" type="select" value="epa-ng" format="text" >
+					<label>Placement tool to use when placing sequences into reference tree. </label>
+						<option value="epa_ng">epa_ng</option>
+						<option value="sepp">sepp</option>
+				</param>
+				<param name="edge_exponent" type="float" size="4" value="0.5"  label ="Setting for maximum parisomony hidden-state prediction"/>
+				<param name="min_align" type="integer" size="4" value="0"  label ="Proportion of the total length of an input query sequence that must align with reference sequences"/>
+
+			</when>
+    	</conditional>
+
+
+
+
+
 
     </inputs>
     
