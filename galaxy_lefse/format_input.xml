@@ -92,6 +92,10 @@ The next steps are:
 + **E) Plot One Feature**: plots the row values of a feature (biomarker or not) as an abundance histogram with classes and subclasses structure (only one feature at the time)
 + **F) Plot Differential Features**: plots the row values of all features (biomarkers or not) as abundance histograms with classes and subclasses structure and provides a zip archive of the figures
 
+You can try the LEfSe modules using the dataset available in the link below. 
+
+* Sample_LefSe_Input_
+
 .. image::  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_lefse/lefse_ove.png?raw=true
 
 

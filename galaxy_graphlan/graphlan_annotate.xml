@@ -159,10 +159,6 @@ GraPhlAn annotates and visualizes phylogenetic and taxonomic trees with labels, 
 GraPhlAn can also be used as a command line program. You can find the updated source code and manual `here1`_
 
 
-**The first step**  consists of uploading your input dataset.  This can be done from the Galaxy **Get-Data / Load-file.**   Be sure you choose **File-Format: circl**
-
-**Input examples:** You can try out GraPhlAn using uploading two toy examples of a taxonomic trees guide.txt_ and a phylogenetic tree `phylo_small.xml`_. You can also copy-and-paste their full address or content into the text field.
-
 **Input**:
 
 The input data consists in a tree file in Newick, Nexus, or simple text file and it has to be loaded into Galaxy from the present module.
@@ -171,7 +167,8 @@ The input data consists in a tree file in Newick, Nexus, or simple text file and
 
 Image in svg, png, pdf or ps format
 
-The process consists of four steps (Galaxy modules):
+**The process consists of four steps (Galaxy modules):**
+========================================================
 
 **1) "Load input tree"** from file or URL - Use the **Galaxy / Get Data / Upload file**  and **IMPORTANT**  sure you select **File Format: circl**
 
@@ -181,15 +178,25 @@ The process consists of four steps (Galaxy modules):
 
 **4) "Plot tree"** generates the output image file from the annotated tree.
 
-Below are four examples of quite large phylogenetic trees visualized with GraPhlAn. You can also open the four corresponding high-resolution images for the `PhyloPhlAn tree of life`_, the `HMP+MetaHit gut microbiome`_, the `7-bodysites HMP tree`_, and the `Archaeal tree`_.  
+
+**Sample Data**
+===============
+
+You can download sample data to your computer from the following locations and then upload it to Galaxy using the Get-Data / Upload file from your computer. 
+
+**IMPORTANT**  sure you select **File Format: circl**
 
 
+
+.. _Sample_Taxonomic_Tree:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_graphlan/wiki/Misc_Files/guide.txt
+
+.. _Sample_Ring_Input_File:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_graphlan/wiki/Misc_Files/guide_rings.txt
+
+* Sample_Taxonomic_Tree_
+
+* Sample_Ring_Input_File_
  
 
-      
-**Graphlan Annotation**  (Step 2) 
-
-This module graphycally annotates trees. Please refer to the "Load input tree" Galaxy module above for an introduction to GraPhlAn, and to the extensive textual manual available `here2`_
 
 
 This annotation step can be **recursively applied.** This means that multiple annotations can be sequentially added to the same tree simply re-running this galaxy module on the output of the previous application.
@@ -200,16 +207,10 @@ The scheme below summarizes the different types of graphical options that you ca
 
 .. image:: https://raw.githubusercontent.com/biobakery/galaxy-upgrade/main/galaxy_graphlan/wiki/Misc_Files//GraPhlAn_Fig1_small.png
 
-.. _guide.txt:  https://bitbucket.org/nsegata/graphlan/wiki/guide.txt
-.. _phylo_small.xml:  https://bitbucket.org/nsegata/graphlan/wiki/phylo_small.xml
-.. _PhyloPhlAn tree of life:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_graphlan/wiki/Misc_Files/ppa_tol.png
-.. _HMP+MetaHit gut microbiome:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_graphlan/wiki/gut_microbiome.png
-.. _7-bodysites HMP tree:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_graphlan/wiki/hmptree.png
-.. _Archaeal tree:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_graphlan/wiki/Misc_Files/archaea.png
 
-.. _here1:  https://bitbucket.org/nsegata/graphlan/
+.. _here1:  https://github.com/biobakery/graphlan
 
-.. _here2: https://bitbucket.org/nsegata/graphlan/src/2fb8ce095bde/readme.txt 
+
 
 
 .. _Nicola Segata: nsegata@hsph.harvard.edu
