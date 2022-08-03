@@ -1,4 +1,4 @@
-<tool id="metaphlan" name="Metaphlan" version="3.0.0" python_template_version="3.5">
+<tool id="metaphlan" name="MetaPhLan" version="3.0.0" python_template_version="3.5">
 	<description>Metagenomic Profiler</description>
     <requirements>
     </requirements>
@@ -176,9 +176,7 @@ profiling.
     
 
 
-**MetaPhlAn** relies on ~1.1M unique clade-specific marker genes 
-(the latest marker information file mpa_v30_CHOCOPhlAn_201901_marker_info.txt.bz2 can be found here) 
-identified from ~100,000 reference genomes (~99,500 bacterial and archaeal and ~500 eukaryotic), allowing:
+**MetaPhlAn** features include:
 
 * Unambiguous taxonomic assignments 
 * Accurate estimation of organismal relative abundance 
