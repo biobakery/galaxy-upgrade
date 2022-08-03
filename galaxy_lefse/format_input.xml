@@ -125,6 +125,8 @@ In this case one may want to use bodysite as class, subsite as subclass and id a
 
 You can try the LEfSe modules using the dataset available in the link below. 
 
+* Sample_LefSe_Input_
+
 Please upload the dataset using Galaxy's  **Get-Data / Upload File**
 
 .. _Sample_LefSe_Input:  http://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_lefse/hmp_aerobiosis_small.txt
