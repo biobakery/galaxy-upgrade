@@ -106,6 +106,8 @@ It contains the following objects:
 ..  _SparseDOSSA2_User_Forum:     https://forum.biobakery.org/c/downstream-analysis-and-statistics/sparsedossa/15
 
 
+..  _our_Manuscript:  https://pubmed.ncbi.nlm.nih.gov/34516542
+
 .. image:: https://huttenhower.sph.harvard.edu/wp-content/uploads/2020/08/overview-768x644.png
     :height: 500        
     :width: 600 
@@ -121,8 +123,13 @@ You can find the following resources:
 - SparseDOSSA2_User_Forum_
 
 
-If you use the  SparseDOSSA2  software, please cite our manuscript:
+If you use the  SparseDOSSA2  software, please cite our_Manuscript_:
 
+A statistical model for describing and simulating microbial community profiles
+
+Siyuan Ma, Boyu Ren, Himel Mallick, Yo Sup Moon, Emma Schwager, Sagun Maharjan, Timothy L Tickle, Yiren Lu, Rachel N Carmody, Eric A Franzosa, Lucas Janson , Curtis Huttenhower
+
+PLoS Comput Biol - 2021 Sep 13;17(9):e1008913. doi: 10.1371/journal.pcbi.1008913. eCollection 2021 Sep.
  
     ]]></help>
 </tool>
