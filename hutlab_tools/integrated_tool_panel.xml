@@ -57,6 +57,73 @@
 
     </section>
 
+     <section id="MaAsLin" name="MaAsLin" version="">
+
+        <tool id="maaslin" />
+
+    </section>
+    
+    <section id="MetaPhLan" name="MetaPhLan" version="">
+
+        <tool id="metaphlan" />
+
+    </section>
+     
+    <section id="HUMAnN" name="HUMAnN" version="">
+
+        <tool id="HUMAnN" />
+
+    </section>
+
+    <section id="MMUPHin" name="MMUPHin" version="">
+
+        <tool id="mmuphin_preprocess_metadata" />
+
+        <tool id="mmuphin_adj_batch" />
+
+        <tool id="mmuphin_lm_meta" />
+
+    </section>
+ 
+    <section id="HAllA" name="HAllA" version="">
+
+        <tool id="halla" />
+
+    </section>
+ 
+    <section id="PICRUSt2" name="PICRUSt2" version="">
+
+        <tool id="picrust2" />
+
+    </section>
+  
+    <section id="SparseDOSSA" name="SparseDOSSA" version="">
+
+        <tool id="sparsedossa" />
+
+    </section>
+
+  
+    <section id="WAAFLE" name="WAAFLE" version="">
+
+        <tool id="waafle_search" />
+
+        <tool id="waafle_genecaller" />
+
+        <tool id="waafle_orgscorer" />
+
+    </section>
+
+   <section id="graphlan" name="GraPhlAn" version="">
+
+        <tool id="graphlan_annotate" />
+
+        <tool id="graphlan_ring_annotate" />
+
+        <tool id="graphlan" />
+
+    </section>
+  
     <section id="lefse" name="LEfSe" version="">
 
         <tool id="LEfSe_for" />
@@ -73,78 +140,7 @@
 
     </section>
 
-    <section id="graphlan" name="GraPhlAn" version="">
-
-        <tool id="graphlan_annotate" />
-
-        <tool id="graphlan_ring_annotate" />
-
-        <tool id="graphlan" />
-
-    </section>
-
-    <section id="MetaPhLan" name="MetaPhLan" version="">
-
-        <tool id="metaphlan" />
-
-    </section>
-
-    <section id="MaAsLin" name="MaAsLin" version="">
-
-        <tool id="maaslin" />
-
-    </section>
-
-    <section id="HUMAnN" name="HUMAnN" version="">
-
-        <tool id="HUMAnN" />
-
-    </section>
-
-    <section id="PanPhlAn" name="PanPhlAn" version="">
-
-        <tool id="panphlan" />
-
-    </section>
-
-    <section id="SparseDOSSA" name="SparseDOSSA" version="">
-
-        <tool id="sparsedossa" />
-
-    </section>
-
-    <section id="MMUPHin" name="MMUPHin" version="">
-
-        <tool id="mmuphin_preprocess_metadata" />
-
-        <tool id="mmuphin_adj_batch" />
-
-        <tool id="mmuphin_lm_meta" />
-
-    </section>
-
-    <section id="HAllA" name="HAllA" version="">
-
-        <tool id="halla" />
-
-    </section>
-
-    <section id="WAAFLE" name="WAAFLE" version="">
-
-        <tool id="waafle_search" />
-
-        <tool id="waafle_genecaller" />
-
-        <tool id="waafle_orgscorer" />
-
-    </section>
-
-    <section id="PICRUSt2" name="PICRUSt2" version="">
-
-        <tool id="picrust2" />
-
-    </section>
-
+ 
     <section id="collection_operations" name="Collection Operations" version="">
 
         <tool id="__UNZIP_COLLECTION__" />
