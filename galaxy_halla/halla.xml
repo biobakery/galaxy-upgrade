@@ -83,8 +83,8 @@ HAllA operates by
     :height: 290        
     :width: 800 
 
-.. _Sample_X:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_halla/X_16_100.txt
-.. _Sample_Y:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_halla/Y_16_100.txt
+.. _Sample_X:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_halla/X_16_100.tab
+.. _Sample_Y:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_halla/Y_16_100.tab
 
  
 **Inputs**
@@ -122,7 +122,11 @@ We provide two outputs:
 **If you use this software, please cite:**
 ==========================================
 
+High-sensitivity pattern discovery in large, paired multiomic datasets. 
+
 Gholamali Rahnavard, Kathleen Sucipto, Lauren J. McIver, Emma Schwager,Jason Lloyd-Price, George Weingart, Yo Sup Moon, Xochitl C. Morgan, Levi Waldron, Eric A. Franzosa, Curtis Huttenhower. High-sensitivity pattern discovery in large multi'omic datasets. (huttenhower.sph.harvard.edu/halla)
+
+https://pubmed.ncbi.nlm.nih.gov/35758795/
 
     ]]>
 </help>
