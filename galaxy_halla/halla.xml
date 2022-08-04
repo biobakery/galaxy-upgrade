@@ -25,8 +25,8 @@
             ]]></command>
 
     <inputs>
-        <param type="data" name="X"  label="X dataset: A tab-delimited input file, one row per feature, one column per measurement" format="text"  />
-		<param type="data" name="Y"  label="Y dataset: A tab-delimited input file, one row per feature, one column per measurement" format="text"  />
+        <param type="data" name="X"  label="X dataset: A tab-delimited input file, one row per feature, one column per measurement" format="tabular"  />
+		<param type="data" name="Y"  label="Y dataset: A tab-delimited input file, one row per feature, one column per measurement" format="tabular"  />
 
 		<param name="m" type="select" format="text">
 					<label>Distance/similarity metric: spearman, pearson, dcor,mi, nmi or xicor</label>
@@ -80,11 +80,11 @@ HAllA operates by
 * Iteratively subdividing the space of significant all-against-all correlations into blocks of densely associated occurring as clusters in the original datasets.
 
 .. image:: https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_halla/fig1.png?raw=true 
-    :height: 600        
+    :height: 290        
     :width: 800 
 
-.. _Sample_X:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_halla/X_16_100.txt
-.. _Sample_Y:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_halla/Y_16_100.txt
+.. _Sample_X:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_halla/X_16_100.tab
+.. _Sample_Y:  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_halla/Y_16_100.tab
 
  
 **Inputs**
@@ -106,8 +106,8 @@ Please download the files to your PC and upload them to Galaxy using the "Get Da
 ===========
  
 .. image:: https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_halla/halla_image1.png?raw=true
-    :height: 600        
-    :width: 600 
+    :height: 470        
+    :width: 800 
 
 We provide two outputs:
  
@@ -122,7 +122,11 @@ We provide two outputs:
 **If you use this software, please cite:**
 ==========================================
 
+High-sensitivity pattern discovery in large, paired multiomic datasets. 
+
 Gholamali Rahnavard, Kathleen Sucipto, Lauren J. McIver, Emma Schwager,Jason Lloyd-Price, George Weingart, Yo Sup Moon, Xochitl C. Morgan, Levi Waldron, Eric A. Franzosa, Curtis Huttenhower. High-sensitivity pattern discovery in large multi'omic datasets. (huttenhower.sph.harvard.edu/halla)
+
+https://pubmed.ncbi.nlm.nih.gov/35758795/
 
     ]]>
 </help>
