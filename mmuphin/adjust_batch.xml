@@ -49,7 +49,7 @@
 
 MMUPHin is an R package implementing meta-analysis methods for microbial community profiles. It has interfaces for: a) covariate-controlled batch and study effect adjustment, b) meta-analytic differential abundance testing, and meta-analytic discovery of c) discrete (cluster-based) or d) continuous unsupervised population structure.
 
-MMUPHin enables the normalization and combination of multiple microbial community studies. It can then help in identifying microbes, genes, or pathways that are differential with respect to combined phenotypes. Finally, it can find clusters or gradients of sample types that reproduce consistently among studies.
+MMUPHin enables the normalization and combination of multiple microbial community studies. It can then help in identifying microbes, genes, or pathways that are differential with respect to combined phenotypes. It can find clusters or gradients of sample types that reproduce consistently among studies.
 
 This step - "adjust_batch",  aims to correct for technical study/batch effects in microbial feature abundances. It takes as input the feature-by-sample abundance matrix, and performs batch effect adjustment given provided batch and optional covariate variables. It returns the batch-adjusted abundance matrix. 
 
