@@ -60,10 +60,7 @@ One of the most common meta-analysis goals is to combine association effects acr
 
 lm_meta provides a straightforward interface to this task, by first performing regression analysis in individual batches/studies using the well-validated Maaslin2 package, and then aggregating results with established fixed/mixed effect models, realized via the vegan package. 
 
-In the example provided here, we use lm_meta to test for consistently differential abundant species between CRC and control samples across the five studies, while controlling for demographic covariates (gender, age, BMI). Again, lm_meta returns a list of more than one components. meta_fits provides the final meta-analytical testing results. 
-
-See help(lm_meta) for the meaning of other components.
-
+In the example provided here, we use lm_meta to test for consistently differential abundant species between CRC and control samples across the five studies, while controlling for demographic covariates (gender, age, BMI).
 
 
 
@@ -71,16 +68,10 @@ See help(lm_meta) for the meaning of other components.
 **Inputs**
 ==========
  
-As input, MMUPHin requires a properly formatted collection of microbial community studies, with both feature abundances and accompanying metadata. Here we use the five published colorectal cancer (CRC) stool metagenomic studies, incorporated in Thomas et al. (2019). Data for the studies are already conveniently packaged and accessible through the Biocondcutor package curatedMetagenomicData, though additional wranglings are needed to format input for MMUPHin.
-
-Importantly, MMUPHin asks that feature abundances be provided as a feature-by-sample matrix, and the metadata be provided as a data frame. The two objects shoud agree on sample IDs, that is, rowname of the feature abundance matrix and colname of the metadata data frame must agree. Many popular ’omic data classes in R already enforce this standard, such as ExpressionSet from Biobase, or phyloseq from phyloseq.
-
-To minimize users’ efforts in loading data to run the examples, we have properly formatted the five studies for easy access. The feature abundances and metadata can be loaded with the following code chunk. For the interested user, the commented out scripts were used for accessing data directly from curatedMetagenomicData and formatting. It might be worthwhile to read through these as they perform many of the common tasks for preprocessing microbial feature abundance data in R, including sample/feature subsetting, normalization, filtering, etc.
-
-adjust_batch aims to correct for technical study/batch effects in microbial feature abundances. It takes as input the feature-by-sample abundance matrix, and performs batch effect adjustment given provided batch and optional covariate variables. It returns the batch-adjusted abundance matrix. Check help(adjust_batch) for additional details and options. This figure from the paper (figure 2b) shows the desired effect of the batch adjustment: batch effects are removed, making the effect of the biological variable of interest easier to detect.
 
 
-As an example we privide two sample files taken from colorectal cancer (CRC) stool metagenomic studies (See links below)
+
+We provide two sample files taken from colorectal cancer (CRC) stool metagenomic studies (See links below)
 
 Please download these files to your computer and use the Galaxy Get-Data / Upload file from your computer to upload these two files.
 
