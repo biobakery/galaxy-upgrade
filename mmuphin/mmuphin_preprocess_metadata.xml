@@ -1,4 +1,4 @@
-<tool id="mmuphin_preprocess_metadata" name="a.)Preprocess Metadata" version="0.1.0" python_template_version="3.5">
+<tool id="mmuphin_preprocess_metadata" name="Preprocess Metadata" version="0.1.0" python_template_version="3.5">
     <requirements>
     </requirements>
 
@@ -23,7 +23,7 @@ Overall, MMUPHin enables the normalization and combination of multiple microbial
 
 The Galaxy workflow for MMUPHin consists of three steps:
 
-* Read the metadata file and create a headers file to be used in the subsequent steps.
+* Read the metadata file and create a headers file to be used in the subsequent steps. For a sample, you can use the CRC_Metadata_sample_ below
 * Perform covariate-adjusted batch effect correction
 * Perform meta-analytical differential abundance testing
 

@@ -1,4 +1,4 @@
-<tool id="mmuphin_lm_meta" name="c.)Differential abundance testing" version="0.1.0" python_template_version="3.5">
+<tool id="mmuphin_lm_meta" name="Differential abundance testing" version="0.1.0" python_template_version="3.5">
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
@@ -94,12 +94,6 @@ Please download these files to your computer and use the Galaxy Get-Data / Uploa
 * Headers file created in the first step.
 
 
-
-
-
-
-* CRC_Feature_Abundances_ 
-* CRC_Metadata_
 
 
 
