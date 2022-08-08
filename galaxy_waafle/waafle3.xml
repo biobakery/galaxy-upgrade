@@ -15,7 +15,7 @@
     <inputs>
         <param type="data" name="Input_Contigs"  label="Input Contigs (.fna file)" format="fasta"  />    
         <param type="data" name="Contigs_Blastout"  label="Contigs Blastout results from the first step" format="waafle_output1"  />
-	<param type="data" name="Contigs_gff"  label="Contigs gff - results from the second step" format="waafle_output2"  />
+	    <param type="data" name="Contigs_gff"  label="Contigs gff - results from the second step" format="waafle_output2, gff"  />
     </inputs>	
     
      <outputs>
@@ -26,7 +26,10 @@
    <help><![CDATA[
   
   
-The final and most critical step of a WAAFLE analysis is combining the BLAST output generated in Step 1 with a GFF file to 1) taxonomically score genes along the length of the input contigs and then 2) identify those contigs as derived from a single clade or a pair of clades (i.e. putative LGT)
+The final and most critical step of a WAAFLE analysis is combining the BLAST output generated in Step 1 with a GFF file to:
+
+*  1) taxonomically score genes along the length of the input contigs and then 
+*  2) identify those contigs as derived from a single clade or a pair of clades (i.e. putative LGT)
 
 
 

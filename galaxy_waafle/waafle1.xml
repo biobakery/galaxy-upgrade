@@ -21,7 +21,11 @@
   
 WAAFLE (a Workflow to Annotate Assemblies and Find LGT Events) is a method for finding novel LGT (Lateral Gene Transfer) events in assembled metagenomes, including those from human microbiomes
 
- 
+
+
+.. image::  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_waafle/webfig1.png?raw=true
+    :height: 350        
+    :width: 800 
 
 
 .. _Demo_Contigs:  https://github.com/biobakery/waafle/blob/master/demo/input/demo_contigs.fna
@@ -30,20 +34,22 @@ WAAFLE (a Workflow to Annotate Assemblies and Find LGT Events) is a method for f
 **Inputs**
 ==========
 
-Contigs should be provided as nucleotide sequences in FASTA format. Contigs are expected to have unique, BLAST-compatible headers. 
 
 WAAFLE is optimized for working with fragmentary contigs from partially assembled metagenomes (spanning 2-20 genes, or roughly 1-20 kb). WAAFLE is not optimized to work with extremely long contigs (100s of kbs), scaffolds, or closed genomes. 
 
 The WAAFLE developers recommend MEGAHIT as a general-purpose metagenomic assembler.
+
+Contigs should be provided as nucleotide sequences in FASTA format. Contigs are expected to have unique, BLAST-compatible headers. 
+
 
 Sample data is avalable using the following links:
 
 * Demo_Contigs_
 
 
-Please download the sample input file to your PC and upload them to Galaxy using the "Get Data / Upload file" in Galaxy
+Please download the sample fasta input file to your PC and upload it to Galaxy using the "Get Data / Upload file"  
 
-Make sure you select datatype of "fasta"
+
 
 
 
@@ -57,6 +63,13 @@ The output consists of a contigs blast outfile
 ..  _Tutorial:  https://github.com/biobakery/biobakery/wiki/WAAFLE/
 ..  _User_Manual: https://github.com/biobakery/waafle/
 ..   _User_Forum: https://forum.biobakery.org/c/microbial-community-profiling/waafle/ 
+
+
+
+.. image::  https://github.com/biobakery/galaxy-upgrade/blob/main/galaxy_waafle/webfig3.png?raw=true
+    :height: 515        
+    :width: 800
+
 
 
 **If you use this software, please cite:**
