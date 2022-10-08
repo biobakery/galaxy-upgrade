@@ -18,14 +18,14 @@
 
 		<param name="metadata_headers" type="data"  label="Metadata Headers"  format="mmuphin_metadata_headers" help="Metadata Headers (Output of the first step: Preprocess Metadata)"/>
 
- 		<param name="batch" type="select" optional="false" multiple="false" label="Batch - For a sample run select StudyID">
+ 		<param name="batch" type="select" optional="false" multiple="false" label="Batch - for differential abundance testing e.g. StudyID">
                          <options from_dataset="metadata_headers">
                                  <column name="name" index="0"/>
                                 <column name="value" index="0"/>
                         </options>
                 </param>
 
-		<param name="covariates" type="select" optional="false" multiple="false" label="Covariates - For a sample run select study_condition">
+		<param name="covariates" type="select" optional="false" multiple="false" label="Names of covariates to adjust for e.g. study_condition">
  		         <options from_dataset="metadata_headers">
        				 <column name="name" index="0"/>
         			<column name="value" index="0"/>

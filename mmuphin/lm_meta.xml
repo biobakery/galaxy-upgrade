@@ -24,14 +24,14 @@
                         </options>
                 </param>
 		
-		<param name="exposure" type="select" optional="false" multiple="false" label="Name of the exposure variable for differential abundance testing - for sample select study_condition">
+		<param name="exposure" type="select" optional="false" multiple="false" label="Name of the exposure variable for differential abundance testing e.g study_condition">
                          <options from_dataset="metadata_headers">
                                  <column name="name" index="0"/>
                                 <column name="value" index="0"/>
                         </options>
                 </param>
 
-                <param name="covariates" type="select" optional="false" multiple="true" label="Names of covariates to adjust - For sample select age, gender, BMI">
+                <param name="covariates" type="select" optional="false" multiple="true" label="Names of covariates to adjust for e.g. age, gender, BMI">
                          <options from_dataset="metadata_headers">
                                  <column name="name" index="0"/>
                                 <column name="value" index="0"/>
