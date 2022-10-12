@@ -11,7 +11,7 @@
     <tool file="galaxy_graphlan/graphlan_ring_annotate.xml" />
     <tool file="galaxy_graphlan/graphlan.xml" />
   </section>
-  <section id="MetaPhLan" name="MetaPhLan">
+  <section id="MetaPhlAn" name="MetaPhlAn">
         <tool file="metaphlan/metaphlan.xml" />
   </section>
   <section id="MaAsLin" name="MaAsLin">
