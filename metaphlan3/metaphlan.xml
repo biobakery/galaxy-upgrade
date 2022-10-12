@@ -168,10 +168,7 @@ with species-level.
     :height: 500        
     :width: 600 
 
-	
 
----------
-  
     
 
 
@@ -202,35 +199,9 @@ You can find small demo metagenomes in the following locations.  Please gunzip t
 
 - Supragingival_plaque_
 
-- Posterior_fornix_
-
-- Stool_
-
-- Anterior_nares_
-
-- Tongue_dorsum_
-
-- Buccal_mucosa_
-
-..  _Supragingival_plaque: https://github.com/biobakery/biobakery/raw/master/demos/biobakery_demos/data/MetaPhlAn3/input/SRS014476-Supragingival_plaque.fasta.gz
 
 
-.. _Posterior_fornix:  https://github.com/biobakery/biobakery/raw/master/demos/biobakery_demos/data/MetaPhlAn3/input/SRS014494-Posterior_fornix.fasta.gz
-
-
-.. _Stool: https://github.com/biobakery/biobakery/raw/master/demos/biobakery_demos/data/MetaPhlAn3/input/SRS014459-Stool.fasta.gz
-
-
-.. _Anterior_nares: https://github.com/biobakery/biobakery/raw/master/demos/biobakery_demos/data/MetaPhlAn3/input/SRS014464-Anterior_nares.fasta.gz
-
-
-.. _Tongue_dorsum:  https://github.com/biobakery/biobakery/raw/master/demos/biobakery_demos/data/MetaPhlAn3/input/SRS014470-Tongue_dorsum.fasta.gz
-
-
-.. _Buccal_mucosa: https://github.com/biobakery/biobakery/raw/master/demos/biobakery_demos/data/MetaPhlAn3/input/SRS014472-Buccal_mucosa.fasta.gz
-
-
-
+..  _Supragingival_plaque: https://github.com/biobakery/galaxy-upgrade/blob/main/metaphlan3/SRS014476-Supragingival_plaque.fasta.gz
 
 
 **Outputs**
