@@ -1,9 +1,9 @@
-<tool id="metaphlan" name="MetaPhLan" version="3.0.0" python_template_version="3.5">
+<tool id="MetaPhlAn" name="MetaPhlAn" version="3.0.0" python_template_version="3.5">
 	<description>Metagenomic Profiler</description>
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        metaphlan $input1 
+        MetaPhlAn $input1 
         -o $output1 
         --input_type $input_type
         --no_map 
@@ -157,8 +157,7 @@
 (Bacteria, Archaea and Eukaryotes) from metagenomic shotgun sequencing data (i.e. not 16S) 
 with species-level.
  
-With the newly added **StrainPhlAn** module, it is now possible to perform accurate strain-level microbial
-profiling.
+ 
 
 
 
@@ -189,9 +188,9 @@ profiling.
 **Tutorial, User Manual and Forum**
 ===================================
 
-The Tutorial, User Manual and Forum for MetaPhLan can be found in the MetaPhLan_Tutorial_
+The Tutorial, User Manual and Forum for MetaPhlAn can be found in the MetaPhlAn_Tutorial_
 
-..  _MetaPhLan_Tutorial:  https://huttenhower.sph.harvard.edu/metaphlan/
+..  _MetaPhlAn_Tutorial:  https://huttenhower.sph.harvard.edu/MetaPhlAn/
 
 **Inputs**
 ==========
@@ -213,22 +212,22 @@ You can find small demo metagenomes in the following locations.  Please gunzip t
 
 - Buccal_mucosa_
 
-..  _Supragingival_plaque: https://github.com/biobakery/biobakery/raw/master/demos/biobakery_demos/data/metaphlan3/input/SRS014476-Supragingival_plaque.fasta.gz
+..  _Supragingival_plaque: https://github.com/biobakery/biobakery/raw/master/demos/biobakery_demos/data/MetaPhlAn3/input/SRS014476-Supragingival_plaque.fasta.gz
 
 
-.. _Posterior_fornix:  https://github.com/biobakery/biobakery/raw/master/demos/biobakery_demos/data/metaphlan3/input/SRS014494-Posterior_fornix.fasta.gz
+.. _Posterior_fornix:  https://github.com/biobakery/biobakery/raw/master/demos/biobakery_demos/data/MetaPhlAn3/input/SRS014494-Posterior_fornix.fasta.gz
 
 
-.. _Stool: https://github.com/biobakery/biobakery/raw/master/demos/biobakery_demos/data/metaphlan3/input/SRS014459-Stool.fasta.gz
+.. _Stool: https://github.com/biobakery/biobakery/raw/master/demos/biobakery_demos/data/MetaPhlAn3/input/SRS014459-Stool.fasta.gz
 
 
-.. _Anterior_nares: https://github.com/biobakery/biobakery/raw/master/demos/biobakery_demos/data/metaphlan3/input/SRS014464-Anterior_nares.fasta.gz
+.. _Anterior_nares: https://github.com/biobakery/biobakery/raw/master/demos/biobakery_demos/data/MetaPhlAn3/input/SRS014464-Anterior_nares.fasta.gz
 
 
-.. _Tongue_dorsum:  https://github.com/biobakery/biobakery/raw/master/demos/biobakery_demos/data/metaphlan3/input/SRS014470-Tongue_dorsum.fasta.gz
+.. _Tongue_dorsum:  https://github.com/biobakery/biobakery/raw/master/demos/biobakery_demos/data/MetaPhlAn3/input/SRS014470-Tongue_dorsum.fasta.gz
 
 
-.. _Buccal_mucosa: https://github.com/biobakery/biobakery/raw/master/demos/biobakery_demos/data/metaphlan3/input/SRS014472-Buccal_mucosa.fasta.gz
+.. _Buccal_mucosa: https://github.com/biobakery/biobakery/raw/master/demos/biobakery_demos/data/MetaPhlAn3/input/SRS014472-Buccal_mucosa.fasta.gz
 
 
 
@@ -242,19 +241,17 @@ The output is a two column tab-separated plain file reporting the predicted micr
 All taxonomic levels from domain to species will be reported and higher taxonomic levelis contain the sum of the abundances of its taxonomic leaf nodes (usually species) and, possibly, some lower level "unclassified" clades.
 
 
-.. _Metaphlan_Paper: https://elifesciences.org/articles/65088
+.. _MetaPhlAn_Paper: https://elifesciences.org/articles/65088
 
 
-.. _StrainPhLan_Paper: http://genome.cshlp.org/content/27/4/626.full.pdf
 
 **If you use this software, please cite:**
 ==========================================
 
 
-The following  Metaphlan_Paper_ "Integrating taxonomic, functional, and strain-level profiling of diverse microbial communities with bioBakery 3":   Francesco Beghini, Lauren J McIver, Aitor Blanco-Míguez, Leonard Dubois, Francesco Asnicar, Sagun Maharjan, 
+The following  MetaPhlAn_Paper_ "Integrating taxonomic, functional, and strain-level profiling of diverse microbial communities with bioBakery 3":   Francesco Beghini, Lauren J McIver, Aitor Blanco-Míguez, Leonard Dubois, Francesco Asnicar, Sagun Maharjan, 
 Ana Mailyan, Paolo Manghi, Matthias Scholz, Andrew Maltez Thomas, Mireia Valles-Colomer, George Weingart, Yancong Zhang, Moreno Zolfo, Curtis Huttenhower, Eric A Franzosa, Nicola Segata. eLife (2021)
 
-If you use StrainPhlAn, please cite the Metaphlan_Paper_ and the following StrainPhLan_Paper_ :
 
 Microbial strain-level population structure and genetic diversity from metagenomes. Duy Tin Truong, Adrian Tett, Edoardo Pasolli, Curtis Huttenhower, & Nicola Segata. Genome Research 27:626-638 (2017)
 
