@@ -3,7 +3,7 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        MetaPhlAn $input1 
+        metaphlan $input1 
         -o $output1 
         --input_type $input_type
         --no_map 
