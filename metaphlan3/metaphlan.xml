@@ -161,9 +161,6 @@ with species-level.
 
 
 
-
-
-
 .. image:: https://iiif.elifesciences.org/lax:65088%2Felife-65088-fig1-v1.tif/full/1500,/0/default.jpg
     :height: 500        
     :width: 600 
@@ -177,7 +174,6 @@ with species-level.
 * Unambiguous taxonomic assignments 
 * Accurate estimation of organismal relative abundance 
 * Species-level resolution for bacteria, archaea, eukaryotes and viruses 
-* Strain identification and tracking orders of magnitude speedups compared to existing methods.
 * Metagenomic strain-level population genomics
 
 ---------
@@ -195,7 +191,7 @@ The Tutorial, User Manual and Forum for MetaPhlAn can be found in the MetaPhlAn_
 
 The input file must be a multi-fasta file containing metagenomic reads loaded with the "Get Data" module in the left panel. Reads can be as short as ~40 nt although lengths higher than 70 nt are recommended.
 
-You can find small demo metagenomes in the following locations.  Please gunzip them and then,  upload them to Galaxy using **Get Data / Upload File** from your computer 
+You can find small demo metagenomes in the following location.  Please upload it to Galaxy using **Get Data / Upload File** from your computer 
 
 - Supragingival_plaque_
 
