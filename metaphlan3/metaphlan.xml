@@ -188,10 +188,9 @@ The Tutorial, User Manual and Forum for MetaPhlAn can be found in the MetaPhlAn_
 **Inputs**
 ==========
 
+MetaPhlAn accepts metagenomic sequence in several formats, including .fasta, .fastq, bowtie2out and sam.
 
-The input file must be a multi-fasta file containing metagenomic reads loaded with the "Get Data" module in the left panel. Reads can be as short as ~40 nt although lengths higher than 70 nt are recommended.
-
-You can find small demo metagenomes in the following location.  Please upload it to Galaxy using **Get Data / Upload File** from your computer 
+You can find a small demo metagenome in the following location.  Please upload it to Galaxy using **Get Data / Upload File** from your computer 
 
 - Supragingival_plaque_
 
