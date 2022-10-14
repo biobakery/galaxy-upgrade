@@ -2,7 +2,7 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-	python "/galaxy-central/tools/hutlab_tools/check_file_size.py" --InputFile $input --Threshold 4194304 --Error_RC 9 &&
+	python "/galaxy-central/tools/hutlab_tools/check_file_size.py" --InputFile $input --Threshold 2147483648 --Error_RC 9 &&
         humann -i $input -o humann_analysis
         #if $str($gchoice_additional_analysis_types.global_additional_analysis_types)  == "1":
             --search-mode $gchoice_additional_analysis_types.search_mode
@@ -25,7 +25,7 @@
         cp humann_analysis/*_pathcoverage.tsv  $output3  
     ]]></command>
     <stdio>
-    		<exit_code range="9" level="fatal" description="Input dataset size is too large (Threshold is 4Mb): Please run it out of Galaxy" />
+    		<exit_code range="9" level="fatal" description="Input dataset size is too large (Threshold is 2Gb): Please run it out of Galaxy" />
 	</stdio>
 
     <inputs>

@@ -3,7 +3,7 @@
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-		python "/galaxy-central/tools/hutlab_tools/check_file_size.py" --InputFile $input1 --Threshold 26214400 --Error_RC 9 &&
+		python "/galaxy-central/tools/hutlab_tools/check_file_size.py" --InputFile $input1 --Threshold 2147483648 --Error_RC 9 &&
         metaphlan $input1 
         -o $output1 
         --input_type $input_type
@@ -51,7 +51,7 @@
     ]]>
     </command>
 	 <stdio>
-    		<exit_code range="9" level="fatal" description="Input dataset size is too large (Threshold is 25Mb): Please run it out of Galaxy" />
+    		<exit_code range="9" level="fatal" description="Input dataset size is too large (Threshold is 2Gb): Please run it out of Galaxy" />
 	</stdio>
     <inputs>
         <param type="data" name="input1"  label="Input metagenome" format="fasta,fastq,bowtie2out,sam"  />
