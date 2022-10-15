@@ -86,10 +86,10 @@
 ..  _Maaslin2:  https://github.com/biobakery/Maaslin2/
 ..  _Maaslin_Article:  https://doi.org/10.1101/2021.01.20.427420
 
-MaAsLin2 provides a comprehensive multi-model system for performing multivariable association testing in microbiome profiles,
+MaAsLin provides a comprehensive multi-model system for performing multivariable association testing in microbiome profiles,
 taxonomic, functional, or metabolomic - with analysis modules for preprocessing, normalization, transformation,
 and data-driven statistical modeling to tackle the challenges of microbial multi-omics (compositionality, overdispersion,
-zero-inflation, variable library size and high-dimensionality.
+zero-inflation, variable library size and high-dimensionality).
 
 
 
@@ -99,7 +99,7 @@ zero-inflation, variable library size and high-dimensionality.
 ==========
 
 
-The MaAsLin 2 implementation requires two inputs: 
+MaAsLin implementation requires two inputs: 
 
 * Microbial feature abundances (e.g. taxa, genes, transcripts, or metabolites) across samples, in either counts or relative counts 
 * Environmental, clinical, or epidemiological phenotypes or covariates of interest (together “metadata”).
