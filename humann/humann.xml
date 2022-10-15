@@ -80,9 +80,9 @@
 
 
     <outputs>
-        <data name="output1" format="tsv"  label="Gene families"/>
-        <data name="output2" format="tsv"  label="Path Abundances"/>
-        <data name="output3" format="tsv"  label="Path Coverages"/>
+        <data name="output1" format="tsv"  label="Gene families: genefamilies.tsv"/>
+        <data name="output2" format="tsv"  label="Path Abundances: pathabundance.tsv"/>
+        <data name="output3" format="tsv"  label="Path Coverages: pathcoverage.tsv"/>
     </outputs>
     <help><![CDATA[
         HUMAnN is a pipeline for efficiently and accurately profiling the presence/absence and abundance of microbial pathways in a community from metagenomic or metatranscriptomic sequencing data (typically millions of short DNA/RNA reads). This process, referred to as functional profiling, aims to describe the metabolic potential of a microbial community and its members. More generally, functional profiling answers the question "What are the microbes in my community-of-interest doing (or capable of doing)?"
@@ -97,6 +97,7 @@
 
 .. _Sample_sam:    https://github.com/biobakery/galaxy-upgrade/blob/main/humann/examples/demo.sam
 .. _Sample_fasta:  https://github.com/biobakery/galaxy-upgrade/blob/main/humann/examples/demo.fasta
+.. _Sample_fastq:  https://github.com/biobakery/galaxy-upgrade/blob/main/humann/examples/demo.fastq.gz
 .. _Sample_Taxonomy:  https://github.com/biobakery/galaxy-upgrade/blob/main/humann/examples/SRS014476-Supragingival_plaque_profile.txt
 
 
@@ -122,11 +123,11 @@ MinPath is run to identify the set of minimum pathways
 
 You can download sample data to your computer from the following locations and then upload it to Galaxy using the Get-Data / Upload file from your computer. 
 
-
-
-* Sample_sam_
+* Sample_fastq_
 
 * Sample_fasta_
+ 
+* Sample_sam_
 
 * Sample_Taxonomy_     (Use the "Display additional parameters for for using a pre-computed taxonomic profile" in the screen)
 
