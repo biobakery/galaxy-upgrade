@@ -11,7 +11,7 @@
             --nucleotide-identity-threshold $gchoice_additional_analysis_types.nucleotide_identity_threshold
             --nucleotide-query-coverage-threshold $gchoice_additional_analysis_types.nucleotide_query_coverage_threshold
             --nucleotide-subject-coverage-threshold $gchoice_additional_analysis_types.nucleotide_subject_coverage_threshold
-            --E-value $gchoice_additional_analysis_types.E-value
+            --E_value $gchoice_additional_analysis_types.E_value
             --translated-identity-threshold $gchoice_additional_analysis_types.translated_identity_threshold
             --translated-query-coverage-threshold $gchoice_additional_analysis_types.translated_query_coverage_threshold
             --translated-subject-coverage-threshold $gchoice_additional_analysis_types.translated_subject_coverage_threshold
@@ -50,7 +50,7 @@
 	            <param name="nucleotide_identity_threshold" type="float" size="4" value="0.0"  label ="Identity threshold for nucleotide alignments"/>
 	            <param name="nucleotide_query_coverage_threshold" type="float" size="4" value="90.0"  label ="Query coverage threshold for nucleotide alignments"/>
 	            <param name="nucleotide_subject_coverage_threshold" type="float" size="4" value="50.0"  label ="Subject coverage threshold for nucleotide alignments"/>
-	            <param name="E-value" type="float" size="4" value="1.0"  label ="E-value threshold to use with the translated search"/>
+	            <param name="E_value" type="float" size="4" value="1.0"  label ="E_value threshold to use with the translated search"/>
 	            <param name="translated_identity_threshold" type="float" size="4" value="50.0"  label ="Identity threshold for translated alignments"/>
 	            <param name="translated_query_coverage_threshold" type="float" size="4" value="90.0"  label ="Query coverage threshold for translated alignments"/>
 	            <param name="translated_subject_coverage_threshold" type="float" size="4" value="50.0"  label ="Subject coverage threshold for translated alignments"/>
