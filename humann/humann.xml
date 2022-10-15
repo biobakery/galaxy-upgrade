@@ -159,7 +159,9 @@ By default HUMAnN 3.0 will determine the type of the file. As shown in the figur
 * File Type 4 (gene table)
     1. tsv
 
-
+.. image:: https://github.com/biobakery/galaxy-upgrade/blob/main/maaslin2/journal.pcbi.1009442.g001.PNG?raw=true
+    :height: 470        
+    :width: 800 
 
 **Citation**
 ============
