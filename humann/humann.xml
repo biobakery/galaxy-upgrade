@@ -11,7 +11,7 @@
             --nucleotide-identity-threshold $gchoice_additional_analysis_types.nucleotide_identity_threshold
             --nucleotide-query-coverage-threshold $gchoice_additional_analysis_types.nucleotide_query_coverage_threshold
             --nucleotide-subject-coverage-threshold $gchoice_additional_analysis_types.nucleotide_subject_coverage_threshold
-            --evalue $gchoice_additional_analysis_types.evalue
+            --E-value $gchoice_additional_analysis_types.E-value
             --translated-identity-threshold $gchoice_additional_analysis_types.translated_identity_threshold
             --translated-query-coverage-threshold $gchoice_additional_analysis_types.translated_query_coverage_threshold
             --translated-subject-coverage-threshold $gchoice_additional_analysis_types.translated_subject_coverage_threshold
@@ -47,10 +47,10 @@
 						<option value="uniref90">uniref90</option>
 				</param>
 	            <param name="prescreen_threshold" type="float" size="4" value="0.01"  label ="Minimum percentage of reads matching a species"/>
-	            <param name="nucleotide_identity_threshold" type="float" size="4" value="0.0"  label ="Identity threshold for nuclotide alignments"/>
+	            <param name="nucleotide_identity_threshold" type="float" size="4" value="0.0"  label ="Identity threshold for nucleotide alignments"/>
 	            <param name="nucleotide_query_coverage_threshold" type="float" size="4" value="90.0"  label ="Query coverage threshold for nucleotide alignments"/>
 	            <param name="nucleotide_subject_coverage_threshold" type="float" size="4" value="50.0"  label ="Subject coverage threshold for nucleotide alignments"/>
-	            <param name="evalue" type="float" size="4" value="1.0"  label ="evalue threshold to use with the translated search"/>
+	            <param name="E-value" type="float" size="4" value="1.0"  label ="E-value threshold to use with the translated search"/>
 	            <param name="translated_identity_threshold" type="float" size="4" value="50.0"  label ="Identity threshold for translated alignments"/>
 	            <param name="translated_query_coverage_threshold" type="float" size="4" value="90.0"  label ="Query coverage threshold for translated alignments"/>
 	            <param name="translated_subject_coverage_threshold" type="float" size="4" value="50.0"  label ="Subject coverage threshold for translated alignments"/>
@@ -60,7 +60,7 @@
 
 
    <conditional name="gchoice_taxonomy">
-        	<param name="global_taxonomy" type="select" label="Display additional parameters for taxonomy analysis"  multiple="False" help="Select input taxonomy file  ">
+        	<param name="global_taxonomy" type="select" label="Display additional parameters for for using a pre-computed taxonomic profile"  multiple="False" help="Select input taxonomy file  ">
         		<option value="0" selected='True'>No</option>
 				<option value="1">Yes</option>
         	</param>
@@ -128,7 +128,7 @@ You can download sample data to your computer from the following locations and t
 
 * Sample_fasta_
 
-* Sample_Taxonomy_     (Use the "Display additional parameters for taxonomy analysis" in the screen)
+* Sample_Taxonomy_     (Use the "Display additional parameters for for using a pre-computed taxonomic profile" in the screen)
 
 **Workflow by input file type:**
 ================================
