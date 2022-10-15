@@ -1,4 +1,4 @@
-<tool id="waafle_orgscorer" name="WAAFLE orgscorer" version="1.0.0" python_template_version="3.5">
+<tool id="waafle_orgscorer" name="WAAFLE Orgscorer" version="1.0.0" python_template_version="3.5">
 	<description>Combine BLAST output generated in Step 1 with a GFF file to 1) taxonomically score genes along the length of the input contigs and then 2) identify those contigs as derived from a single clade or a pair of clades (i.e. putative LGT)</description>
     <requirements>
     </requirements>
@@ -28,8 +28,8 @@
   
 The final and most critical step of a WAAFLE analysis is combining the BLAST output generated in Step 1 with a GFF file to:
 
-*  1) taxonomically score genes along the length of the input contigs and then 
-*  2) identify those contigs as derived from a single clade or a pair of clades (i.e. putative LGT)
+*   Taxonomically score genes along the length of the input contigs and then 
+*   Identify those contigs as derived from a single clade or a pair of clades (i.e. putative LGT)
 
 
 
@@ -46,23 +46,16 @@ The inputs for this step are the outputs of the first and second steps
 This will produce three output files which divide and describe your contigs as putative LGT contigs, single-clade (no-LGT) contigs, and unclassified contigs (e.g. those containing no genes):
 
 
-contigs.lgt.tsv
-
-
-contigs.no_lgt.tsv
-
-
-contigs.unclassified.tsv 
+*   contigs.lgt.tsv
+*   contigs.no_lgt.tsv
+*   contigs.unclassified.tsv 
 
 ..  _Tutorial:  https://github.com/biobakery/biobakery/wiki/WAAFLE/
 ..  _User_Manual: https://github.com/biobakery/waafle/
 ..   _User_Forum: https://forum.biobakery.org/c/microbial-community-profiling/waafle/ 
 
 
-**If you use this software, please cite:**
-==========================================
 
-Tiffany Y. Hsu, Eric A. Franzosa, Dennis Wong, Chengwei Luo, Robert G. Beiko, Morgan Langille, Curtis Huttenhower. The landscape of novel lateral gene transfer events in the human microbiome. (In prep.)
     ]]>
 </help>
 </tool>

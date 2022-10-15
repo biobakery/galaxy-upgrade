@@ -1,4 +1,4 @@
-<tool id="waafle_genecaller" name="WAAFLE genecaller" version="1.0.0" python_template_version="3.5">
+<tool id="waafle_genecaller" name="WAAFLE Genecaller" version="1.0.0" python_template_version="3.5">
 	<description>Identify gene coordinates of interest directly from the BLAST output produced in the previous step</description>
     <requirements>
     </requirements>
@@ -43,10 +43,8 @@ This step produces a file in GFF format called contigs.gff for use in the next a
 ..   _User_Forum: https://forum.biobakery.org/c/microbial-community-profiling/waafle/ 
 
 
-**If you use this software, please cite:**
-==========================================
 
-Tiffany Y. Hsu, Eric A. Franzosa, Dennis Wong, Chengwei Luo, Robert G. Beiko, Morgan Langille, Curtis Huttenhower. The landscape of novel lateral gene transfer events in the human microbiome. (In prep.)
+
     ]]>
 </help>
 </tool>
