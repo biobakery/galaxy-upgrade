@@ -1,4 +1,5 @@
-<tool id="HUMAnN" name="HUMAnN" version="0.1.5" python_template_version="3.5">
+<tool id="HUMAnN" name="HUMAnN" version="3.0.0" python_template_version="3.5">
+    <description>HMP Unified Metabolic Analysis Network</description>
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
@@ -29,7 +30,7 @@
 	</stdio>
 
     <inputs>
-        <param type="data" name="input" label="Input metagenome (Max size to use in Galaxy: 4Mb)" format="fasta, fastq, sam" />
+        <param type="data" name="input" label="Input metagenome" format="fasta, fastq, sam" />
         <conditional name="gchoice_additional_analysis_types">
         	<param name="global_additional_analysis_types" type="select" label="Display additional analysis types and arguments advanced parameters"  multiple="False" help="Select additional analysis types and argument advanced choices ">
         		<option value="0" selected='True'>No</option>
@@ -59,7 +60,7 @@
 
 
    <conditional name="gchoice_taxonomy">
-        	<param name="global_taxonomy" type="select" label="Display additional parameters for taxonomy analysis"  multiple="False" help="Select input taxonomy file (Max size: 4Mb - otherwise perform analysis out of Galaxy) ">
+        	<param name="global_taxonomy" type="select" label="Display additional parameters for taxonomy analysis"  multiple="False" help="Select input taxonomy file  ">
         		<option value="0" selected='True'>No</option>
 				<option value="1">Yes</option>
         	</param>
