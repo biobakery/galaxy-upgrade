@@ -11,7 +11,7 @@
             --nucleotide-identity-threshold $gchoice_additional_analysis_types.nucleotide_identity_threshold
             --nucleotide-query-coverage-threshold $gchoice_additional_analysis_types.nucleotide_query_coverage_threshold
             --nucleotide-subject-coverage-threshold $gchoice_additional_analysis_types.nucleotide_subject_coverage_threshold
-            --E_value $gchoice_additional_analysis_types.E_value
+            --evalue $gchoice_additional_analysis_types.E_value
             --translated-identity-threshold $gchoice_additional_analysis_types.translated_identity_threshold
             --translated-query-coverage-threshold $gchoice_additional_analysis_types.translated_query_coverage_threshold
             --translated-subject-coverage-threshold $gchoice_additional_analysis_types.translated_subject_coverage_threshold
