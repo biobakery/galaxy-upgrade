@@ -4,7 +4,7 @@
     </requirements>
 
 	<command detect_errors="exit_code"><![CDATA[
-            humann_regroup_table    -i $Input1  -f $f -e $precision -u $u  -o $output1
+            humann_regroup_table    -i $Input1  -f $f -e $precision -u $u  --groups  $groups -o $output1
             ]]>
 	</command>
 
