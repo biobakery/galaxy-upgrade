@@ -1,0 +1,62 @@
+<tool id="humann_regroup_table" name="HUMAnN_regroup_table" version="3.0.0" python_template_version="3.5">
+	<description>Regrouping to other functional categories</description>
+    <requirements>
+    </requirements>
+
+	<command detect_errors="exit_code"><![CDATA[
+            humann_regroup_table    -i $Input1  -f $f -e $precision -u $u  -o $output1
+            ]]>
+	</command>
+
+    <inputs>
+        <param type="data" name="Input1"  label="Input: Original HUMAnN output table" format="tsv"  />
+
+    
+       	<param name="groups" type="select" value="uniref90_rxn" format="text" >
+					<label> Built-in grouping options </label>
+						<option value="uniref90_rxn">uniref90_rxn</option>
+						<option value="uniref50_rxn">uniref50_rxn</option>
+		</param>
+ 
+      	<param name="f" type="select" value="y" format="text" >
+					<label>How to combine grouped features </label>
+						<option value="sum">sum</option>
+						<option value="mean">mean</option>
+		</param>
+
+	    <param name="precision" type="integer" size="4" value="0"  label ="Decimal places to round to after applying function"/>
+
+      	<param name="u" type="select" value="y" format="text" >
+					<label>Include an 'UNGROUPED' group to capture features that did not belong to other groups?</label>
+						<option value="y">y</option>
+						<option value="n">n</option>
+		</param>
+
+    </inputs>	
+	<outputs>
+        <data name="output1" format="tsv"  />
+    </outputs>
+   <help><![CDATA[
+  
+	Regroup  to other functional categories
+
+ 
+ 
+**Input**
+=========
+
+Input consists of output from the HUMAnN step
+ 
+
+
+
+
+**Output**
+===========
+ 
+Regrouped table in tsv format
+ 
+
+    ]]>
+</help>
+</tool>
