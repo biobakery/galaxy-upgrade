@@ -1,0 +1,60 @@
+<tool id="humann_renorm_table" name="HUMAnN_renorm_table" version="3.0.0" python_template_version="3.5">
+	<description>Normalizing RPKs to relative abundance</description>
+    <requirements>
+    </requirements>
+
+	<command detect_errors="exit_code"><![CDATA[
+            humann_renorm_table    -i $INPUT1  -u  $units -m $Normalize -s $s  -o $output1
+            ]]>
+	</command>
+
+    <inputs>
+        <param type="data" name="Input1"  label="Input: Original HUMAnN output table" format="tsv"  />
+
+        <param name="units" type="select" value="cpm" format="text" >
+					<label>Normalization scheme: copies per million [cpm], relative abundance [relab] </label>
+						<option value="cpm">cpm</option>
+						<option value="relab">relab</option>
+		</param>
+
+       <param name="Normalize" type="select" value="community" format="text" >
+					<label>Normalize all levels by [community] total or [levelwise] totals </label>
+						<option value="community">community</option>
+						<option value="levelwise">levelwise</option>
+		</param>
+
+      <param name="s" type="select" value="y" format="text" >
+					<label>Include the special features UNMAPPED, UNINTEGRATED, and UNGROUPED </label>
+						<option value="y">y</option>
+						<option value="n">n</option>
+		</param>
+
+    </inputs>	
+	<outputs>
+        <data name="output1" format="tsv"  />
+    </outputs>
+   <help><![CDATA[
+  
+  Normalize HUMAnN's default RPK values prior to performing statistical analyses.
+
+
+ 
+ 
+**Input**
+=========
+
+Input consists of output from the HUMAnN step
+ 
+
+
+
+
+**Output**
+===========
+ 
+Normalized table in tsv format
+ 
+
+    ]]>
+</help>
+</tool>

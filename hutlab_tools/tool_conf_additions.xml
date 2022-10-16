@@ -19,6 +19,7 @@
   </section>
  <section id="HUMAnN" name="HUMAnN">
      <tool file="humann/humann.xml" />
+     <tool file="humann/humann_renorm_table.xml" />
   </section>
   <section id="SparseDOSSA" name="SparseDOSSA">
         <tool file="sparsedossa/sparsedossa.xml" />
