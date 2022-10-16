@@ -26,10 +26,10 @@
 
 	    <param name="precision" type="integer" size="4" value="0"  label ="Decimal places to round to after applying function"/>
 
-      	<param name="u" type="select" value="y" format="text" >
+      	<param name="u" type="select" value="Y" format="text" >
 					<label>Include an 'UNGROUPED' group to capture features that did not belong to other groups?</label>
-						<option value="y">y</option>
-						<option value="n">n</option>
+						<option value="Y">y</option>
+						<option value="N">n</option>
 		</param>
 
     </inputs>	
