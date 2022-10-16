@@ -15,13 +15,13 @@
     <inputs>
         <param type="data" name="Input_Contigs"  label="Input Contigs (.fna file)" format="fasta"  />    
         <param type="data" name="Contigs_Blastout"  label="Contigs Blastout results from the first step" format="waafle_output1"  />
-	    <param type="data" name="Contigs_gff"  label="Contigs gff - results from the second step" format="waafle_output2, gff"  />
+	    <param type="data" name="Contigs_gff"  label="Contigs gff - results from the second step or upload your own" format="waafle_output2, gff"  />
     </inputs>	
     
      <outputs>
   	      <data name="contigs_lgt" format="tsv" label="Putative LGT contigs" />
 	      <data name="contigs_no_lgt" format="tsv" label="Contigs with no LGT" />
-              <data name="contigs_unclassified" format="tsv" label="Unclassified Contigs" />
+          <data name="contigs_unclassified" format="tsv" label="Unclassified Contigs" />
     </outputs>
    <help><![CDATA[
   
@@ -37,7 +37,11 @@ The final and most critical step of a WAAFLE analysis is combining the BLAST out
 **Inputs**
 ==========
 
-The inputs for this step are the outputs of the first and second steps
+The inputs for this step are the outputs of the first and second steps.
+
+You can use the contigs.gff file generated in the genecaller step or you upload your own contigs.gff file and use it here.
+
+If you choose to upload, please specify the 'waafle_output2' datatype 
 
 
 **Output**
