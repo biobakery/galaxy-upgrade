@@ -4,7 +4,7 @@
     </requirements>
 
 	<command detect_errors="exit_code"><![CDATA[
-            humann_renorm_table    -i $INPUT1  -u  $units -m $Normalize -s $s  -o $output1
+            humann_renorm_table    -i $Input1  -u  $units -m $Normalize -s $s  -o $output1
             ]]>
 	</command>
 
