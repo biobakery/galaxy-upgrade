@@ -1,0 +1,67 @@
+<tool id="humann_rename_table" name="HUMAnN_rename_table" version="3.0.0" python_template_version="3.5">
+	<description>Attach  names to features</description>
+    <requirements>
+    </requirements>
+
+	<command detect_errors="exit_code"><![CDATA[
+            humann_rename_table    -i $Input1   --names -o $output1
+            ]]>
+	</command>
+
+    <inputs>
+        <param type="data" name="Input1"  label="Input: Output of Regrouping genes step" format="tsv"  />
+
+    
+       	<param name="names" type="select" value="kegg-orthology" format="text" >
+					<label> Table features that can be renamed  </label>
+						<option value="kegg-orthology">kegg-orthology</option>
+						<option value="kegg-pathway">kegg-pathway</option>
+						<option value="kegg-module">kegg-module</option>
+						<option value="ec">ec</option>
+						<option value="metacyc-rxn">metacyc-rxn</option>
+						<option value="metacyc-pwy">metacyc-pwy</option>
+						<option value="pfam">pfam</option>
+						<option value="eggnog">eggnog</option>
+						<option value="go">go</option>
+						<option value="infogo1000">infogo1000</option>
+						<option value="uniref50">uniref50</option>
+		</param>
+ 
+   
+
+    </inputs>	
+	<outputs>
+        <data name="output1" format="tsv"  />
+    </outputs>
+   <help><![CDATA[
+
+
+	Regroup  to other functional categories
+
+
+..  _HUMAnN_Tutorial:  https://github.com/biobakery/biobakery/wiki/humann3/
+
+
+Please see the HUMAnN_Tutorial_  for details
+
+ 
+ 
+ 
+**Input**
+=========
+
+Input consists of output from the Output of Regrouping genes step
+ 
+
+
+
+
+**Output**
+===========
+ 
+Renamed table in tsv format
+ 
+
+    ]]>
+</help>
+</tool>

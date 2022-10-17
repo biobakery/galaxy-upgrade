@@ -146,6 +146,11 @@ There are four different types of files that can be provided as input to HUMAnN 
 By default HUMAnN 3.0 will determine the type of the file. As shown in the figure below, the type of input file will determine where HUMAnN 3.0 will start the workflow. Files of type 2, 3, and 4 will begin the workflow after the alignment steps.
 
 
+..  _HUMAnN_Tutorial:  https://github.com/biobakery/biobakery/wiki/humann3/
+
+
+Please see the HUMAnN_Tutorial_  for details
+
 
 **File Types:**
 ===============
