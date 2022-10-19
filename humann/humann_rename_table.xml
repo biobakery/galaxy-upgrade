@@ -4,7 +4,7 @@
     </requirements>
 
 	<command detect_errors="exit_code"><![CDATA[
-            humann_rename_table    -i $Input1   --names -o $output1
+            humann_rename_table    -i $Input1   --names  $names -o $output1
             ]]>
 	</command>
 
@@ -12,13 +12,13 @@
         <param type="data" name="Input1"  label="Input: Output of Regrouping genes step" format="tsv"  />
 
     
-       	<param name="names" type="select" value="kegg-orthology" format="text" >
+       	<param name="names" type="select" value="metacyc-rxn" format="text" >
 					<label> Table features that can be renamed  </label>
+						<option value="metacyc-rxn">metacyc-rxn</option>
 						<option value="kegg-orthology">kegg-orthology</option>
 						<option value="kegg-pathway">kegg-pathway</option>
 						<option value="kegg-module">kegg-module</option>
 						<option value="ec">ec</option>
-						<option value="metacyc-rxn">metacyc-rxn</option>
 						<option value="metacyc-pwy">metacyc-pwy</option>
 						<option value="pfam">pfam</option>
 						<option value="eggnog">eggnog</option>
