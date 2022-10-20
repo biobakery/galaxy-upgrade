@@ -9,7 +9,7 @@
 	</command>
 
     <inputs>
-        <param type="data" name="genefamilies_cpm"  label="Normalized genefamilies" format="tsv"  />
+        <param type="data" name="genefamilies_cpm"  label="genefamilies_cpm: Normalized genefamilies" format="tsv"  />
 
     
        	<param name="groups" type="select" value="uniref90_rxn" format="text" >

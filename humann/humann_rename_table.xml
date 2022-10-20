@@ -4,7 +4,7 @@
     </requirements>
 
 	<command detect_errors="exit_code"><![CDATA[
-            humann_rename_table    -i $rxn_cpm   --names  $ -o $rxn_cpm_named
+            humann_rename_table    -i $rxn_cpm   --names  $names -o $rxn_cpm_named
             ]]>
 	</command>
 
