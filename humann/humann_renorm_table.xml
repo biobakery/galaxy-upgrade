@@ -4,12 +4,12 @@
     </requirements>
 
 	<command detect_errors="exit_code"><![CDATA[
-            humann_renorm_table    -i $Input1  -u  $units -m $Normalize -s $s  -o $output1
+            humann_renorm_table    -i $genefamilies  -u  $units -m $Normalize -s $s  -o $genefamilies_cpm
             ]]>
 	</command>
 
     <inputs>
-        <param type="data" name="Input1"  label="Input: Original HUMAnN output table" format="tsv"  />
+        <param type="data" name="genefamilies"  label="Genefamilies: Output from HUMAnN Step" format="tsv"  />
 
         <param name="units" type="select" value="cpm" format="text" >
 					<label>Normalization scheme: copies per million [cpm], relative abundance [relab] </label>
@@ -31,7 +31,7 @@
 
     </inputs>	
 	<outputs>
-        <data name="output1" format="tsv"  />
+        <data name="genefamilies_cpm" format="tsv"  />
     </outputs>
    <help><![CDATA[
   

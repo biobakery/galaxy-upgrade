@@ -4,12 +4,12 @@
     </requirements>
 
 	<command detect_errors="exit_code"><![CDATA[
-            humann_rename_table    -i $Input1   --names  $names -o $output1
+            humann_rename_table    -i $rxn_cpm   --names  $ -o $rxn_cpm_named
             ]]>
 	</command>
 
     <inputs>
-        <param type="data" name="Input1"  label="Input: Output of Regrouping genes step" format="tsv"  />
+        <param type="data" name="rxn_cpm"  label="rxn_cpm: Output of Regrouping genes step" format="tsv"  />
 
     
        	<param name="names" type="select" value="metacyc-rxn" format="text" >
@@ -31,7 +31,7 @@
 
     </inputs>	
 	<outputs>
-        <data name="output1" format="tsv"  />
+        <data name="rxn_cpm_named" format="tsv"  />
     </outputs>
    <help><![CDATA[
 

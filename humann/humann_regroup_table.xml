@@ -4,12 +4,12 @@
     </requirements>
 
 	<command detect_errors="exit_code"><![CDATA[
-            humann_regroup_table    -i $Input1  -f $f -e $precision -u $u  --groups  $groups -o $output1
+            humann_regroup_table    -i $genefamilies_cpm  -f $f -e $precision -u $u  --groups  $groups -o $rxn_cpm
             ]]>
 	</command>
 
     <inputs>
-        <param type="data" name="Input1"  label="Input: Original HUMAnN output table" format="tsv"  />
+        <param type="data" name="genefamilies_cpm"  label="Normalized genefamilies" format="tsv"  />
 
     
        	<param name="groups" type="select" value="uniref90_rxn" format="text" >
@@ -34,7 +34,7 @@
 
     </inputs>	
 	<outputs>
-        <data name="output1" format="tsv"  />
+        <data name="rxn_cpm" format="tsv"  />
     </outputs>
    <help><![CDATA[
   
