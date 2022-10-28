@@ -4,7 +4,7 @@
     </requirements>
 
 	<command detect_errors="exit_code"><![CDATA[
-            humann_renorm_table    -i $genefamilies  -u  $units -m $Normalize -s $s  -o $genefamilies_cpm
+            humann_renorm_table    -i $genefamilies  -u  $units -m $Normalize -s $s  -p -o $genefamilies_cpm
             ]]>
 	</command>
 

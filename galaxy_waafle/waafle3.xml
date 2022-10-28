@@ -4,7 +4,7 @@
     </requirements>
 
 	<command detect_errors="exit_code"><![CDATA[
-        waafle_orgscorer '$Input_Contigs'  '$Contigs_Blastout' '$Contigs_gff' '$__tool_directory__/waafledb_taxonomy.tsv' &&
+        waafle_orgscorer '$Input_Contigs'  '$Contigs_Blastout' '$Contigs_gff' '$__tool_directory__/waafledb_taxonomy.tsv' -k1 $k1  -k2 $k2 &&
 	cp *.lgt.tsv '$contigs_lgt' &&
 	cp *.no_lgt.tsv '$contigs_no_lgt' &&
 	cp *.unclassified.tsv '$contigs_unclassified' &&
@@ -16,6 +16,8 @@
         <param type="data" name="Input_Contigs"  label="Input Contigs (.fna file)" format="fasta"  />    
         <param type="data" name="Contigs_Blastout"  label="Contigs Blastout results from the first step" format="waafle_output1"  />
 	    <param type="data" name="Contigs_gff"  label="Contigs gff - results from the second step or upload your own" format="waafle_output2, gff"  />
+        <param name="k1"  type="float"     value="0.5"  min="0" max="1.0" label="Minimum per-gene score for explaining a contig with a single clade "/>
+        <param name="k2"  type="float"     value="0.8"  min="0" max="1.0" label="Minimum per-gene score for explaining a contig with a pair of clades (putative LGT)"/>
     </inputs>	
     
      <outputs>

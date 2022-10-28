@@ -41,10 +41,10 @@
 			</when>
 
         	<when value="1">
-                <param name="search_mode" type="select" value="uniref50" format="text" >
+                <param name="search_mode" type="select" value="uniref90" format="text" >
 					<label>Search for uniref50 or uniref90 gene families </label>
-						<option value="uniref50">uniref50</option>
 						<option value="uniref90">uniref90</option>
+						<option value="uniref50">uniref50</option>
 				</param>
 	            <param name="prescreen_threshold" type="float" size="4" value="0.01"  label ="Minimum percentage of reads matching a species"/>
 	            <param name="nucleotide_identity_threshold" type="float" size="4" value="0.0"  label ="Identity threshold for nucleotide alignments"/>
@@ -182,7 +182,7 @@ Please see the HUMAnN_Tutorial_  for details
 
 If you use HUMAnN 3.0 in your work, please cite the HUMAnN 3.0 paper:
 
-Francesco Beghini, Lauren J McIver, Aitor Blanco-Mìguez, Leonard Dubois, Francesco Asnicar, Sagun Maharjan, Ana Mailyan, Andrew Maltez Thomas, Paolo Manghi, Mireia Valles-Colomer, George Weingart, Yancong Zhang, Moreno Zolfo, Curtis Huttenhower, Eric A Franzosa, Nicola Segata 
+Beghini F, McIver LJ, Blanco-Míguez A, Dubois L, Asnicar F, Maharjan S, Mailyan A, Manghi P, Scholz M, Thomas AM, Valles-Colomer M, Weingart G, Zhang Y, Zolfo M, Huttenhower C, Franzosa EA, Segata N. Integrating taxonomic, functional, and strain-level profiling of diverse microbial communities with bioBakery 3. Elife. 2021 May 4;10:e65088. doi: 10.7554/eLife.65088. PMID: 33944776; PMCID: PMC8096432.
 
     ]]></help>
 </tool>
