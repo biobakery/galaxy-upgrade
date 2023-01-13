@@ -12,10 +12,10 @@
     <tool file="galaxy_graphlan/graphlan.xml" />
   </section>
   <section id="MetaPhlAn" name="MetaPhlAn">
-        <tool file="metaphlan/metaphlan.xml" />
+        <tool file="metaphlan3/metaphlan.xml" />
   </section>
   <section id="MaAsLin" name="MaAsLin">
-        <tool file="maaslin/maaslin.xml" />
+        <tool file="maaslin2/maaslin.xml" />
   </section>
  <section id="HUMAnN" name="HUMAnN">
      <tool file="humann/humann.xml" />
@@ -24,13 +24,13 @@
       <tool file="humann/humann_rename_table.xml" />
   </section>
   <section id="SparseDOSSA" name="SparseDOSSA">
-        <tool file="sparsedossa/sparsedossa.xml" />
+        <tool file="sparssedossa/sparsedossa.xml" />
   </section>
    <section id="MMUPHin" name="MMUPHin">
          <tool file="mmuphin/mmuphin_preprocess_metadata.xml" />
         <tool file="mmuphin/adjust_batch.xml" />
         <tool file="mmuphin/lm_meta.xml" />
-  </section>
+  </section>w
   <section id="HAllA" name="HAllA">
           <tool file="galaxy_halla/halla.xml" />
   </section>
