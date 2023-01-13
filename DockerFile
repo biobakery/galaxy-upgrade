@@ -10,7 +10,7 @@ sudo apt install build-essential
 sudo apt-get install bowtie2
 apt-get install less
 apt-get install bsdmainutils
-pip install metaphlan
+pip install MetaPhlAn==3.0.13
 pip install humann 
 pip uninstall numpy
 pip install numpy
