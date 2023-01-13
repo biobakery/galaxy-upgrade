@@ -11,7 +11,7 @@ sudo apt-get install bowtie2
 apt-get install less
 apt-get install bsdmainutils
 pip install MetaPhlAn==3.0.13
-pip install humann 
+pip install humann==3.6
 pip uninstall numpy
 pip install numpy
 metaphlan --install
