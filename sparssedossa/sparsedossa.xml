@@ -1,4 +1,4 @@
-<tool id="sparsedossa" name="Simulating realistic microbial observations" version="0.1.0" python_template_version="3.5">
+<tool id="SparseDOSSA" name="Simulating realistic microbial observations" version="0.1.0" python_template_version="3.5">
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
