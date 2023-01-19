@@ -15,7 +15,7 @@
         <tool file="metaphlan3/metaphlan.xml" />
   </section>
   <section id="MaAsLin" name="MaAsLin">
-        <tool file="maaslin2/maaslin.xml" />
+        <tool file="maaslin/maaslin.xml" />
   </section>
  <section id="HUMAnN" name="HUMAnN">
      <tool file="humann/humann.xml" />
