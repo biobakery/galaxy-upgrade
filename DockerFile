@@ -168,6 +168,8 @@ chgrp -R galaxy /galaxy-central/tools/graphlan
 chgrp -R galaxy /galaxy-central/tools/waafle
 chown -R galaxy /galaxy-central/tools/waafle
 
+cd tools/halla
+python3.8 setup.py develop
 chgrp -R galaxy /galaxy-central/tools/galaxy_halla
 chown -R galaxy /galaxy-central/tools/galaxy_halla
 
