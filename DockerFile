@@ -81,6 +81,15 @@ pip install --upgrade autopep8
 ##########################################################################
 #  GraphLan                                                              #
 ##########################################################################
+
+##########################################################################
+#  Important graphlan installation note <<<<------
+#  Please the instructions located in galaxy-upgrade/Readme_Graphlan_Galaxy
+#  The most important is to make sure that pyphlan is in galaxy/lib <<<--
+#  We will copy pyphlan to /export/galaxy-central/lib  and also to 
+#  /galaxy-central/lib
+########################################################################## 
+
 git clone https://github.com/SegataLab/graphlan.git
 cd graphlan
 pip install .
@@ -98,6 +107,14 @@ chgrp -R galaxy /export/galaxy-central/lib/pyphlan
 chown -R galaxy /export/galaxy-central/lib/galaxy/pyphlan
 chgrp -R galaxy /export/galaxy-central/lib/galaxy/pyphlan
 
+
+
+cp -r /galaxy-central/tools/galaxy_graphlan/pyphlan   /galaxy-central/lib
+cp -r /galaxy-central/tools/galaxy_graphlan/pyphlan  /galaxy-central/lib/galaxy
+chown -R galaxy  /galaxy-central/lib/pyphlan
+chgrp -R galaxy  /galaxy-central/lib/pyphlan
+chown -R galaxy /galaxy-central/lib/galaxy/pyphlan
+chgrp -R galaxy  /galaxy-central/lib/galaxy/pyphlan
 
 ###################################################################
 #   Modify ownership of tools directories
