@@ -144,6 +144,41 @@ wget http://huttenhower.sph.harvard.edu/waafle_data/waafledb.tar.gz -O /galaxy-c
 wget http://huttenhower.sph.harvard.edu/waafle_data/waafledb_taxonomy.tsv -O /galaxy-central/tools/galaxy_waafle/waafledb_taxonomy.tsv 
 
 git clone https://github.com/biobakery/waafle.git /galaxy-central/tools/  
+
+###################################################################
+#  Important waafle note :                                        #
+###################################################################
+# Please make sure that the waafle database files are located     *
+# in the following directory:
+#  /galaxy-central/tools/galaxy_waafle/waafledb such that it looks  
+#  as follows:
+#
+#(galaxy_venv) root@e260ba359898:/galaxy-central/tools/galaxy_waafle/waafledb# pwd
+# /galaxy-central/tools/galaxy_waafle/waafledb
+# (galaxy_venv) root@e260ba359898:/galaxy-central/tools/galaxy_waafle/waafledb# ll
+# total 7400072
+# -rw-r--r-- 1 root 402050 662596427 Mar 18 23:47 waafledb.00.nhr
+# -rw-r--r-- 1 root 402050  50813876 Mar 18 23:47 waafledb.00.nin
+#-rw-r--r-- 1 root 402050 999999847 Mar 18 23:47 waafledb.00.nsq
+# -rw-r--r-- 1 root 402050 659301143 Mar 18 23:47 waafledb.01.nhr
+# -rw-r--r-- 1 root 402050  50935088 Mar 18 23:47 waafledb.01.nin
+# -rw-r--r-- 1 root 402050 999999864 Mar 18 23:47 waafledb.01.nsq
+# -rw-r--r-- 1 root 402050 645680680 Mar 18 23:47 waafledb.02.nhr
+# -rw-r--r-- 1 root 402050  49674512 Mar 18 23:47 waafledb.02.nin
+# -rw-r--r-- 1 root 402050 999999934 Mar 18 23:47 waafledb.02.nsq
+# -rw-r--r-- 1 root 402050 653495133 Mar 18 23:47 waafledb.03.nhr
+# -rw-r--r-- 1 root 402050  50326232 Mar 18 23:47 waafledb.03.nin
+# -rw-r--r-- 1 root 402050 999999983 Mar 18 23:47 waafledb.03.nsq
+# -rw-r--r-- 1 root 402050 285147206 Mar 18 23:47 waafledb.04.nhr
+# -rw-r--r-- 1 root 402050  21815876 Mar 18 23:47 waafledb.04.nin
+# -rw-r--r-- 1 root 402050 447856002 Mar 18 23:47 waafledb.04.nsq
+# -rw-r--r-- 1 root 402050       142 Mar 18 23:47 waafledb.nal
+# (galaxy_venv) root@e260ba359898:/galaxy-central/tools/galaxy_waafle/waafledb#
+###################################################################
+#  End of  waafle note                                            #
+###################################################################
+
+
 ###################################################################
 #   Modify ownership of tools directories
 ###################################################################
