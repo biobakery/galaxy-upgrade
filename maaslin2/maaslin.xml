@@ -1,4 +1,4 @@
-<tool id="maaslin" name="Microbiome Multivariable Association with Linear Models" version="1.8.0" python_template_version="3.5">
+<tool id="MaAsLin2" name="MaAsLin2" version="1.8.0" python_template_version="3.5">
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
