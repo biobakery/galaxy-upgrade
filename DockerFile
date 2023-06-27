@@ -1,243 +1,185 @@
-!# /bin/bash
+FROM quay.io/bgruening/galaxy:20.09
 
-#  Download the upgrade library here 
-git clone https://github.com/biobakery/galaxy-upgrade.git  /galaxy-central/tools
-# metaphlan install
-sudo apt-get update
-conda deactivate
-. /galaxy_venv/bin/activate
-sudo apt install build-essential
-sudo apt-get install bowtie2
-apt-get install less
-apt-get install bsdmainutils
-pip install MetaPhlAn==3.0.13
-pip install humann==3.6
-pip uninstall numpy
-pip install numpy
-metaphlan --install
+WORKDIR /galaxy-central
 
-#########################################################################
-# If you want to reorder the applications order, you need to update     #
-# the integrated_tools_panel.xml file with the order you want           #
-# That file resides in /export/galaxy-central                           #
-# There is a copy of that file in our git which I kept in the           #
-# hutlab_tools directory (as of 7/18/2022)  GW.                         #
-#########################################################################  
+ENV GALAXY_CONFIG_BRAND="Hutlab Galaxy" \
+    GALAXY_CONFIG_WELCOME_URL=/static/welcome.html
 
+# Copy config files (welcome page, tool_conf.xml)
+COPY ./welcome.html /galaxy-central/static/
+COPY ./tool_conf.xml /galaxy-central/config/
 
-##########################################################################
-#    maaslin2 install                                                    #
-##########################################################################
+# Activate Virtual Environment
+RUN . /galaxy_venv/bin/activate 
+RUN apt-get update && \
+    DEBIAN_FRONTEND="noninteractive" apt-get install -y python3.8 python3.8-dev python3-pip apt-transport-https openjdk-8-jre wget zip software-properties-common
 
+# Install R version 4
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 && \
+    add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/' && \
+    apt-get update -y && \
+    DEBIAN_FRONTEND="noninteractive" apt-get install r-base libcurl4-openssl-dev -y
 
+# Install required system packages
+RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y build-essential bowtie2 less bsdmainutils samtools
 
-sudo apt install apt-transport-https software-properties-common
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
-sudo apt-get update
-sudo apt install r-base
-sudo apt install libssl-dev
-sudo apt install libgit2-dev
-sudo apt-get install libgmp3-dev
-sudo apt-get install libmpfr-dev
+# Clone galaxy-upgrade repository
+WORKDIR /galaxy-central/tools
+RUN git clone https://github.com/biobakery/galaxy-upgrade.git
 
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-BiocManager::install(version = "3.10")
-sudo apt install vim
-mkdir /galaxy-central/tools/maaslin
-mkdir /galaxy-central/tools/maaslin/Maaslin2
+# Install MetaPhlAn
+RUN pip3 install MetaPhlAn==3.0.13
 
-git clone https://github.com/biobakery/Maaslin2.git  /galaxy-central/tools/maaslin/Maaslin2
-R -q -e "install.packages(c('lmerTest','pbapply','car','dplyr','vegan','chemometrics','ggplot2','pheatmap','hash','logging','data.table','MuMIn','glmmTMB','MASS','cplm','pscl'), repos='http://cran.r-project.org')"
-R -q -e "install.packages(c('optparse','logging','data.table', 'dplyr', 'hash', 'lme4', 'pbapply', 'lmerTest', 'pheatmap','devtools'), repos='http://cran.r-project.org')"
-R -q -e "devtools::install_github('biobakery/SparseDOSSA2')"
-##########################################################################
-# For lefse
-# ########################################################################
-R -q -e "install.packages(c('modeltools','coin'), repos='http://cran.r-project.org')"
+# Install HUMAnN
+RUN pip3 install humann==3.6
 
-#panphlan install
-mkdir /galaxy-central/tools/panphlan
-mkdir /galaxy-central/tools/panphlan/panphlan
-git clone https://github.com/SegataLab/panphlan.git /galaxy-central/tools/panphlan/panphlan
-sudo apt-get install -y samtools
+# Upgrade numpy
+RUN pip3 uninstall -y numpy && pip3 install numpy
 
-##########################################################################
-# Please add the statements in tool_conf_additions.xml to                #
-# /galaxy-central/config/tool_conf.xml                                   #
-##########################################################################
+# Install MaAsLin2 R packages
+RUN R -q -e "install.packages(c('lmerTest','pbapply','car','dplyr','vegan','chemometrics','ggplot2','pheatmap','hash','logging','data.table','MuMIn','glmmTMB','MASS','cplm','pscl'), repos='http://cran.r-project.org')" && \
+    R -q -e "install.packages(c('optparse','logging','data.table', 'dplyr', 'hash', 'lme4', 'pbapply', 'lmerTest', 'pheatmap','devtools'), repos='http://cran.r-project.org')" && \
+    R -q -e "devtools::install_github('biobakery/SparseDOSSA2')"
 
+# Install other R packages
+RUN R -q -e "install.packages(c('modeltools','coin'), repos='http://cran.r-project.org')"
 
-pip install blist
+# Install panphlan
+RUN mkdir /galaxy-central/tools/panphlan && \
+    git clone https://github.com/SegataLab/panphlan.git /galaxy-central/tools/panphlan/panphlan && \
+    apt-get install -y samtools
 
-##########################################################################
-#  Tools to upgrade python2 to python3                                   #
-##########################################################################
-pip install 2to3
-pip install --upgrade autopep8
+# Install blist
+RUN pip3 install blist
 
+# Install 2to3 and autopep8
+RUN pip3 install 2to3 autopep8
 
-##########################################################################
-#  GraphLan                                                              #
-##########################################################################
+# Install GraphLan
+RUN git clone https://github.com/SegataLab/graphlan.git && \
+    cd graphlan && \
+    pip3 install .
 
-##########################################################################
-#  Important graphlan installation note <<<<------
-#  Please the instructions located in galaxy-upgrade/Readme_Graphlan_Galaxy
-#  The most important is to make sure that pyphlan is in galaxy/lib <<<--
-#  We will copy pyphlan to /export/galaxy-central/lib  and also to 
-#  /galaxy-central/lib
-########################################################################## 
+# Copy pyphlan and modify ownership
+RUN cp /build/lib/src/pyphlan.py /galaxy_venv/bin/ && \
+    chmod +x /galaxy_venv/bin/pyphlan.py && \
+    chown galaxy: /home/galaxy/.cache/matplotlib && \
+    chown galaxy: /home/galaxy/.config/matplotlib
 
-git clone https://github.com/SegataLab/graphlan.git
-cd graphlan
-pip install .
-#pyphlan needed for helper scripts to modify input files 
-cp /build/lib/src/pyphlan.py /galaxy_venv/bin/
-chmod +x /galaxy_venv/bin/pyphlan.py
-chown galaxy: /home/galaxy/.cache/matplotlib
-chown galaxy: /home/galaxy/.config/matplotlib
-graphlan.py 
+# Copy pyphlan to /export/galaxy-central/lib
+RUN cp -r /galaxy-central/tools/galaxy_graphlan/pyphlan /export/galaxy-central/lib && \
+    cp -r /galaxy-central/tools/galaxy_graphlan/pyphlan /export/galaxy-central/lib/galaxy && \
+    chown -R galaxy /export/galaxy-central/lib/pyphlan && \
+    chgrp -R galaxy /export/galaxy-central/lib/pyphlan && \
+    chown -R galaxy /export/galaxy-central/lib/galaxy/pyphlan && \
+    chgrp -R galaxy /export/galaxy-central/lib/galaxy/pyphlan
 
-cp -r /galaxy-central/tools/galaxy_graphlan/pyphlan  /export/galaxy-central/lib
-cp -r /galaxy-central/tools/galaxy_graphlan/pyphlan  /export/galaxy-central/lib/galaxy
-chown -R galaxy /export/galaxy-central/lib/pyphlan
-chgrp -R galaxy /export/galaxy-central/lib/pyphlan
-chown -R galaxy /export/galaxy-central/lib/galaxy/pyphlan
-chgrp -R galaxy /export/galaxy-central/lib/galaxy/pyphlan
+# Copy pyphlan to /galaxy-central/lib
+RUN cp -r /galaxy-central/tools/galaxy_graphlan/pyphlan /galaxy-central/lib && \
+    cp -r /galaxy-central/tools/galaxy_graphlan/pyphlan /galaxy-central/lib/galaxy && \
+    chown -R galaxy /galaxy-central/lib/pyphlan && \
+    chgrp -R galaxy /galaxy-central/lib/pyphlan && \
+    chown -R galaxy /galaxy-central/lib/galaxy/pyphlan && \
+    chgrp -R galaxy /galaxy-central/lib/galaxy/pyphlan
 
+# Modify ownership of tools directories
+RUN chown -R galaxy /galaxy-central/tools/panphlan && \
+    chgrp -R galaxy /galaxy-central/tools/panphlan && \
+    chown -R galaxy /galaxy-central/tools/metaphlan && \
+    chgrp -R galaxy /galaxy-central/tools/metaphlan && \
+    chown -R galaxy /galaxy-central/tools/sparsedossa && \
+    chgrp -R galaxy /galaxy-central/tools/sparsedossa && \
+    chown -R galaxy /galaxy-central/tools/maaslin && \
+    chgrp -R galaxy /galaxy-central/tools/maaslin && \
+    chown -R galaxy /galaxy-central/tools/galaxy_graphlan && \
+    chgrp -R galaxy /galaxy-central/tools/galaxy_graphlan && \
+    chown -R galaxy /galaxy-central/tools/graphlan && \
+    chgrp -R galaxy /galaxy-central/tools/graphlan && \
+    chgrp -R galaxy /galaxy-central/tools/waafle && \
+    chown -R galaxy /galaxy-central/tools/waafle
 
+# Install Lefse
+RUN git clone https://github.com/SegataLab/lefse.git && \
+    cd lefse && \
+    python3 setup.py install
 
-cp -r /galaxy-central/tools/galaxy_graphlan/pyphlan   /galaxy-central/lib
-cp -r /galaxy-central/tools/galaxy_graphlan/pyphlan  /galaxy-central/lib/galaxy
-chown -R galaxy  /galaxy-central/lib/pyphlan
-chgrp -R galaxy  /galaxy-central/lib/pyphlan
-chown -R galaxy /galaxy-central/lib/galaxy/pyphlan
-chgrp -R galaxy  /galaxy-central/lib/galaxy/pyphlan
+# Install MMUPHin
+RUN R -q -e "BiocManager::install('MMUPHin')" && \
+    R -q -e "BiocManager::install('curatedMetagenomicData')"
 
-###################################################################
-#   Modify ownership of tools directories
-###################################################################
-chown -R galaxy /galaxy-central/tools/panphlan
-chgrp -R galaxy /galaxy-central/tools/panphlan
+# Install waafle
+RUN pip3 install waafle && \
+    mkdir /galaxy-central/tools/waafle && \
+    wget http://huttenhower.sph.harvard.edu/waafle_data/waafledb.tar.gz -O /galaxy-central/tools/waafle/waafledb.tar.gz && \
+    wget http://huttenhower.sph.harvard.edu/waafle_data/waafledb_taxonomy.tsv -O /galaxy-central/tools/galaxy_waafle/waafledb_taxonomy.tsv && \
+    git clone https://github.com/biobakery/waafle.git /galaxy-central/tools/
 
-chown -R galaxy /galaxy-central/tools/metaphlan
-chgrp -R galaxy /galaxy-central/tools/metaphlan
+# Modify ownership of tools directories
+RUN chown -R galaxy /galaxy-central/tools/panphlan && \
+    chgrp -R galaxy /galaxy-central/tools/panphlan && \
+    chown -R galaxy /galaxy-central/tools/metaphlan && \
+    chgrp -R galaxy /galaxy-central/tools/metaphlan && \
+    chown -R galaxy /galaxy-central/tools/sparsedossa && \
+    chgrp -R galaxy /galaxy-central/tools/sparsedossa && \
+    chown -R galaxy /galaxy-central/tools/maaslin && \
+    chgrp -R galaxy /galaxy-central/tools/maaslin && \
+    chown -R galaxy /galaxy-central/tools/galaxy_graphlan && \
+    chgrp -R galaxy /galaxy-central/tools/galaxy_graphlan && \
+    chown -R galaxy /galaxy-central/tools/graphlan && \
+    chgrp -R galaxy /galaxy-central/tools/graphlan && \
+    chown -R galaxy /galaxy-central/tools/waafle && \
+    chgrp -R galaxy /galaxy-central/tools/waafle
 
-chown -R galaxy /galaxy-central/tools/sparsedossa
-chgrp -R galaxy /galaxy-central/tools/sparsedossa
+# Install Picrust2 dependencies
+# Install epa-ng
+WORKDIR /galaxy-central/tools
+RUN git clone https://github.com/Pbdas/epa-ng.git && \
+    cd epa-ng && \
+    make && \
+    cp /galaxy-central/tools/galaxy-upgrade/epa-ng/bin/epa-ng /bin/
+# Install gappa
+RUN git clone --recursive https://github.com/lczech/gappa.git && \
+    cd gappa && \
+    make && \
+    cp /galaxy-central/tools/galaxy-upgrade/gappa/bin/gappa /bin/
+# Install castor (R package)
+RUN R -q -e "install.packages('castor')"
 
-chown -R galaxy /galaxy-central/tools/maaslin
-chgrp -R galaxy /galaxy-central/tools/maaslin
+# Change ownership of tools directories
+RUN chown -R galaxy /galaxy-central/tools/panphlan && \
+    chgrp -R galaxy /galaxy-central/tools/panphlan && \
+    chown -R galaxy /galaxy-central/tools/metaphlan && \
+    chgrp -R galaxy /galaxy-central/tools/metaphlan && \
+    chown -R galaxy /galaxy-central/tools/sparsedossa && \
+    chgrp -R galaxy /galaxy-central/tools/sparsedossa && \
+    chown -R galaxy /galaxy-central/tools/maaslin && \
+    chgrp -R galaxy /galaxy-central/tools/maaslin && \
+    chown -R galaxy /galaxy-central/tools/galaxy_graphlan && \
+    chgrp -R galaxy /galaxy-central/tools/galaxy_graphlan && \
+    chown -R galaxy /galaxy-central/tools/graphlan && \
+    chgrp -R galaxy /galaxy-central/tools/graphlan && \
+    chgrp -R galaxy /galaxy-central/tools/waafle && \
+    chown -R galaxy /galaxy-central/tools/waafle
 
-chown -R galaxy /galaxy-central/tools/galaxy_graphlan
-chgrp -R galaxy /galaxy-central/tools/galaxy_graphlan
+# Set the user to "galaxy"
+USER galaxy
 
-chown -R galaxy /galaxy-central/tools/graphlan
-chgrp -R galaxy /galaxy-central/tools/graphlan
-  
-chgrp -R galaxy /galaxy-central/tools/waafle
-chown -R galaxy /galaxy-central/tools/waafle
-########################################################################
-# Installation of Lefse       
-########################################################################
-git clone https://github.com/SegataLab/lefse.git
-cd lefse
-python3 setup.py install
+# Install additional dependencies as "galaxy" user
+RUN cd /galaxy-central/tools/halla && \
+    python3.8 setup.py develop && \
+    chgrp -R galaxy /galaxy-central/tools/galaxy_halla && \
+    chown -R galaxy /galaxy-central/tools/galaxy_halla && \
+    chgrp -R galaxy /galaxy-central/tools/mmuphin && \
+    chown -R galaxy /galaxy-central/tools/mmuphin
 
+# Install waafle database files
+RUN mkdir -p /galaxy-central/tools/galaxy_waafle/waafledb && \
+    wget http://huttenhower.sph.harvard.edu/waafle_data/waafledb.tar.gz -O /galaxy-central/tools/galaxy_waafle/waafledb.tar.gz && \
+    tar -xzvf /galaxy-central/tools/galaxy_waafle/waafledb.tar.gz -C /galaxy-central/tools/galaxy_waafle/waafledb && \
+    chown -R galaxy /galaxy-central/tools/galaxy_waafle && \
+    chgrp -R galaxy /galaxy-central/tools/galaxy_waafle
 
-########################################################################
-#   MMUPHin
-#######################################################################
-BiocManager::install("MMUPHin")
-BiocManager::install("curatedMetagenomicData")
-#######################################################################
-#   Waafle
-#######################################################################
-pip install waafle
-mkdir /galaxy-central/tools/waafle
-wget http://huttenhower.sph.harvard.edu/waafle_data/waafledb.tar.gz -O /galaxy-central/tools/waafle/waafledb.tar.gz
-wget http://huttenhower.sph.harvard.edu/waafle_data/waafledb_taxonomy.tsv -O /galaxy-central/tools/galaxy_waafle/waafledb_taxonomy.tsv 
-
-git clone https://github.com/biobakery/waafle.git /galaxy-central/tools/  
-
-###################################################################
-#  Important waafle note :                                        #
-###################################################################
-# Please make sure that the waafle database files are located     *
-# in the following directory:
-#  /galaxy-central/tools/galaxy_waafle/waafledb such that it looks  
-#  as follows:
-#
-#(galaxy_venv) root@e260ba359898:/galaxy-central/tools/galaxy_waafle/waafledb# pwd
-# /galaxy-central/tools/galaxy_waafle/waafledb
-# (galaxy_venv) root@e260ba359898:/galaxy-central/tools/galaxy_waafle/waafledb# ll
-# total 7400072
-# -rw-r--r-- 1 root 402050 662596427 Mar 18 23:47 waafledb.00.nhr
-# -rw-r--r-- 1 root 402050  50813876 Mar 18 23:47 waafledb.00.nin
-#-rw-r--r-- 1 root 402050 999999847 Mar 18 23:47 waafledb.00.nsq
-# -rw-r--r-- 1 root 402050 659301143 Mar 18 23:47 waafledb.01.nhr
-# -rw-r--r-- 1 root 402050  50935088 Mar 18 23:47 waafledb.01.nin
-# -rw-r--r-- 1 root 402050 999999864 Mar 18 23:47 waafledb.01.nsq
-# -rw-r--r-- 1 root 402050 645680680 Mar 18 23:47 waafledb.02.nhr
-# -rw-r--r-- 1 root 402050  49674512 Mar 18 23:47 waafledb.02.nin
-# -rw-r--r-- 1 root 402050 999999934 Mar 18 23:47 waafledb.02.nsq
-# -rw-r--r-- 1 root 402050 653495133 Mar 18 23:47 waafledb.03.nhr
-# -rw-r--r-- 1 root 402050  50326232 Mar 18 23:47 waafledb.03.nin
-# -rw-r--r-- 1 root 402050 999999983 Mar 18 23:47 waafledb.03.nsq
-# -rw-r--r-- 1 root 402050 285147206 Mar 18 23:47 waafledb.04.nhr
-# -rw-r--r-- 1 root 402050  21815876 Mar 18 23:47 waafledb.04.nin
-# -rw-r--r-- 1 root 402050 447856002 Mar 18 23:47 waafledb.04.nsq
-# -rw-r--r-- 1 root 402050       142 Mar 18 23:47 waafledb.nal
-# (galaxy_venv) root@e260ba359898:/galaxy-central/tools/galaxy_waafle/waafledb#
-###################################################################
-#  End of  waafle note                                            #
-###################################################################
-
-
-###################################################################
-#   Modify ownership of tools directories
-###################################################################
-chown -R galaxy /galaxy-central/tools/panphlan
-chgrp -R galaxy /galaxy-central/tools/panphlan
-
-chown -R galaxy /galaxy-central/tools/metaphlan
-chgrp -R galaxy /galaxy-central/tools/metaphlan
-  
-chown -R galaxy /galaxy-central/tools/sparsedossa
-chgrp -R galaxy /galaxy-central/tools/sparsedossa
-
-chown -R galaxy /galaxy-central/tools/maaslin
-chgrp -R galaxy /galaxy-central/tools/maaslin
-
-chown -R galaxy /galaxy-central/tools/galaxy_graphlan
-chgrp -R galaxy /galaxy-central/tools/galaxy_graphlan
-
-chown -R galaxy /galaxy-central/tools/graphlan
-chgrp -R galaxy /galaxy-central/tools/graphlan
-
-chgrp -R galaxy /galaxy-central/tools/waafle
-chown -R galaxy /galaxy-central/tools/waafle
-
-cd tools/halla
-python3.8 setup.py develop
-chgrp -R galaxy /galaxy-central/tools/galaxy_halla
-chown -R galaxy /galaxy-central/tools/galaxy_halla
-
-chgrp -R galaxy /galaxy-central/tools/mmuphin
-chown -R galaxy /galaxy-central/tools/mmuphin
-
-### Install Picrust2 dependencies
-#Install epa-ng
-git clone https://github.com/Pbdas/epa-ng.git
-make
-cp /galaxy-central/tools/galaxy-upgrade/epa-ng/bin/epa-ng /bin/
-#Install gappa
-git clone --recursive https://github.com/lczech/gappa.git
-cd gappa
-make
-cp /galaxy-central/tools/galaxy-upgrade/gappa/bin/gappa /bin/
-#Install castor (R package)  
-install.packages('castor')
-
+# Finalize ownership
+RUN chown -R galaxy:galaxy /export && \
+    chown -R galaxy:galaxy /import && \
+    chown -R galaxy:galaxy /galaxy-central
