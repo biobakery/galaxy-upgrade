@@ -38,15 +38,15 @@ sudo apt-get update
 sudo apt install r-base
 sudo apt install libssl-dev
 sudo apt install libgit2-dev
-sudo apt-get install libgmp3-dev
+sudo apt-get install libgmp3-dev libxml2-dev libfontconfig1-dev libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev 
 sudo apt-get install libmpfr-dev
 
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-BiocManager::install(version = "3.10")
-sudo apt install vim
+sudo apt install vim cmake
 mkdir /galaxy-central/tools/maaslin
 mkdir /galaxy-central/tools/maaslin/Maaslin2
+
+R -q -e "install.packages('BiocManager')"
+R -q -e "BiocManager::install(version = '3.10')"
 
 git clone https://github.com/biobakery/Maaslin2.git  /galaxy-central/tools/maaslin/Maaslin2
 R -q -e "install.packages(c('lmerTest','pbapply','car','dplyr','vegan','chemometrics','ggplot2','pheatmap','hash','logging','data.table','MuMIn','glmmTMB','MASS','cplm','pscl'), repos='http://cran.r-project.org')"
@@ -220,7 +220,9 @@ chgrp -R galaxy /galaxy-central/tools/graphlan
 chgrp -R galaxy /galaxy-central/tools/waafle
 chown -R galaxy /galaxy-central/tools/waafle
 
-cd tools/halla
+#Halla install
+git clone https://github.com/biobakery/halla.git /galaxy-central/tools/galaxy_halla/halla
+cd halla
 python3.8 setup.py develop
 chgrp -R galaxy /galaxy-central/tools/galaxy_halla
 chown -R galaxy /galaxy-central/tools/galaxy_halla
