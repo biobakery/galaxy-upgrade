@@ -43,13 +43,11 @@ sudo apt-get install libmpfr-dev
 sudo apt-get install ncbi-blast+
 
 sudo apt install vim cmake
-mkdir /galaxy-central/tools/maaslin
-mkdir /galaxy-central/tools/maaslin/Maaslin2
 
 R -q -e "install.packages('BiocManager')"
 R -q -e "BiocManager::install(version = '3.10')"
 
-git clone https://github.com/biobakery/Maaslin2.git  /galaxy-central/tools/maaslin/Maaslin2
+git clone https://github.com/biobakery/Maaslin2.git  /galaxy-central/tools/maaslin2/Maaslin2
 R -q -e "install.packages(c('lmerTest','pbapply','car','dplyr','vegan','chemometrics','ggplot2','pheatmap','hash','logging','data.table','MuMIn','glmmTMB','MASS','cplm','pscl'), repos='http://cran.r-project.org')"
 R -q -e "install.packages(c('optparse','logging','data.table', 'dplyr', 'hash', 'lme4', 'pbapply', 'lmerTest', 'pheatmap','devtools'), repos='http://cran.r-project.org')"
 R -q -e "devtools::install_github('biobakery/SparseDOSSA2')"
