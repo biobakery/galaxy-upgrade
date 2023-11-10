@@ -40,6 +40,7 @@ sudo apt install libssl-dev
 sudo apt install libgit2-dev
 sudo apt-get install libgmp3-dev libxml2-dev libfontconfig1-dev libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev 
 sudo apt-get install libmpfr-dev
+sudo apt-get install ncbi-blast+
 
 sudo apt install vim cmake
 mkdir /galaxy-central/tools/maaslin
@@ -150,13 +151,14 @@ python3 setup.py install
 ########################################################################
 #   MMUPHin
 #######################################################################
-BiocManager::install("MMUPHin")
-BiocManager::install("curatedMetagenomicData")
+R -q -e "install.packages('https://cran.r-project.org/src/contrib/Archive/locfit/locfit_1.5-9.4.tar.gz', repos=NULL, type='source')"
+R -q -e "BiocManager::install('MMUPHin')"
+R -q -e "BiocManager::install('curatedMetagenomicData')"
 #######################################################################
 #   Waafle
 #######################################################################
 pip install waafle
-mkdir /galaxy-central/tools/waafle
+cd /galaxy-central/tools/galaxy_waafle/
 wget http://huttenhower.sph.harvard.edu/waafle_data/waafledb.tar.gz -O /galaxy-central/tools/waafle/waafledb.tar.gz
 wget http://huttenhower.sph.harvard.edu/waafle_data/waafledb_taxonomy.tsv -O /galaxy-central/tools/galaxy_waafle/waafledb_taxonomy.tsv 
 
