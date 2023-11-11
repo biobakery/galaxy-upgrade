@@ -93,8 +93,8 @@ git clone https://github.com/SegataLab/graphlan.git
 cd graphlan
 pip install .
 #pyphlan needed for helper scripts to modify input files 
-cp /build/lib/src/pyphlan.py /galaxy_venv/bin/
-chmod +x /galaxy_venv/bin/pyphlan.py
+cp /galaxy-central/tools/galaxy_graphlan/pyphlan/pyphlan.py /bin/
+chmod +x /bin/pyphlan.py
 chown galaxy: /home/galaxy/.cache/matplotlib
 chown galaxy: /home/galaxy/.config/matplotlib
 graphlan.py 
@@ -136,20 +136,26 @@ chgrp -R galaxy /galaxy-central/tools/galaxy_graphlan
 chown -R galaxy /galaxy-central/tools/graphlan
 chgrp -R galaxy /galaxy-central/tools/graphlan
   
-chgrp -R galaxy /galaxy-central/tools/waafle
-chown -R galaxy /galaxy-central/tools/waafle
 ########################################################################
 # Installation of Lefse       
 ########################################################################
+python3.6 -m pip install matplotlib
+python3.6 -m pip install Cython
+python3.6 -m pip install biom-format
 git clone https://github.com/SegataLab/lefse.git
 cd lefse
-python3 setup.py install
+python3.6 setup.py install
 
 
 ########################################################################
 #   MMUPHin
 #######################################################################
 R -q -e "install.packages('https://cran.r-project.org/src/contrib/Archive/locfit/locfit_1.5-9.4.tar.gz', repos=NULL, type='source')"
+R -q -e "install.packages('broom')"
+R -q -e "install.packages('https://cran.r-project.org/src/contrib/Archive/pbkrtest/pbkrtest_0.5-0.1.tar.gz', repos=NULL, type='source')"
+R -q -e "install.packages('mathjaxr')"
+R -q -e "install.packages('https://cran.r-project.org/src/contrib/Archive/metafor/metafor_3.0-2.tar.gz', repos=NULL, type='source')"
+R -q -e "BiocManager::install('Maaslin2')"
 R -q -e "BiocManager::install('MMUPHin')"
 R -q -e "BiocManager::install('curatedMetagenomicData')"
 #######################################################################
@@ -157,10 +163,12 @@ R -q -e "BiocManager::install('curatedMetagenomicData')"
 #######################################################################
 pip install waafle
 cd /galaxy-central/tools/galaxy_waafle/
-wget http://huttenhower.sph.harvard.edu/waafle_data/waafledb.tar.gz -O /galaxy-central/tools/waafle/waafledb.tar.gz
-wget http://huttenhower.sph.harvard.edu/waafle_data/waafledb_taxonomy.tsv -O /galaxy-central/tools/galaxy_waafle/waafledb_taxonomy.tsv 
-
-git clone https://github.com/biobakery/waafle.git /galaxy-central/tools/  
+wget http://huttenhower.sph.harvard.edu/waafle_data/waafledb.tar.gz 
+tar xvzf waafledb.tar.gz
+cd waafledb
+wget http://huttenhower.sph.harvard.edu/waafle_data/waafledb_taxonomy.tsv 
+chgrp -R galaxy /galaxy-central/tools/galaxy_waafle/waafledb
+chown -R galaxy /galaxy-central/tools/galaxy_waafle/waafledb
 
 ###################################################################
 #  Important waafle note :                                        #
@@ -223,7 +231,7 @@ chown -R galaxy /galaxy-central/tools/waafle
 #Halla install
 git clone https://github.com/biobakery/halla.git /galaxy-central/tools/galaxy_halla/halla
 cd halla
-python3.8 setup.py develop
+python3 setup.py develop
 chgrp -R galaxy /galaxy-central/tools/galaxy_halla
 chown -R galaxy /galaxy-central/tools/galaxy_halla
 
@@ -231,15 +239,22 @@ chgrp -R galaxy /galaxy-central/tools/mmuphin
 chown -R galaxy /galaxy-central/tools/mmuphin
 
 ### Install Picrust2 dependencies
+wget https://github.com/picrust/picrust2/archive/v2.5.2.tar.gz
+tar xvzf  v2.5.2.tar.gz
+cd picrust2-2.5.2/
+python3.9 -m setup.py install
+
 #Install epa-ng
+sudo apt install bison flex
 git clone https://github.com/Pbdas/epa-ng.git
+cd epa-ng
 make
-cp /galaxy-central/tools/galaxy-upgrade/epa-ng/bin/epa-ng /bin/
+cp /galaxy-central/tools/epa-ng/bin/epa-ng /bin/
 #Install gappa
-git clone --recursive https://github.com/lczech/gappa.git
-cd gappa
-make
-cp /galaxy-central/tools/galaxy-upgrade/gappa/bin/gappa /bin/
+conda install -c bioconda gappa
+cp /tool_deps/_conda/bin/gappa /bin/gappa
 #Install castor (R package)  
 install.packages('castor')
+cp -R /galaxy-central/tools/galaxy_picrust2/picrust2-2.5.2/picrust2/default_files /usr/local/lib/python3.9/site-packages/PICRUSt2-2.5.2-py3.9.egg/picrust2
+sudo apt-get install hmmer
 
