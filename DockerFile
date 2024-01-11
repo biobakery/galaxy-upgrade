@@ -7,7 +7,9 @@ ENV GALAXY_CONFIG_BRAND="Hutlab Galaxy" \
 
 # Copy config files (welcome page, tool_conf.xml)
 COPY ./welcome.html /galaxy-central/static/
-COPY ./tool_conf.xml /galaxy-central/config/
+COPY ./hutlab_tools/tool_conf_xml.main /galaxy-central/config/
+COPY ./hutlab_tools/datatypes_conf.xml /galaxy-central/config/
+
 
 # Activate Virtual Environment
 RUN . /galaxy_venv/bin/activate 
