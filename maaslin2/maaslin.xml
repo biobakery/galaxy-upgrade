@@ -1,9 +1,14 @@
-<tool id="MaAsLin2" name="MaAsLin2" version="1.8.0" python_template_version="3.5">
+<tool id="maaslin" name="Microbiome Multivariable Association with Linear Models" version="1.8.0" python_template_version="3.5">
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
         mkdir maaslin_output &&      
-        Rscript /galaxy-central/tools/maaslin/Maaslin2/R/Maaslin2.R  --transform=AST --fixed_effects="diagnosis,dysbiosis"  $taxonomy $metadata maaslin_output  --reference="diagnosis,nonIBD"
+        Rscript /galaxy-central/tools/maaslin/Maaslin2/R/Maaslin2.R 
+        --transform=AST
+        --fixed_effects="$fixed_effects" 
+        --random_effects='$random_effects'
+        $taxonomy $metadata maaslin_output
+        --reference="$reference"
         #if $str($gchoice_additional_analysis_types.global_additional_analysis_types)  == "1":
             -a $gchoice_additional_analysis_types.MIN_ABUNDANCE
                         -p $gchoice_additional_analysis_types.MIN_PREVALENCE            
@@ -15,7 +20,6 @@
             -i $gchoice_additional_analysis_types.HEATMAP_FIRST_N
             -g $gchoice_additional_analysis_types.MAX_PNGS
                 #end if
-        --random_effects="site,subject" 
         --normalization=NONE  
         --standardize=FALSE 
         &&
@@ -28,6 +32,11 @@
     <inputs>
         <param type="data" name="taxonomy"  label="Input Taxonomy" format="tsv"  />
         <param type="data" name="metadata"  label="Input Metadata" format="tsv"  />
+
+        <param name="random_effects" type="text" format="text" label="Random Effects" value="site,subject"/>
+        <param name="fixed_effects" type="text" format="text" label="Fixed Effects" value="diagnosis,dysbiosis"/>
+        <param name="reference" type="text" format="text" label="Reference" value="diagnosis,nonIBD"/>
+
 
         <conditional name="gchoice_additional_analysis_types">
                 <param name="global_additional_analysis_types" type="select" label="Display additional analysis types and arguments advanced parameters"  multiple="False" help="Select additional analysis types and argument advanced choices ">
