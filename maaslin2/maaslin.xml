@@ -1,4 +1,4 @@
- <tool id="maaslin" name="Microbiome Multivariable Association with Linear Models" version="1.8.0" python_template_version="3.5">
+<tool id="maaslin" name="Microbiome Multivariable Association with Linear Models" version="1.8.0" python_template_version="3.5">
     <requirements>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
@@ -20,17 +20,18 @@
         -g $MAX_PNGS
         --standardize=FALSE 
         &&
-        cp maaslin_output/diagnosis.pdf  $output1 &&
+        cp maaslin_output/all_results.tsv  $output1 &&
+        cp maaslin_output/significant_results.tsv  $output2 &&
         zip -r  Maaslin2_Results.zip  maaslin_output &&
         cp  Maaslin2_Results.zip  $output3  &&
-            rm -r maaslin_output 
+        rm -r maaslin_output 
             ]]></command>
     <inputs>
         <param type="data" name="taxonomy"  label="Input Taxonomy" format="tsv"  />
         <param type="data" name="metadata"  label="Input Metadata" format="tsv"  />
-        <param name="random_effects" type="text" format="text" label="Random Effects" value=" "/>
-        <param name="fixed_effects" type="text" format="text" label="Fixed Effects" value=" "/>
-        <param name="reference" type="text" format="text" label="Reference" value="diagnosis,nonIBD"/>
+        <param name="random_effects" type="text" format="text" label="Random Effects: For sample data use: site,subject " value="NONE"/>
+        <param name="fixed_effects" type="text" format="text" label="Fixed Effects:  For sample data use: diagnosis,dysbiosis" value="NONE"/>
+        <param name="reference" type="text" format="text" label="Reference: For sample data use: diagnosis,nonIBD" value="NONE"/>
         <param name="MIN_ABUNDANCE" type="integer" size="4" value="0" min="0" label ="Minimum abundance for each feature "/>
         <param name="MIN_PREVALENCE" type="float" size="4" value="0.1"  label ="The minimum percent of samples for which a feature is detected at minimum abundance "/>
         <param name="MIN_VARIANCE" type="integer" size="4" value="0" label ="Keep features with variances greater than value  "/>
@@ -66,8 +67,8 @@
 
     </inputs>
     <outputs>
-        <data name="output1"  format="pdf" label="diagnosis pdf" />
-        <data name="output2"  format="pdf" label="dysbiosis pdf" />
+        <data name="output1"  format="tsv" label="all results" />
+        <data name="output2"  format="tsv" label="significant results" />
         <data name="output3"  format="zip" label="MaAsLin Output zip results - please download" />
     </outputs>
     <help><![CDATA[
