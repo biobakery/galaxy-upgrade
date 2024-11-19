@@ -1,0 +1,75 @@
+<tool id="run_maaslin3_lite" name="Run MaAsLin3 Lite" version="0.1.0" python_template_version="3.5">
+    <requirements>
+    </requirements>
+ <code file="format_input_selector.py"/>
+        <description></description>
+    <command detect_errors="exit_code"><![CDATA[
+        Rscript maaslin3_lite.R    \
+        --input hmp_aerobiosis_small.txt   \
+         --normalize FALSE    \
+        --class oxygen_availability   \
+        --subclass body_site  \   
+         --random_component subject_id    \ 
+        --alpha_threshold 0.1
+            ]]></command>
+    <inputs>
+        <param format="tabular" name="inp_data" type="data" label="Please use Galaxy Get-Data/Upload-File. Use File-Type = tabular" help=""/>
+        <param name="cond" type="data_column" data_ref="inp_data" accept_default="true" />
+
+        <conditional name="cond" type="data_column" data_ref="inp_data" accept_default="true">
+        <param name="feat_dir" type="select" data_ref="inp_data" label="Select whether the vectors (features and meta-data information) are listed in rows or columns" help="">
+          <option value="r" selected='True'>Rows</option>
+          <option value="c">Columns</option>
+        </param>
+
+        <when value="r">
+                <param name="cls_n" label="Select which row to use as class (required parameter)" size ="70" type='select' dynamic_options="get_cols(inp_data,'r','cl')" />
+                <param name="subcls_n1" label="Select which row to use as subclass 1 (optional parameter)" type='select' dynamic_options="get_cols(inp_data,'r','subclass')" />
+                <param name="subcls_n2" label="Select which row to use as subclass 2 (optional parameter)" type='select' dynamic_options="get_cols(inp_data,'r','subclass')" />
+                <param name="subj_n" label="Select which row to use as a random component (optional parameter)" type='select' dynamic_options="get_cols(inp_data,'r','subject')" />
+        </when>
+        <when value="c">
+                <param name="cls_n" label="Select which column to use as class (required)" type='select' dynamic_options="get_cols(inp_data,'c','cl')" />
+                <param name="subcls_n1" label="Select which column to use as subclass 1 (optional parameter)" type='select' dynamic_options="get_cols(inp_data,'c','subclass')" />
+                <param name="subcls_n2" label="Select which column to use as subclass 2 (optional parameter)" type='select' dynamic_options="get_cols(inp_data,'c','subclass')" />
+                <param name="subj_n" label="Select which column to use a random component (optional parameter)" type='select' dynamic_options="get_cols(inp_data,'c','subject')" />
+        </when>
+
+        </conditional>
+
+        <param name="norm" type="select" label="Per-sample normalization" help="">
+          <option value="TRUE" selected='True'>Yes</option>
+          <option value="FALSE">No</option>
+        </param>
+        <param name="alpha_threshold" type="float" size="4" value="0.1"  label ="Alpha Threshold"/>
+
+<!--    <param name="row" label="on row" type="data_row" data_ref="inp_data" accept_default="true" /> -->
+
+
+    </inputs>
+
+    <outputs>
+        <data name="output1"  format="csv" label="maaslin3_lite output" />
+    </outputs>
+    <help><![CDATA[
+
+**MaAsLin3 Lite**
+==================
+**STEP 1:** Extract all headers
+
+**STEP 2:**
+Generate lefse like results using maaslin3
+
+**Output**  
+- lefse_style_results_abundance.res
+- lefse_style_results_prevalence.res
+- all_results.tsv   
+
+
+
+Documentation: https://github.com/biobakery/maaslin3_lite 
+
+
+ 
+    ]]></help>
+</tool>
